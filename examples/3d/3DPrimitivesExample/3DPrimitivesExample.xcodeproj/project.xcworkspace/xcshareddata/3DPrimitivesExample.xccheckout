@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>03B3E5A8-F299-4B04-89D5-8CCC913C61DE</string>
+	<key>IDESourceControlProjectName</key>
+	<string>3DPrimitivesExample</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>0EE7840AC472CC5BF29CD5A0295465C25E9FA56C</key>
+		<string>https://github.com/brandenbbb/uwhd.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>examples/3d/3DPrimitivesExample/3DPrimitivesExample.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>0EE7840AC472CC5BF29CD5A0295465C25E9FA56C</key>
+		<string>../../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/brandenbbb/uwhd.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>0EE7840AC472CC5BF29CD5A0295465C25E9FA56C</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>0EE7840AC472CC5BF29CD5A0295465C25E9FA56C</string>
+			<key>IDESourceControlWCCName</key>
+			<string>uwhd</string>
+		</dict>
+	</array>
+</dict>
+</plist>
