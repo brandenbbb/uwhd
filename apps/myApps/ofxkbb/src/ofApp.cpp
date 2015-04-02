@@ -116,7 +116,7 @@ void ofApp::draw() {
         buildings.draw(-200,220);
 	} else {
 		// draw from the live kinect
-		kinect.drawDepth(10, 10, 400, 300);
+		kinect.drawDepth(10, 0, 400, 300);
 		kinect.draw(420, 10, 400, 300);
 		
 		grayImage.draw(10, 320, 400, 300);
@@ -164,7 +164,7 @@ void ofApp::drawPointCloud() {
 	int step = 2;
 	for(int y = 0; y < h; y += step) {
 		for(int x = 0; x < w; x += step) {
-			if(kinect.getDistanceAt(x, y) > 0) {
+			if(kinect.getDistanceAt(x, y) < 1100) {
 				mesh.addColor(kinect.getColorAt(x,y));
 				mesh.addVertex(kinect.getWorldCoordinateAt(x, y));
 			}

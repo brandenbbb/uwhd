@@ -1,5 +1,5 @@
 dependencies: \
-  /Users/NFBHRS031/Desktop/Kinect\ Live\ Branden\ Files/ofx/libs/openFrameworks/utils/ofFileUtils.cpp \
+  /Users/NFBHRS031/Desktop/Kinect\ Live\ Branden\ Files/uwhd/libs/openFrameworks/utils/ofFileUtils.cpp \
   ../../../../libs/openFrameworks/utils/ofFileUtils.h \
   ../../../../libs/openFrameworks/utils/ofConstants.h \
   ../../../../libs/glew/include/GL/glew.h \
@@ -15,11 +15,11 @@ dependencies: \
   ../../../../libs/poco/include/Poco/File_UNIX.h \
   ../../../../libs/openFrameworks/utils/ofUtils.h \
   ../../../../libs/openFrameworks/utils/ofLog.h \
-  /Users/NFBHRS031/Desktop/Kinect\ Live\ Branden\ Files/ofx/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/types/ofTypes.h \
+  /Users/NFBHRS031/Desktop/Kinect\ Live\ Branden\ Files/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/types/ofTypes.h \
   ../../../../libs/openFrameworks/types/ofColor.h \
-  /Users/NFBHRS031/Desktop/Kinect\ Live\ Branden\ Files/ofx/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/math/ofMath.h \
-  /Users/NFBHRS031/Desktop/Kinect\ Live\ Branden\ Files/ofx/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/types/ofPoint.h \
-  /Users/NFBHRS031/Desktop/Kinect\ Live\ Branden\ Files/ofx/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/math/ofVec3f.h \
+  /Users/NFBHRS031/Desktop/Kinect\ Live\ Branden\ Files/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/math/ofMath.h \
+  /Users/NFBHRS031/Desktop/Kinect\ Live\ Branden\ Files/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/types/ofPoint.h \
+  /Users/NFBHRS031/Desktop/Kinect\ Live\ Branden\ Files/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/math/ofVec3f.h \
   ../../../../libs/openFrameworks/math/ofVec2f.h \
   ../../../../libs/openFrameworks/math/ofVec4f.h \
   ../../../../libs/poco/include/Poco/Mutex.h \
