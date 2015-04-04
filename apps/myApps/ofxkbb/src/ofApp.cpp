@@ -53,6 +53,9 @@ void ofApp::setup() {
     bSnapshot = false;
     bReviewLastShot = false;
     memset(snapString, 0, 255);		// clear the string by setting all chars to 0
+    
+    // 3d model settings
+    model.loadModel("images/img/3d/city.obj");
 }
 
 //--------------------------------------------------------------
@@ -112,6 +115,8 @@ void ofApp::draw() {
         // anything within the easyCam begin / end section will move relative to the 3D camera...neato!
         easyCam.begin();
             drawPointCloud();
+            //model.setPosition(ofGetWidth(), ofGetHeight() , 0);
+            model.drawFaces();
 		easyCam.end();
         
         // draw the buildings

@@ -3,6 +3,9 @@
 #include "ofMain.h"
 #include "ofxOpenCv.h"
 #include "ofxKinect.h"
+#include "ofxAssimpModelLoader.h"
+#include "ofVboMesh.h"
+
 
 // Windows users:
 // You MUST install the libfreenect kinect drivers in order to be able to use
@@ -68,4 +71,8 @@ public:
     ofImage 			img;
     bool 				bSnapshot;
     bool                bReviewLastShot;
+    
+    //3d model variables
+    ofxAssimpModelLoader model;
+    
 };
