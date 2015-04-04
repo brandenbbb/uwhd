@@ -55,7 +55,7 @@ void ofApp::setup() {
     memset(snapString, 0, 255);		// clear the string by setting all chars to 0
     
     // 3d model settings
-    model.loadModel("images/img/3d/city.obj");
+    model.loadModel("images/img/3d/city_v010c.obj");
 }
 
 //--------------------------------------------------------------
