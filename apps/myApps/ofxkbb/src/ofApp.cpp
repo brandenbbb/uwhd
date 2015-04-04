@@ -28,11 +28,6 @@ void ofApp::setup() {
     buildings.loadImage("images/buildingsBottom.png");
     stars.loadImage("images/bg.png");
 	
-#ifdef USE_TWO_KINECTS
-	kinect2.init();
-	kinect2.open();
-#endif
-	
 	colorImg.allocate(kinect.width, kinect.height);
 	grayImage.allocate(kinect.width, kinect.height);
 	grayThreshNear.allocate(kinect.width, kinect.height);
@@ -50,7 +45,7 @@ void ofApp::setup() {
      kinect.setCameraTiltAngle(angle);
 	*/
     
-	// start from the front
+	// start in post card / point cloud mode
 	bDrawPointCloud = true;
 }
 
@@ -97,10 +92,6 @@ void ofApp::update() {
 		// also, find holes is set to true so we will get interior contours as well....
 		contourFinder.findContours(grayImage, 10, (kinect.width*kinect.height)/2, 20, false);
 	}
-	
-#ifdef USE_TWO_KINECTS
-	kinect2.update();
-#endif
 }
 
 //--------------------------------------------------------------
@@ -121,10 +112,6 @@ void ofApp::draw() {
 		
 		grayImage.draw(10, 320, 400, 300);
 		contourFinder.draw(10, 320, 400, 300);
-		
-#ifdef USE_TWO_KINECTS
-		kinect2.draw(420, 320, 400, 300);
-#endif
 	}
 	
 	// draw instructions
@@ -185,10 +172,6 @@ void ofApp::drawPointCloud() {
 void ofApp::exit() {
 	// kinect.setCameraTiltAngle(0); // zero the tilt on exit
 	kinect.close();
-	
-#ifdef USE_TWO_KINECTS
-	kinect2.close();
-#endif
 }
 
 //--------------------------------------------------------------
