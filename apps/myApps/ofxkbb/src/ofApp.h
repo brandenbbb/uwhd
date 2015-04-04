@@ -67,4 +67,5 @@ public:
     char 				snapString[255];
     ofImage 			img;
     bool 				bSnapshot;
+    bool                bReviewLastShot;
 };

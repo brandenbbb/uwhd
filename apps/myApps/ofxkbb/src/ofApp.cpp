@@ -51,6 +51,7 @@ void ofApp::setup() {
     // image saver settings
     snapCounter = 0;
     bSnapshot = false;
+    bReviewLastShot = false;
     memset(snapString, 0, 255);		// clear the string by setting all chars to 0
 }
 
@@ -127,13 +128,18 @@ void ofApp::draw() {
                 bSnapshot = false;
             }
         
-            // show the framegrab on screen
-            ofDrawBitmapString(snapString, ofGetWidth(), ofGetHeight());
-        
-            ofSetHexColor(0xFFFFFF);
-            if(snapCounter > 0) {
-                img.draw(0,0,ofGetWidth(),ofGetHeight());
+            // show the framegrab on screen if the review photo button is pressed
+            if (bReviewLastShot == true){
+                ofDrawBitmapString(snapString, ofGetWidth(), ofGetHeight());
+                
+                ofSetHexColor(0xFFFFFF);
+                if(snapCounter > 0) {
+                    img.draw(0,0,ofGetWidth(),ofGetHeight());
+                }
             }
+        
+        
+        
         
 	} else {
 		// draw from the live kinect
@@ -212,14 +218,20 @@ void ofApp::keyPressed (int key) {
 			break;
 			
 		case'p':
-			bDrawPointCloud = !bDrawPointCloud;
+            bReviewLastShot = false;
+            bDrawPointCloud = true;
 			break;
         
         // image saver keystroke
         case'l':
             bSnapshot = true;
             break;
-			
+	
+        // image review keystroke
+        case'r':
+            bReviewLastShot = true;
+            break;
+            
 		case '>':
 		case '.':
 			farThreshold ++;
