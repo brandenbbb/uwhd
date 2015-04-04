@@ -1,12 +1,12 @@
 dependencies: \
-  /Users/NFBHRS031/Desktop/Kinect\ Live\ Branden\ Files/uwhd/libs/openFrameworks/types/ofParameter.cpp \
+  /Users/mav/Desktop/git/uwhd/libs/openFrameworks/types/ofParameter.cpp \
   ../../../../libs/openFrameworks/types/ofParameter.h \
-  /Users/NFBHRS031/Desktop/Kinect\ Live\ Branden\ Files/uwhd/libs/openFrameworks/events/ofEvents.h \
-  /Users/NFBHRS031/Desktop/Kinect\ Live\ Branden\ Files/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/utils/ofConstants.h \
+  /Users/mav/Desktop/git/uwhd/libs/openFrameworks/events/ofEvents.h \
+  /Users/mav/Desktop/git/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/utils/ofConstants.h \
   ../../../../libs/glew/include/GL/glew.h \
   ../../../../libs/tess2/include/tesselator.h \
-  /Users/NFBHRS031/Desktop/Kinect\ Live\ Branden\ Files/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/types/ofPoint.h \
-  /Users/NFBHRS031/Desktop/Kinect\ Live\ Branden\ Files/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/math/ofVec3f.h \
+  /Users/mav/Desktop/git/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/types/ofPoint.h \
+  /Users/mav/Desktop/git/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/math/ofVec3f.h \
   ../../../../libs/openFrameworks/math/ofVec2f.h \
   ../../../../libs/openFrameworks/math/ofVec4f.h \
   ../../../../libs/openFrameworks/events/ofEventUtils.h \
@@ -49,8 +49,8 @@ dependencies: \
   ../../../../libs/openFrameworks/events/ofDelegate.h \
   ../../../../libs/openFrameworks/types/ofTypes.h \
   ../../../../libs/openFrameworks/types/ofColor.h \
-  /Users/NFBHRS031/Desktop/Kinect\ Live\ Branden\ Files/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/math/ofMath.h \
-  /Users/NFBHRS031/Desktop/Kinect\ Live\ Branden\ Files/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/utils/ofUtils.h \
+  /Users/mav/Desktop/git/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/math/ofMath.h \
+  /Users/mav/Desktop/git/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/utils/ofUtils.h \
   ../../../../libs/openFrameworks/utils/ofLog.h \
   ../../../../libs/openFrameworks/utils/ofFileUtils.h \
   ../../../../libs/poco/include/Poco/File.h \

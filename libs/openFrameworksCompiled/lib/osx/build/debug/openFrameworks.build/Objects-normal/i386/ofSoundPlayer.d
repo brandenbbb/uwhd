@@ -1,14 +1,14 @@
 dependencies: \
-  /Users/NFBHRS031/Desktop/Kinect\ Live\ Branden\ Files/uwhd/libs/openFrameworks/sound/ofSoundPlayer.cpp \
+  /Users/mav/Desktop/git/uwhd/libs/openFrameworks/sound/ofSoundPlayer.cpp \
   ../../../../libs/openFrameworks/sound/ofSoundPlayer.h \
-  /Users/NFBHRS031/Desktop/Kinect\ Live\ Branden\ Files/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/utils/ofConstants.h \
+  /Users/mav/Desktop/git/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/utils/ofConstants.h \
   ../../../../libs/glew/include/GL/glew.h \
   ../../../../libs/tess2/include/tesselator.h \
-  /Users/NFBHRS031/Desktop/Kinect\ Live\ Branden\ Files/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/types/ofTypes.h \
+  /Users/mav/Desktop/git/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/types/ofTypes.h \
   ../../../../libs/openFrameworks/types/ofColor.h \
-  /Users/NFBHRS031/Desktop/Kinect\ Live\ Branden\ Files/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/math/ofMath.h \
-  /Users/NFBHRS031/Desktop/Kinect\ Live\ Branden\ Files/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/types/ofPoint.h \
-  /Users/NFBHRS031/Desktop/Kinect\ Live\ Branden\ Files/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/math/ofVec3f.h \
+  /Users/mav/Desktop/git/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/math/ofMath.h \
+  /Users/mav/Desktop/git/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/types/ofPoint.h \
+  /Users/mav/Desktop/git/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/math/ofVec3f.h \
   ../../../../libs/openFrameworks/math/ofVec2f.h \
   ../../../../libs/openFrameworks/math/ofVec4f.h \
   ../../../../libs/poco/include/Poco/Mutex.h \
@@ -21,19 +21,19 @@ dependencies: \
   ../../../../libs/poco/include/Poco/Exception.h \
   ../../../../libs/poco/include/Poco/ScopedLock.h \
   ../../../../libs/poco/include/Poco/Mutex_POSIX.h \
-  /Users/NFBHRS031/Desktop/Kinect\ Live\ Branden\ Files/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/types/ofBaseTypes.h \
+  /Users/mav/Desktop/git/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/types/ofBaseTypes.h \
   ../../../../libs/openFrameworks/types/ofRectangle.h \
-  /Users/NFBHRS031/Desktop/Kinect\ Live\ Branden\ Files/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/utils/ofLog.h \
+  /Users/mav/Desktop/git/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/utils/ofLog.h \
   ../../../../libs/openFrameworks/utils/ofFileUtils.h \
   ../../../../libs/poco/include/Poco/File.h \
   ../../../../libs/poco/include/Poco/Timestamp.h \
   ../../../../libs/poco/include/Poco/File_UNIX.h \
-  /Users/NFBHRS031/Desktop/Kinect\ Live\ Branden\ Files/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/3d/ofMesh.h \
-  /Users/NFBHRS031/Desktop/Kinect\ Live\ Branden\ Files/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/utils/ofUtils.h \
+  /Users/mav/Desktop/git/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/3d/ofMesh.h \
+  /Users/mav/Desktop/git/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/utils/ofUtils.h \
   ../../../../libs/poco/include/Poco/Path.h \
-  /Users/NFBHRS031/Desktop/Kinect\ Live\ Branden\ Files/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/gl/ofGLUtils.h \
-  /Users/NFBHRS031/Desktop/Kinect\ Live\ Branden\ Files/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/graphics/ofPixels.h \
-  /Users/NFBHRS031/Desktop/Kinect\ Live\ Branden\ Files/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/math/ofMatrix4x4.h \
+  /Users/mav/Desktop/git/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/gl/ofGLUtils.h \
+  /Users/mav/Desktop/git/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/graphics/ofPixels.h \
+  /Users/mav/Desktop/git/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/math/ofMatrix4x4.h \
   ../../../../libs/openFrameworks/math/ofQuaternion.h \
   ../../../../libs/openFrameworks/sound/ofBaseSoundPlayer.h \
   ../../../../libs/openFrameworks/sound/ofFmodSoundPlayer.h \
