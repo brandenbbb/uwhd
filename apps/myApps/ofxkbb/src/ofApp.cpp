@@ -51,7 +51,7 @@ void ofApp::setup() {
 	*/
     
 	// start from the front
-	bDrawPointCloud = false;
+	bDrawPointCloud = true;
 }
 
 //--------------------------------------------------------------
