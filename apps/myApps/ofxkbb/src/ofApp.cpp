@@ -127,6 +127,14 @@ void ofApp::draw() {
                 bSnapshot = false;
             }
         
+            // show the framegrab on screen
+            ofDrawBitmapString(snapString, ofGetWidth(), ofGetHeight());
+        
+            ofSetHexColor(0xFFFFFF);
+            if(snapCounter > 0) {
+                img.draw(0,0,ofGetWidth(),ofGetHeight());
+            }
+        
 	} else {
 		// draw from the live kinect
 		kinect.drawDepth(10, 0, 400, 300);
