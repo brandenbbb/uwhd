@@ -43,10 +43,6 @@ public:
     ofImage buildings;
     ofImage stars;
 	
-#ifdef USE_TWO_KINECTS
-	ofxKinect kinect2;
-#endif
-	
 	ofxCvColorImage colorImg;
 	
 	ofxCvGrayscaleImage grayImage; // grayscale depth image
@@ -65,4 +61,10 @@ public:
 	
 	// used for viewing the point cloud
 	ofEasyCam easyCam;
+    
+    //image writer variables
+    int 				snapCounter;
+    char 				snapString[255];
+    ofImage 			img;
+    bool 				bSnapshot;
 };

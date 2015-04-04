@@ -47,6 +47,11 @@ void ofApp::setup() {
     
 	// start in post card / point cloud mode
 	bDrawPointCloud = true;
+    
+    // image saver settings
+    snapCounter = 0;
+    bSnapshot = false;
+    memset(snapString, 0, 255);		// clear the string by setting all chars to 0
 }
 
 //--------------------------------------------------------------
@@ -100,11 +105,28 @@ void ofApp::draw() {
 	ofSetColor(255, 255, 255);
 	
 	if(bDrawPointCloud) {
+        // draw the background (stars)
         stars.draw(0,0,0);
+        
+        // anything within the easyCam begin / end section will move relative to the 3D camera...neato!
         easyCam.begin();
-		drawPointCloud();
+            drawPointCloud();
 		easyCam.end();
+        
+        // draw the buildings
         buildings.draw(-200,220);
+        
+            // image writing code
+            if (bSnapshot == true){
+                // capture entire OF screen
+                img.grabScreen(0, 0, ofGetWidth(), ofGetHeight());
+                string fileName = "NFB_HIGHRISE_Universe_Within_Hot_Docs_"+ofToString(snapCounter)+".png";
+                img.saveImage(fileName);
+                sprintf(snapString, "saved %s", fileName.c_str());
+                snapCounter++;
+                bSnapshot = false;
+            }
+        
 	} else {
 		// draw from the live kinect
 		kinect.drawDepth(10, 0, 400, 300);
@@ -184,6 +206,11 @@ void ofApp::keyPressed (int key) {
 		case'p':
 			bDrawPointCloud = !bDrawPointCloud;
 			break;
+        
+        // image saver keystroke
+        case'l':
+            bSnapshot = true;
+            break;
 			
 		case '>':
 		case '.':
