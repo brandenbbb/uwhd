@@ -248,6 +248,11 @@ void ofApp::keyPressed (int key) {
 		case ' ':
 			bThreshWithOpenCV = !bThreshWithOpenCV;
 			break;
+            
+        // go full screen
+        case 'f':
+            ofToggleFullscreen();
+            break;
 			
 		case'p':
             bReviewLastShot = false;
