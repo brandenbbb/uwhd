@@ -12,6 +12,8 @@
 	<dict>
 		<key>0EE7840AC472CC5BF29CD5A0295465C25E9FA56C</key>
 		<string>https://github.com/brandenbbb/uwhd.git</string>
+		<key>8B732DA6471F61653FC2B35F66CE49E00BD50686</key>
+		<string>https://github.com/obviousjim/ofxObjLoader.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>apps/myApps/ofxkbb/ofxkbb.xcodeproj</string>
@@ -19,6 +21,8 @@
 	<dict>
 		<key>0EE7840AC472CC5BF29CD5A0295465C25E9FA56C</key>
 		<string>../../../../..</string>
+		<key>8B732DA6471F61653FC2B35F66CE49E00BD50686</key>
+		<string>../../../../../addons/ofxObjLoader</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/brandenbbb/uwhd.git</string>
@@ -28,6 +32,14 @@
 	<string>0EE7840AC472CC5BF29CD5A0295465C25E9FA56C</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>8B732DA6471F61653FC2B35F66CE49E00BD50686</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ofxObjLoader</string>
+		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>

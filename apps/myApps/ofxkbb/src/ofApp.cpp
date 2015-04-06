@@ -55,7 +55,8 @@ void ofApp::setup() {
     memset(snapString, 0, 255);		// clear the string by setting all chars to 0
     
     // 3d model settings
-    model.loadModel("images/img/3d/city_v010c.obj");
+    towers.loadModel("images/img/3d/city_v010c.obj");
+    sphere.loadModel("images/img/sphere/sphere.dae");
 }
 
 //--------------------------------------------------------------
@@ -110,17 +111,21 @@ void ofApp::draw() {
 	
 	if(bDrawPointCloud) {
         // draw the background (stars)
-        stars.draw(0,0,0);
+        //stars.draw(0,0,0);
+
         
         // anything within the easyCam begin / end section will move relative to the 3D camera...neato!
         easyCam.begin();
+            sphere.setScale(10,10,10);
+            sphere.drawFaces();
             drawPointCloud();
-            //model.setPosition(ofGetWidth(), ofGetHeight() , 0);
-            model.drawFaces();
+            //towers.setPosition(ofGetWidth(), ofGetHeight() , 0);
+            //towers.drawFaces();
 		easyCam.end();
         
         // draw the buildings
         buildings.draw(-200,220);
+
         
             // image writing code
             if (bSnapshot == true){

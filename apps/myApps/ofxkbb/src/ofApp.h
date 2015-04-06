@@ -73,6 +73,6 @@ public:
     bool                bReviewLastShot;
     
     //3d model variables
-    ofxAssimpModelLoader model;
-    
+    ofxAssimpModelLoader towers;
+    ofxAssimpModelLoader sphere;
 };
