@@ -42,6 +42,10 @@ public:
 	void windowResized(int w, int h);
 	
 	ofxKinect kinect;
+
+#ifdef USE_TWO_KINECTS
+    ofxKinect kinect2;
+#endif
     
     ofImage buildings;
     ofImage stars;

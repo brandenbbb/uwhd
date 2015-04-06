@@ -24,6 +24,11 @@ void ofApp::setup() {
 		ofLogNotice() << "zero plane dist: " << kinect.getZeroPlaneDistance() << "mm";
 	}
     
+#ifdef USE_TWO_KINECTS
+    kinect2.init();
+    kinect2.open();
+#endif
+    
     // load universe within images
     buildings.loadImage("images/buildingsBottom.png");
     stars.loadImage("images/bg.png");
@@ -58,6 +63,10 @@ void ofApp::setup() {
     towers.loadModel("images/img/3d/towersandtrees.dae");
     sphere.loadModel("images/img/sphere/skysphere.dae");
 }
+
+#ifdef USE_TWO_KINECTS
+    kinect2.update();
+#endif
 
 //--------------------------------------------------------------
 void ofApp::update() {
@@ -163,6 +172,10 @@ void ofApp::draw() {
 		
 		grayImage.draw(10, 320, 400, 300);
 		contourFinder.draw(10, 320, 400, 300);
+        
+#ifdef USE_TWO_KINECTS
+        kinect2.draw(420, 320, 400, 300);
+#endif
 	}
 	
 	// draw instructions
@@ -223,6 +236,10 @@ void ofApp::drawPointCloud() {
 void ofApp::exit() {
 	// kinect.setCameraTiltAngle(0); // zero the tilt on exit
 	kinect.close();
+
+#ifdef USE_TWO_KINECTS
+    kinect2.close();
+#endif
 }
 
 //--------------------------------------------------------------
