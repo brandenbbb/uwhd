@@ -55,7 +55,7 @@ void ofApp::setup() {
     memset(snapString, 0, 255);		// clear the string by setting all chars to 0
     
     // 3d model settings
-    towers.loadModel("images/img/3d/city_v010c.obj");
+    towers.loadModel("images/img/3d/towersandtrees.dae");
     sphere.loadModel("images/img/sphere/skysphere.dae");
 }
 
@@ -122,15 +122,17 @@ void ofApp::draw() {
             sphere.drawFaces();
             // Kinect Point Cloud
             drawPointCloud();
-            //towers.setPosition(ofGetWidth(), ofGetHeight() , 0);
-            //towers.drawFaces();
-		easyCam.end();
+            // 3D towers!
+            towers.setScale(.5, -.5, .5);
+            towers.setPosition(0, -100, 300);
+            towers.drawFaces();
+        easyCam.end();
         
-        // 2D buildings
+        /* OLD 2D buildings
         buildings.draw(-200,220);
-
+        */
         
-            // image writing code
+            // image writer code
             if (bSnapshot == true){
                 // capture entire OF screen
                 img.grabScreen(0, 0, ofGetWidth(), ofGetHeight());
