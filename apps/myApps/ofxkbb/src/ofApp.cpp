@@ -111,19 +111,22 @@ void ofApp::draw() {
 	
 	if(bDrawPointCloud) {
         // draw the background (stars)
-        //stars.draw(0,0,0);
-
+        /* OLD 2D stars
+         stars.draw(0,0,0);
+         */
         
         // anything within the easyCam begin / end section will move relative to the 3D camera...neato!
         easyCam.begin();
+            // 3D star skydome
             sphere.setScale(10,10,10);
             sphere.drawFaces();
+            // Kinect Point Cloud
             drawPointCloud();
             //towers.setPosition(ofGetWidth(), ofGetHeight() , 0);
             //towers.drawFaces();
 		easyCam.end();
         
-        // draw the buildings
+        // 2D buildings
         buildings.draw(-200,220);
 
         
