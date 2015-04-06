@@ -56,7 +56,7 @@ void ofApp::setup() {
     
     // 3d model settings
     towers.loadModel("images/img/3d/city_v010c.obj");
-    sphere.loadModel("images/img/sphere/sphere.dae");
+    sphere.loadModel("images/img/sphere/skysphere.dae");
 }
 
 //--------------------------------------------------------------
