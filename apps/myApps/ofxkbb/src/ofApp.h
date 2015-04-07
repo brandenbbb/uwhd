@@ -67,6 +67,7 @@ public:
 	int angle;
     
     int pointSize;
+    int depthLimit;
 	
 	// used for viewing the point cloud
 	ofEasyCam easyCam;

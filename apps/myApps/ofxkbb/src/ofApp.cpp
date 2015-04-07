@@ -38,14 +38,16 @@ void ofApp::setup() {
 	grayImage.allocate(kinect.width, kinect.height);
 	grayThreshNear.allocate(kinect.width, kinect.height);
 	grayThreshFar.allocate(kinect.width, kinect.height);
-	
+    
     // default values for near / far threshold / point size (adjusted later via GUI controls)
 	nearThreshold = 255;
     farThreshold = 167;
     pointSize = 3;
+    depthLimit = 1100;
     
-    bThreshWithOpenCV = true;
+    bThreshWithOpenCV = false;
 	
+    // diagnostics mode condition
     bDiagnosticsMode = false;
     
 	ofSetFrameRate(60);
@@ -56,10 +58,11 @@ void ofApp::setup() {
      kinect.setCameraTiltAngle(angle);
 	*/
     
-	// start in post card / point cloud mode
+	// start in point cloud mode
 	bDrawPointCloud = true;
     
     // image file writer settings
+    // need to add code to not overwrite files
     snapCounter = 0;
     bSnapshot = false;
     bReviewLastShot = false;
@@ -96,7 +99,6 @@ void ofApp::update() {
 			grayThreshFar.threshold(farThreshold);
 			cvAnd(grayThreshNear.getCvImage(), grayThreshFar.getCvImage(), grayImage.getCvImage(), NULL);
 		} else {
-			
 			// or we do it ourselves - show people how they can work with the pixels
 			unsigned char * pix = grayImage.getPixels();
 			
@@ -199,7 +201,7 @@ void ofApp::draw() {
         reportStream << "press p to switch between images and point cloud, rotate the point cloud with the mouse" << endl
         << "using opencv threshold = " << bThreshWithOpenCV <<" (press spacebar)" << endl
         << "set near threshold " << nearThreshold << " (press: + -)" << endl
-        << "set far threshold " << farThreshold << " (press: < >) num blobs found " << contourFinder.nBlobs << endl
+        << "set far threshold " << depthLimit << " (press: < >) num blobs found " << contourFinder.nBlobs << endl
         << "set point cloud point size " << pointSize << " (press: [ to decrease or ] to increase)  " << endl
         << ", fps: " << ofGetFrameRate() << endl
         << "press c to close the connection and o to open it again, connection is: " << kinect.isConnected() << endl;
@@ -225,7 +227,7 @@ void ofApp::drawPointCloud() {
 	int step = 2;
 	for(int y = 0; y < h; y += step) {
 		for(int x = 0; x < w; x += step) {
-			if(kinect.getDistanceAt(x, y) < 1100) {
+			if(kinect.getDistanceAt(x, y) < depthLimit) {
 				mesh.addColor(kinect.getColorAt(x,y));
 				mesh.addVertex(kinect.getWorldCoordinateAt(x, y));
 			}
@@ -287,14 +289,17 @@ void ofApp::keyPressed (int key) {
             
 		case '>':
 		case '.':
-			farThreshold ++;
-			if (farThreshold > 255) farThreshold = 255;
+			//farThreshold ++;
+			//if (farThreshold > 255) farThreshold = 255;
+            depthLimit = depthLimit + 100;
 			break;
 			
 		case '<':
 		case ',':
-			farThreshold --;
-			if (farThreshold < 0) farThreshold = 0;
+			//farThreshold --;
+			//if (farThreshold < 0) farThreshold = 0;
+            if (depthLimit < 0) depthLimit = 0;
+            depthLimit = depthLimit - 100;
 			break;
 			
 		case '+':
