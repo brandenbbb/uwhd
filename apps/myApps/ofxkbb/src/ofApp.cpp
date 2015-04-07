@@ -39,6 +39,13 @@ void ofApp::setup() {
 	grayThreshNear.allocate(kinect.width, kinect.height);
 	grayThreshFar.allocate(kinect.width, kinect.height);
     
+#ifdef USE_TWO_KINECTS
+    colorImg.allocate(kinect2.width, kinect2.height);
+    grayImage.allocate(kinect2.width, kinect2.height);
+    grayThreshNear.allocate(kinect2.width, kinect2.height);
+    grayThreshFar.allocate(kinect2.width, kinect2.height);
+#endif
+    
     // default values for near / far threshold / point size (adjusted later via GUI controls)
 	nearThreshold = 255;
     farThreshold = 167;
@@ -71,11 +78,11 @@ void ofApp::setup() {
     // 3d model load assets
     towers.loadModel("images/img/3d/towersandtrees.dae");
     sphere.loadModel("images/img/sphere/skysphere.dae");
+    
+
 }
 
-#ifdef USE_TWO_KINECTS
-    kinect2.update();
-#endif
+
 
 //--------------------------------------------------------------
 void ofApp::update() {
@@ -83,6 +90,10 @@ void ofApp::update() {
 	//ofBackground(0, 0, 0);
 	
 	kinect.update();
+    
+#ifdef USE_TWO_KINECTS
+    kinect2.update();
+#endif
 	
 	// there is a new frame and we are connected
 	if(kinect.isFrameNew()) {
@@ -139,10 +150,13 @@ void ofApp::draw() {
             sphere.drawFaces();
             // Kinect Point Cloud
             drawPointCloud();
+            #ifdef USE_TWO_KINECTS
+                drawPointCloud2();
+            #endif
             // 3D towers!
             towers.setScale(.5, -.5, .5);
             towers.setPosition(0, -100, 300);
-            towers.drawFaces();
+            //towers.drawFaces();
         
         easyCam.end();
         
@@ -177,9 +191,9 @@ void ofApp::draw() {
     if (bDiagnosticsMode == true) {
 		// diagnostics mode display - shows depth / camera mode for establishing near / far threshold values
 		kinect.drawDepth(10, 0, 400, 300);
-		kinect.draw(420, 10, 400, 300);
-		grayImage.draw(10, 320, 400, 300);
-		contourFinder.draw(10, 320, 400, 300);
+		kinect.draw(10, 300, 400, 300);
+		//grayImage.draw(10, 320, 400, 300);
+		//contourFinder.draw(10, 320, 400, 300);
         
         #ifdef USE_TWO_KINECTS
             kinect2.draw(420, 320, 400, 300);
@@ -244,6 +258,40 @@ void ofApp::drawPointCloud() {
 	ofDisableDepthTest();
 	ofPopMatrix();
 }
+
+
+#ifdef USE_TWO_KINECTS
+
+    //--------------------------------------------------------------
+
+    void ofApp::drawPointCloud2() {
+        int w = 640;
+        int h = 480;
+        ofMesh mesh2;
+        mesh2.setMode(OF_PRIMITIVE_POINTS);
+        int step = 2;
+        for(int y = 0; y < h; y += step) {
+            for(int x = 0; x < w; x += step) {
+                if(kinect2.getDistanceAt(x, y) < depthLimit) {
+                    mesh2.addColor(kinect2.getColorAt(x,y));
+                    mesh2.addVertex(kinect2.getWorldCoordinateAt(x, y));
+                }
+            }
+        }
+        // set point cloud point size (taken from keyboard controls)
+        glPointSize(pointSize);
+        ofPushMatrix();
+        // the projected points are 'upside down' and 'backwards'
+        ofScale(-1, -1, 1);
+        ofTranslate(0, 0, -1000); // center the points a bit
+        ofEnableDepthTest();
+        mesh2.drawVertices();
+        ofDisableDepthTest();
+        ofPopMatrix();
+    }
+
+#endif
+
 
 //--------------------------------------------------------------
 void ofApp::exit() {

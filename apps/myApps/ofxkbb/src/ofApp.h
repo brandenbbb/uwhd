@@ -34,6 +34,7 @@ public:
 	void exit();
 	
 	void drawPointCloud();
+    void drawPointCloud2();
 	
 	void keyPressed(int key);
 	void mouseDragged(int x, int y, int button);
