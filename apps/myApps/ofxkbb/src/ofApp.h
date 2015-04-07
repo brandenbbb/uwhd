@@ -65,16 +65,20 @@ public:
 	int farThreshold;
 	
 	int angle;
+    
+    int pointSize;
 	
 	// used for viewing the point cloud
 	ofEasyCam easyCam;
     
     //image writer variables
-    int 				snapCounter;
-    char 				snapString[255];
-    ofImage 			img;
-    bool 				bSnapshot;
-    bool                bReviewLastShot;
+    int snapCounter;
+    char snapString[255];
+    ofImage img;
+    bool bSnapshot;
+    bool bReviewLastShot;
+    
+    bool bDiagnosticsMode;
     
     //3d model variables
     ofxAssimpModelLoader towers;
