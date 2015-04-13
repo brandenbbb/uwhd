@@ -5,7 +5,7 @@
 #include "ofxKinect.h"
 #include "ofxAssimpModelLoader.h"
 #include "ofVboMesh.h"
-
+#include "ofxGamepadHandler.h"
 
 // Windows users:
 // You MUST install the libfreenect kinect drivers in order to be able to use
@@ -22,8 +22,16 @@
 //
 // No way around the Windows driver dance, sorry.
 
+
+
 // uncomment this to read from two kinects simultaneously
 //#define USE_TWO_KINECTS
+
+
+
+//uncomment this to enable gamepad mode
+#define USE_GAMEPAD
+
 
 class ofApp : public ofBaseApp {
 public:
@@ -35,13 +43,21 @@ public:
 	
 	void drawPointCloud();
     void drawPointCloud2();
-	
-	void keyPressed(int key);
-	void mouseDragged(int x, int y, int button);
-	void mousePressed(int x, int y, int button);
-	void mouseReleased(int x, int y, int button);
-	void windowResized(int w, int h);
-	
+    
+    void keyPressed(int key);
+    void keyReleased(int key);
+    void mouseMoved(int x, int y );
+    void mouseDragged(int x, int y, int button);
+    void mousePressed(int x, int y, int button);
+    void mouseReleased(int x, int y, int button);
+    void windowResized(int w, int h);
+    void dragEvent(ofDragInfo dragInfo);
+    void gotMessage(ofMessage msg);
+    
+    void axisChanged(ofxGamepadAxisEvent &e);
+    void buttonPressed(ofxGamepadButtonEvent &e);
+    void buttonReleased(ofxGamepadButtonEvent &e);
+     
 	ofxKinect kinect;
 
 #ifdef USE_TWO_KINECTS
@@ -52,13 +68,11 @@ public:
     ofImage stars;
 	
 	ofxCvColorImage colorImg;
-	
 	ofxCvGrayscaleImage grayImage; // grayscale depth image
 	ofxCvGrayscaleImage grayThreshNear; // the near thresholded image
 	ofxCvGrayscaleImage grayThreshFar; // the far thresholded image
-	
 	ofxCvContourFinder contourFinder;
-	
+
 	bool bThreshWithOpenCV;
 	bool bDrawPointCloud;
 	

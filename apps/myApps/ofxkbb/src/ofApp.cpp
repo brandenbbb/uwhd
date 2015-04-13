@@ -4,8 +4,20 @@
 //--------------------------------------------------------------
 void ofApp::setup() {
 	ofSetLogLevel(OF_LOG_VERBOSE);
+    
+#ifdef USE_GAMEPAD
+    ofxGamepadHandler::get()->enableHotplug();
+    
+    //CHECK IF THERE EVEN IS A GAMEPAD CONNECTED
+    if(ofxGamepadHandler::get()->getNumPads()>0){
+        ofxGamepad* pad = ofxGamepadHandler::get()->getGamepad(0);
+        ofAddListener(pad->onAxisChanged, this, &ofApp::axisChanged);
+        ofAddListener(pad->onButtonPressed, this, &ofApp::buttonPressed);
+        ofAddListener(pad->onButtonReleased, this, &ofApp::buttonReleased);
+    }
+#endif
 	
-	// enable depth->video image calibration
+	//enable depth->video image calibration
 	kinect.setRegistration(true);
     
 	kinect.init();
@@ -137,6 +149,11 @@ void ofApp::draw() {
 	
 	ofSetColor(255, 255, 255);
 	
+#ifdef USE_GAMEPAD
+    ofxGamepadHandler::get()->draw(10,10);
+#endif
+    
+    
     if(bDrawPointCloud == true) {
         /* OLD 2D stars draw
          stars.draw(0,0,0);
@@ -149,14 +166,14 @@ void ofApp::draw() {
             sphere.setScale(10,10,10);
             sphere.drawFaces();
             // Kinect Point Cloud
-            drawPointCloud();
+            //drawPointCloud();
             #ifdef USE_TWO_KINECTS
                 drawPointCloud2();
             #endif
             // 3D towers!
             towers.setScale(.5, -.5, .5);
-            towers.setPosition(0, -100, 300);
-            //towers.drawFaces();
+            towers.setPosition(0, -100, 0);
+            towers.drawFaces();
         
         easyCam.end();
         
@@ -422,17 +439,54 @@ void ofApp::keyPressed (int key) {
 }
 
 //--------------------------------------------------------------
-void ofApp::mouseDragged(int x, int y, int button)
-{}
+void ofApp::keyReleased(int key){
+}
 
 //--------------------------------------------------------------
-void ofApp::mousePressed(int x, int y, int button)
-{}
+void ofApp::mouseMoved(int x, int y ){
+}
 
 //--------------------------------------------------------------
-void ofApp::mouseReleased(int x, int y, int button)
-{}
+void ofApp::mouseDragged(int x, int y, int button){
+}
 
 //--------------------------------------------------------------
-void ofApp::windowResized(int w, int h)
-{}
+void ofApp::mousePressed(int x, int y, int button){
+}
+
+//--------------------------------------------------------------
+void ofApp::mouseReleased(int x, int y, int button){
+}
+
+//--------------------------------------------------------------
+void ofApp::windowResized(int w, int h){
+}
+
+//--------------------------------------------------------------
+void ofApp::gotMessage(ofMessage msg){
+}
+
+//--------------------------------------------------------------
+void ofApp::dragEvent(ofDragInfo dragInfo){
+}
+
+
+
+
+//Gamepad classes
+//--------------------------------------------------------------
+
+void ofApp::axisChanged(ofxGamepadAxisEvent& e)
+{
+    cout << "AXIS " << e.axis << " VALUE " << ofToString(e.value) << endl;
+}
+
+void ofApp::buttonPressed(ofxGamepadButtonEvent& e)
+{
+    cout << "BUTTON " << e.button << " PRESSED" << endl;
+}
+
+void ofApp::buttonReleased(ofxGamepadButtonEvent& e)
+{
+    cout << "BUTTON " << e.button << " RELEASED" << endl;
+}
