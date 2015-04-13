@@ -148,11 +148,6 @@ void ofApp::update() {
 void ofApp::draw() {
 	
 	ofSetColor(255, 255, 255);
-	
-#ifdef USE_GAMEPAD
-    ofxGamepadHandler::get()->draw(10,10);
-#endif
-    
     
     if(bDrawPointCloud == true) {
         /* OLD 2D stars draw
@@ -166,7 +161,7 @@ void ofApp::draw() {
             sphere.setScale(10,10,10);
             sphere.drawFaces();
             // Kinect Point Cloud
-            //drawPointCloud();
+            drawPointCloud();
             #ifdef USE_TWO_KINECTS
                 drawPointCloud2();
             #endif
@@ -203,6 +198,11 @@ void ofApp::draw() {
                     img.draw(0,0,ofGetWidth(),ofGetHeight());
                 }
             }
+        
+        #ifdef USE_GAMEPAD
+                ofxGamepadHandler::get()->draw(10,10);
+        #endif
+        
 	}
 
     if (bDiagnosticsMode == true) {
