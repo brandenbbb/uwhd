@@ -484,6 +484,12 @@ void ofApp::axisChanged(ofxGamepadAxisEvent& e)
 void ofApp::buttonPressed(ofxGamepadButtonEvent& e)
 {
     cout << "BUTTON " << e.button << " PRESSED" << endl;
+    
+    // HOW TO READ BUTTON PRESSES ON THE GAMEPAD!
+    // this checks if A / green button is pressed, then it goes full screen
+    if (e.button == 11){
+            ofToggleFullscreen();
+    }
 }
 
 void ofApp::buttonReleased(ofxGamepadButtonEvent& e)

@@ -30,7 +30,7 @@
 
 
 //uncomment this to enable gamepad mode
-#define USE_GAMEPAD
+//#define USE_GAMEPAD
 
 
 class ofApp : public ofBaseApp {
