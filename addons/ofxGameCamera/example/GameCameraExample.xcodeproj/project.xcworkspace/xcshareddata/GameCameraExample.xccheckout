@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>D443A809-4AC8-42E8-8811-FAFBBA11BB0E</string>
+	<key>IDESourceControlProjectName</key>
+	<string>GameCameraExample</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>0EE7840AC472CC5BF29CD5A0295465C25E9FA56C</key>
+		<string>https://github.com/brandenbbb/uwhd.git</string>
+		<key>D4AC657D11A04D18623C5BE074FBDA1B425AB00B</key>
+		<string>https://github.com/Flightphase/ofxGameCamera</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>example/GameCameraExample.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>0EE7840AC472CC5BF29CD5A0295465C25E9FA56C</key>
+		<string>../../../../..</string>
+		<key>D4AC657D11A04D18623C5BE074FBDA1B425AB00B</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/Flightphase/ofxGameCamera</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>D4AC657D11A04D18623C5BE074FBDA1B425AB00B</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>0EE7840AC472CC5BF29CD5A0295465C25E9FA56C</string>
+			<key>IDESourceControlWCCName</key>
+			<string>..</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>D4AC657D11A04D18623C5BE074FBDA1B425AB00B</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ofxGameCamera</string>
+		</dict>
+	</array>
+</dict>
+</plist>
