@@ -1,5 +1,7 @@
 # uwhd
 
+REQUIRES XBOX 360 controller driver to be installed which is in the root folder
+
 FUNCTION KEYBOARD CONTROLS!
 
 w = walk forward
