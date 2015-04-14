@@ -10,8 +10,11 @@ void ofApp::setup() {
     
     ofSetFrameRate(60);
     
-    #ifdef USE_GAMEPAD
+    #ifdef USE_HOSTMODE
         camera.setup();
+    #endif
+    
+    #ifdef USE_GAMEPAD
         ofxGamepadHandler::get()->enableHotplug();
         //CHECK IF THERE EVEN IS A GAMEPAD CONNECTED
         if(ofxGamepadHandler::get()->getNumPads()>0){
@@ -156,82 +159,72 @@ void ofApp::draw() {
     
     if(bDrawPointCloud == true) {
     
-    #ifdef USE_PHOTOBOOTH
-        // OLD 2D stars draw
-         stars.draw(0,0,0);
-    #endif
-        
+        #ifdef USE_PHOTOBOOTH
+            // OLD 2D stars draw
+            stars.draw(0,0,0);
+            easyCam.begin();
+            #ifdef USE_KINECT
+                    // Kinect Point Cloud
+                    drawPointCloud();
+            #endif
+            easyCam.end();
+            // OLD 2D buildings
+            buildings.draw(-200,220);
+        #endif
+            
         // anything within the camera begin / end section will move relative to the 3D camera...neato!
-    #ifdef USE_PHOTOBOOTH
-        easyCam.begin();
-    #endif
-
-    #ifdef USE_HOSTMODE
-        camera.begin();
-    #endif
-        
-    #ifdef USE_HOSTMODE
-        // 3D star skydome
+       
+        #ifdef USE_HOSTMODE
+            camera.begin();
+     
+            // 3D star skydome
             sphere.setScale(10,10,10);
             sphere.drawFaces();
-    #endif
         
-            // Kinect Point Cloud
             #ifdef USE_KINECT
-                drawPointCloud();
+                    // Kinect Point Cloud
+                    drawPointCloud();
             #endif
-            // Kinect Point Cloud #2
+        
             #ifdef USE_TWO_KINECTS
-                drawPointCloud2();
+                    // Kinect Point Cloud #2
+                    drawPointCloud2();
             #endif
-    
-    #ifdef USE_HOSTMODE
-        // 3D towers!
+        
+            // 3D towers!
             towers.setScale(.5, -.5, .5);
             towers.setPosition(0, -100, 0);
             towers.drawFaces();
-    #endif
-        
-    #ifdef USE_PHOTOBOOTH
-        easyCam.end();
-        // OLD 2D buildings
-        buildings.draw(-200,220);
-    #endif
-        
-    #ifdef USE_HOSTMODE
-        camera.end();
-    #endif
-        
-        
-        
-            // image file writer code
-            // need to add in code so you can enter in name via GUI / not overwrite older files
-            if (bSnapshot == true){
-                // capture entire OF screen; image is same resolution as OF window
-                img.grabScreen(0, 0, ofGetWidth(), ofGetHeight());
-                string fileName = "NFB_HIGHRISE_Universe_Within_Hot_Docs_"+ofToString(snapCounter)+".png";
-                img.saveImage(fileName);
-                sprintf(snapString, "saved %s", fileName.c_str());
-                snapCounter++;
-                bSnapshot = false;
+            camera.end();
+        #endif
+            
+        // image file writer code
+        // need to add in code so you can enter in name via GUI / not overwrite older files
+        if (bSnapshot == true){
+            // capture entire OF screen; image is same resolution as OF window
+            img.grabScreen(0, 0, ofGetWidth(), ofGetHeight());
+            string fileName = "NFB_HIGHRISE_Universe_Within_Hot_Docs_"+ofToString(snapCounter)+".png";
+            img.saveImage(fileName);
+            sprintf(snapString, "saved %s", fileName.c_str());
+            snapCounter++;
+            bSnapshot = false;
+        }
+
+        // show the framegrab on screen if the review photo button is pressed
+        // need to add code to display the filename
+        if (bReviewLastShot == true){
+            ofDrawBitmapString(snapString, ofGetWidth(), ofGetHeight());
+            
+            ofSetHexColor(0xFFFFFF);
+            if(snapCounter > 0) {
+                img.draw(0,0,ofGetWidth(),ofGetHeight());
             }
+        }
         
-            // show the framegrab on screen if the review photo button is pressed
-            // need to add code to display the filename
-            if (bReviewLastShot == true){
-                ofDrawBitmapString(snapString, ofGetWidth(), ofGetHeight());
-                
-                ofSetHexColor(0xFFFFFF);
-                if(snapCounter > 0) {
-                    img.draw(0,0,ofGetWidth(),ofGetHeight());
-                }
-            }
-        
+        //gamepad GUI for diagnostics
         #ifdef USE_GAMEPAD
                 ofxGamepadHandler::get()->draw(10,10);
         #endif
-        
-        
 	}
 
     if (bDiagnosticsMode == true) {
