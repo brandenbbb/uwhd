@@ -95,12 +95,6 @@ void ofApp::setup() {
     // 3d model load assets
     towers.loadModel("images/img/3d/towersandtrees.dae");
     sphere.loadModel("images/img/sphere/skysphere.dae");
-    
-    // we add this listener before setting up so the initial circle resolution is correct
-    pointSize.addListener(this, &ofApp::pointCloudSlider);
-
-    gui.setup(); // most of the time you don't need a name
-    gui.add(pointSize.setup("point cloud dot size", 5, 3, 90));
 }
 
 
@@ -214,8 +208,6 @@ void ofApp::draw() {
                 ofxGamepadHandler::get()->draw(10,10);
         #endif
         
-        // draw GUI
-        gui.draw();
         
 	}
 
@@ -488,11 +480,6 @@ void ofApp::gotMessage(ofMessage msg){
 
 //--------------------------------------------------------------
 void ofApp::dragEvent(ofDragInfo dragInfo){
-}
-
-//--------------------------------------------------------------
-void ofApp::pointCloudSlider(int & pointSize){
-    //pointSize(circleResolution);
 }
 
 

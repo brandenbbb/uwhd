@@ -104,9 +104,6 @@ public:
     ofxAssimpModelLoader towers;
     ofxAssimpModelLoader sphere;
     
-    // GUI variables
-    ofxIntSlider pointSize;
-    ofxPanel gui;
     
 
 };
