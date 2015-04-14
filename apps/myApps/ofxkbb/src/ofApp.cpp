@@ -3,21 +3,26 @@
 
 //--------------------------------------------------------------
 void ofApp::setup() {
+    // reduce screen tearing
+    ofSetVerticalSync(true);
+    
 	ofSetLogLevel(OF_LOG_VERBOSE);
     
-#ifdef USE_GAMEPAD
-    camera.setup();
+    ofSetFrameRate(60);
     
-    ofxGamepadHandler::get()->enableHotplug();
-    
-    //CHECK IF THERE EVEN IS A GAMEPAD CONNECTED
-    if(ofxGamepadHandler::get()->getNumPads()>0){
-        ofxGamepad* pad = ofxGamepadHandler::get()->getGamepad(0);
-        ofAddListener(pad->onAxisChanged, this, &ofApp::axisChanged);
-        ofAddListener(pad->onButtonPressed, this, &ofApp::buttonPressed);
-        ofAddListener(pad->onButtonReleased, this, &ofApp::buttonReleased);
-    }
-#endif
+    #ifdef USE_GAMEPAD
+        camera.setup();
+        
+        ofxGamepadHandler::get()->enableHotplug();
+        
+        //CHECK IF THERE EVEN IS A GAMEPAD CONNECTED
+        if(ofxGamepadHandler::get()->getNumPads()>0){
+            ofxGamepad* pad = ofxGamepadHandler::get()->getGamepad(0);
+            ofAddListener(pad->onAxisChanged, this, &ofApp::axisChanged);
+            ofAddListener(pad->onButtonPressed, this, &ofApp::buttonPressed);
+            ofAddListener(pad->onButtonReleased, this, &ofApp::buttonReleased);
+        }
+    #endif
 	
 	//enable depth->video image calibration
 	kinect.setRegistration(true);
@@ -38,10 +43,10 @@ void ofApp::setup() {
 		ofLogNotice() << "zero plane dist: " << kinect.getZeroPlaneDistance() << "mm";
 	}
     
-#ifdef USE_TWO_KINECTS
-    kinect2.init();
-    kinect2.open();
-#endif
+    #ifdef USE_TWO_KINECTS
+        kinect2.init();
+        kinect2.open();
+    #endif
     
     /* 2D load universe within images
     buildings.loadImage("images/buildingsBottom.png");
@@ -53,12 +58,12 @@ void ofApp::setup() {
 	grayThreshNear.allocate(kinect.width, kinect.height);
 	grayThreshFar.allocate(kinect.width, kinect.height);
     
-#ifdef USE_TWO_KINECTS
-    colorImg.allocate(kinect2.width, kinect2.height);
-    grayImage.allocate(kinect2.width, kinect2.height);
-    grayThreshNear.allocate(kinect2.width, kinect2.height);
-    grayThreshFar.allocate(kinect2.width, kinect2.height);
-#endif
+    #ifdef USE_TWO_KINECTS
+        colorImg.allocate(kinect2.width, kinect2.height);
+        grayImage.allocate(kinect2.width, kinect2.height);
+        grayThreshNear.allocate(kinect2.width, kinect2.height);
+        grayThreshFar.allocate(kinect2.width, kinect2.height);
+    #endif
     
     // default values for near / far threshold / point size (adjusted later via GUI controls)
 	nearThreshold = 255;
@@ -70,8 +75,6 @@ void ofApp::setup() {
 	
     // diagnostics mode condition
     bDiagnosticsMode = false;
-    
-	ofSetFrameRate(60);
 	
 	/*
      // zero the tilt on startup
@@ -93,7 +96,11 @@ void ofApp::setup() {
     towers.loadModel("images/img/3d/towersandtrees.dae");
     sphere.loadModel("images/img/sphere/skysphere.dae");
     
+    // we add this listener before setting up so the initial circle resolution is correct
+    pointSize.addListener(this, &ofApp::pointCloudSlider);
 
+    gui.setup(); // most of the time you don't need a name
+    gui.add(pointSize.setup("point cloud dot size", 5, 3, 90));
 }
 
 
@@ -157,7 +164,7 @@ void ofApp::draw() {
          */
         
         // anything within the camera begin / end section will move relative to the 3D camera...neato!
-        //easyCam.begin();
+        // easyCam.begin();
         camera.begin();
         
             // 3D star skydome
@@ -173,7 +180,7 @@ void ofApp::draw() {
             towers.setPosition(0, -100, 0);
             towers.drawFaces();
         
-        //easyCam.end();
+        // easyCam.end();
         camera.end();
         
         /* OLD 2D buildings
@@ -206,6 +213,9 @@ void ofApp::draw() {
         #ifdef USE_GAMEPAD
                 ofxGamepadHandler::get()->draw(10,10);
         #endif
+        
+        // draw GUI
+        gui.draw();
         
 	}
 
@@ -328,30 +338,30 @@ void ofApp::exit() {
 void ofApp::keyPressed (int key) {
 	switch (key) {
 		// diagnostics mode
-        case 'd':
+        case '`':
             bDiagnosticsMode = true;
 			break;
         case ' ':
             bThreshWithOpenCV = !bThreshWithOpenCV;
             break;
         // go full screen
-        case 'f':
+        case OF_KEY_F1:
             ofToggleFullscreen();
             break;
 			
-		case'p':
+		case OF_KEY_F4:
             bDiagnosticsMode = false;
             bReviewLastShot = false;
             bDrawPointCloud = true;
 			break;
         
         // image saver keystroke
-        case'l':
+        case OF_KEY_F5:
             bSnapshot = true;
             break;
 	
         // image review keystroke
-        case'r':
+        case OF_KEY_F6:
             bDiagnosticsMode = false;
             bReviewLastShot = true;
             break;
@@ -382,6 +392,7 @@ void ofApp::keyPressed (int key) {
 			if (nearThreshold < 0) nearThreshold = 0;
 			break;
         
+        /*
         // decrease / increase point cloud point size controls
         case '[':
             pointSize --;
@@ -390,42 +401,16 @@ void ofApp::keyPressed (int key) {
         case ']':
             pointSize ++;
             break;
-		case 'w':
-			kinect.enableDepthNearValueWhite(!kinect.isDepthNearValueWhite());
-			break;
-			
+        */
+            
 		case 'o':
 			kinect.setCameraTiltAngle(angle); // go back to prev tilt
 			kinect.open();
 			break;
 			
-		case 'c':
+		case '0':
 			kinect.setCameraTiltAngle(0); // zero the tilt
 			kinect.close();
-			break;
-			
-		case '1':
-			kinect.setLed(ofxKinect::LED_GREEN);
-			break;
-			
-		case '2':
-			kinect.setLed(ofxKinect::LED_YELLOW);
-			break;
-			
-		case '3':
-			kinect.setLed(ofxKinect::LED_RED);
-			break;
-			
-		case '4':
-			kinect.setLed(ofxKinect::LED_BLINK_GREEN);
-			break;
-			
-		case '5':
-			kinect.setLed(ofxKinect::LED_BLINK_YELLOW_RED);
-			break;
-			
-		case '0':
-			kinect.setLed(ofxKinect::LED_OFF);
 			break;
 			
 		case OF_KEY_UP:
@@ -439,6 +424,37 @@ void ofApp::keyPressed (int key) {
 			if(angle<-30) angle=-30;
 			kinect.setCameraTiltAngle(angle);
 			break;
+            
+        // non-essential key / kinect LED commands etc
+        /*
+         case 'w':
+            kinect.enableDepthNearValueWhite(!kinect.isDepthNearValueWhite());
+            break;
+         
+         case '1':
+            kinect.setLed(ofxKinect::LED_GREEN);
+            break;
+         
+         case '2':
+            kinect.setLed(ofxKinect::LED_YELLOW);
+            break;
+         
+         case '3':
+            kinect.setLed(ofxKinect::LED_RED);
+            break;
+         
+         case '4':
+            kinect.setLed(ofxKinect::LED_BLINK_GREEN);
+            break;
+         
+         case '5':
+            kinect.setLed(ofxKinect::LED_BLINK_YELLOW_RED);
+            break;
+         
+         case '0':
+            kinect.setLed(ofxKinect::LED_OFF);
+            break;
+         */
 	}
 }
 
@@ -474,6 +490,10 @@ void ofApp::gotMessage(ofMessage msg){
 void ofApp::dragEvent(ofDragInfo dragInfo){
 }
 
+//--------------------------------------------------------------
+void ofApp::pointCloudSlider(int & pointSize){
+    //pointSize(circleResolution);
+}
 
 
 

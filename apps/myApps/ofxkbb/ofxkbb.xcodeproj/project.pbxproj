@@ -26,6 +26,14 @@
 		58AE64371ADB637100390DC3 /* ofxGamepadHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58AE64291ADB637100390DC3 /* ofxGamepadHandler.cpp */; };
 		58AE64381ADB637100390DC3 /* ofxGamepadLinux.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58AE642B1ADB637100390DC3 /* ofxGamepadLinux.cpp */; };
 		58AE64391ADB637100390DC3 /* ofxGamepadOIS.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58AE642D1ADB637100390DC3 /* ofxGamepadOIS.cpp */; };
+		58E82E321ADCC26C00828264 /* ofxBaseGui.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58E82E211ADCC26C00828264 /* ofxBaseGui.cpp */; };
+		58E82E331ADCC26C00828264 /* ofxButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58E82E231ADCC26C00828264 /* ofxButton.cpp */; };
+		58E82E341ADCC26C00828264 /* ofxGuiGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58E82E261ADCC26C00828264 /* ofxGuiGroup.cpp */; };
+		58E82E351ADCC26C00828264 /* ofxLabel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58E82E281ADCC26C00828264 /* ofxLabel.cpp */; };
+		58E82E361ADCC26C00828264 /* ofxPanel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58E82E2A1ADCC26C00828264 /* ofxPanel.cpp */; };
+		58E82E371ADCC26C00828264 /* ofxSlider.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58E82E2C1ADCC26C00828264 /* ofxSlider.cpp */; };
+		58E82E381ADCC26C00828264 /* ofxSliderGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58E82E2E1ADCC26C00828264 /* ofxSliderGroup.cpp */; };
+		58E82E391ADCC26C00828264 /* ofxToggle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58E82E301ADCC26C00828264 /* ofxToggle.cpp */; };
 		58F34A141AD05F7C002DBF4A /* assimp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58F34A091AD05F7C002DBF4A /* assimp.a */; };
 		58F34A151AD05F7C002DBF4A /* ofxAssimpAnimation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58F34A0B1AD05F7C002DBF4A /* ofxAssimpAnimation.cpp */; };
 		58F34A161AD05F7C002DBF4A /* ofxAssimpMeshHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58F34A0D1AD05F7C002DBF4A /* ofxAssimpMeshHelper.cpp */; };
@@ -187,6 +195,23 @@
 		58AE642C1ADB637100390DC3 /* ofxGamepadLinux.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxGamepadLinux.h; sourceTree = "<group>"; };
 		58AE642D1ADB637100390DC3 /* ofxGamepadOIS.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxGamepadOIS.cpp; sourceTree = "<group>"; };
 		58AE642E1ADB637100390DC3 /* ofxGamepadOIS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxGamepadOIS.h; sourceTree = "<group>"; };
+		58E82E211ADCC26C00828264 /* ofxBaseGui.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxBaseGui.cpp; sourceTree = "<group>"; };
+		58E82E221ADCC26C00828264 /* ofxBaseGui.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxBaseGui.h; sourceTree = "<group>"; };
+		58E82E231ADCC26C00828264 /* ofxButton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxButton.cpp; sourceTree = "<group>"; };
+		58E82E241ADCC26C00828264 /* ofxButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxButton.h; sourceTree = "<group>"; };
+		58E82E251ADCC26C00828264 /* ofxGui.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxGui.h; sourceTree = "<group>"; };
+		58E82E261ADCC26C00828264 /* ofxGuiGroup.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxGuiGroup.cpp; sourceTree = "<group>"; };
+		58E82E271ADCC26C00828264 /* ofxGuiGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxGuiGroup.h; sourceTree = "<group>"; };
+		58E82E281ADCC26C00828264 /* ofxLabel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxLabel.cpp; sourceTree = "<group>"; };
+		58E82E291ADCC26C00828264 /* ofxLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxLabel.h; sourceTree = "<group>"; };
+		58E82E2A1ADCC26C00828264 /* ofxPanel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxPanel.cpp; sourceTree = "<group>"; };
+		58E82E2B1ADCC26C00828264 /* ofxPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxPanel.h; sourceTree = "<group>"; };
+		58E82E2C1ADCC26C00828264 /* ofxSlider.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxSlider.cpp; sourceTree = "<group>"; };
+		58E82E2D1ADCC26C00828264 /* ofxSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxSlider.h; sourceTree = "<group>"; };
+		58E82E2E1ADCC26C00828264 /* ofxSliderGroup.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxSliderGroup.cpp; sourceTree = "<group>"; };
+		58E82E2F1ADCC26C00828264 /* ofxSliderGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxSliderGroup.h; sourceTree = "<group>"; };
+		58E82E301ADCC26C00828264 /* ofxToggle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxToggle.cpp; sourceTree = "<group>"; };
+		58E82E311ADCC26C00828264 /* ofxToggle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxToggle.h; sourceTree = "<group>"; };
 		58F349DE1AD05F7C002DBF4A /* addon_config.mk */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = addon_config.mk; sourceTree = "<group>"; };
 		58F349E21AD05F7C002DBF4A /* aiAnim.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aiAnim.h; sourceTree = "<group>"; };
 		58F349E31AD05F7C002DBF4A /* aiAssert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aiAssert.h; sourceTree = "<group>"; };
@@ -734,6 +759,39 @@
 			path = src;
 			sourceTree = "<group>";
 		};
+		58E82E1F1ADCC26C00828264 /* ofxGui */ = {
+			isa = PBXGroup;
+			children = (
+				58E82E201ADCC26C00828264 /* src */,
+			);
+			name = ofxGui;
+			path = ../../../addons/ofxGui;
+			sourceTree = "<group>";
+		};
+		58E82E201ADCC26C00828264 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				58E82E211ADCC26C00828264 /* ofxBaseGui.cpp */,
+				58E82E221ADCC26C00828264 /* ofxBaseGui.h */,
+				58E82E231ADCC26C00828264 /* ofxButton.cpp */,
+				58E82E241ADCC26C00828264 /* ofxButton.h */,
+				58E82E251ADCC26C00828264 /* ofxGui.h */,
+				58E82E261ADCC26C00828264 /* ofxGuiGroup.cpp */,
+				58E82E271ADCC26C00828264 /* ofxGuiGroup.h */,
+				58E82E281ADCC26C00828264 /* ofxLabel.cpp */,
+				58E82E291ADCC26C00828264 /* ofxLabel.h */,
+				58E82E2A1ADCC26C00828264 /* ofxPanel.cpp */,
+				58E82E2B1ADCC26C00828264 /* ofxPanel.h */,
+				58E82E2C1ADCC26C00828264 /* ofxSlider.cpp */,
+				58E82E2D1ADCC26C00828264 /* ofxSlider.h */,
+				58E82E2E1ADCC26C00828264 /* ofxSliderGroup.cpp */,
+				58E82E2F1ADCC26C00828264 /* ofxSliderGroup.h */,
+				58E82E301ADCC26C00828264 /* ofxToggle.cpp */,
+				58E82E311ADCC26C00828264 /* ofxToggle.h */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
 		58F349DD1AD05F7C002DBF4A /* ofxAssimpModelLoader */ = {
 			isa = PBXGroup;
 			children = (
@@ -963,6 +1021,7 @@
 		BB4B014C10F69532006C3DED /* addons */ = {
 			isa = PBXGroup;
 			children = (
+				58E82E1F1ADCC26C00828264 /* ofxGui */,
 				5896E0FB1ADCB69F003E335D /* ofxXmlSettings */,
 				5896E0E31ADCB634003E335D /* ofxGameCamera */,
 				58AE63EC1ADB637100390DC3 /* ofxGamepad */,
@@ -1248,21 +1307,29 @@
 				58AE64361ADB637100390DC3 /* ofxGamepadCamera.cpp in Sources */,
 				E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */,
 				7ADB04AF67C568EAFAEBA546 /* ofxKinectExtras.cpp in Sources */,
+				58E82E331ADCC26C00828264 /* ofxButton.cpp in Sources */,
+				58E82E361ADCC26C00828264 /* ofxPanel.cpp in Sources */,
 				686B0DF6249B52E1A85B39EC /* ofxKinect.cpp in Sources */,
 				58AE64391ADB637100390DC3 /* ofxGamepadOIS.cpp in Sources */,
 				0F8F016776681D468C0D0949 /* audio.c in Sources */,
 				58AE64371ADB637100390DC3 /* ofxGamepadHandler.cpp in Sources */,
 				ACE7DC9A3223ED5EE1B80074 /* cameras.c in Sources */,
+				58E82E321ADCC26C00828264 /* ofxBaseGui.cpp in Sources */,
 				F4135EEFC911E9ED211FB6F9 /* core.c in Sources */,
 				58F34A181AD05F7C002DBF4A /* ofxAssimpTexture.cpp in Sources */,
+				58E82E381ADCC26C00828264 /* ofxSliderGroup.cpp in Sources */,
 				58F34A161AD05F7C002DBF4A /* ofxAssimpMeshHelper.cpp in Sources */,
+				58E82E341ADCC26C00828264 /* ofxGuiGroup.cpp in Sources */,
 				58AE64381ADB637100390DC3 /* ofxGamepadLinux.cpp in Sources */,
 				E55DEEF784A10419E444669E /* flags.c in Sources */,
+				58E82E351ADCC26C00828264 /* ofxLabel.cpp in Sources */,
+				58E82E371ADCC26C00828264 /* ofxSlider.cpp in Sources */,
 				5896E1071ADCB69F003E335D /* ofxXmlSettings.cpp in Sources */,
 				5896E1041ADCB69F003E335D /* tinyxml.cpp in Sources */,
 				21A059755481CC0BF969FD2D /* keep_alive.c in Sources */,
 				FCC16AB16073FF0581F50ED7 /* loader.c in Sources */,
 				5896E0F71ADCB634003E335D /* ofxGameCamera.cpp in Sources */,
+				58E82E391ADCC26C00828264 /* ofxToggle.cpp in Sources */,
 				D31F5C1B140C59B2AF1533A8 /* registration.c in Sources */,
 				58AE64351ADB637100390DC3 /* ofxGamepad.cpp in Sources */,
 				49BEEB2DFA5319D55AA6899F /* tilt.c in Sources */,

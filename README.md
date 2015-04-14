@@ -2,20 +2,33 @@
 
 FUNCTION KEYBOARD CONTROLS!
 
-p = point cloud mode
+w = walk forward
 
-d = diagnostics mode
+a = walk left
 
-f = full screen
+s = walk backwards
+
+d = walk right
+
+e = elevate camera
+
+c = lower camera
+
+
+` / tilda = diagnostics mode
+
+F1 = full screen
+
+F4 = point cloud mode
 
 
 IMAGE WRITER:
 
-l = do framegrab of entire OF window
+F5 = save PNG of entire OF window
 
-r = review last saved file (saved into the data/bin folder)
+F6 = review last saved file (saved into the data/bin folder)
 
-During review mode, press p to go back to live point cloud
+F4 = go back to live point cloud (during review mode)
 
 
 POINT CLOUD ADJUSTMENTS:
@@ -34,6 +47,10 @@ POINT CLOUD ADJUSTMENTS:
 
 
 KINECT MOTOR ADJUSTMENTS:
+
+0 = zero the angle of the kinect
+
+o = return to last set angle
 
 key arrow up = increase angle of Kinect
 

@@ -8,6 +8,7 @@
 #include "ofxGamepadHandler.h"
 #include "ofAppGlutWindow.h"
 #include "ofxGameCamera.h"
+#include "ofxGui.h"
 
 // Windows users:
 // You MUST install the libfreenect kinect drivers in order to be able to use
@@ -36,19 +37,20 @@
 
 
 class ofApp : public ofBaseApp {
+    
 public:
-	
 	void setup();
 	void update();
 	void draw();
 	void exit();
 	
+    // point cloud classes
 	void drawPointCloud();
     void drawPointCloud2();
     
+    // input classes
     void keyPressed(int key);
     void keyReleased(int key);
-    
     void mouseMoved(int x, int y );
     void mouseDragged(int x, int y, int button);
     void mousePressed(int x, int y, int button);
@@ -57,51 +59,54 @@ public:
     void dragEvent(ofDragInfo dragInfo);
     void gotMessage(ofMessage msg);
     
+    // gamepad classes
     void axisChanged(ofxGamepadAxisEvent &e);
     void buttonPressed(ofxGamepadButtonEvent &e);
     void buttonReleased(ofxGamepadButtonEvent &e);
     
-    ofxGameCamera camera;
-     
-	ofxKinect kinect;
-
-#ifdef USE_TWO_KINECTS
-    ofxKinect kinect2;
-#endif
+    // GUI classes
+    void pointCloudSlider(int & pointSize);
     
-    ofImage buildings;
-    ofImage stars;
+    // cameras
+    ofxGameCamera camera;
+    ofEasyCam easyCam;
 	
+    // KINECT VARIABLES
+    ofxKinect kinect;
+    #ifdef USE_TWO_KINECTS
+        ofxKinect kinect2;
+    #endif
 	ofxCvColorImage colorImg;
 	ofxCvGrayscaleImage grayImage; // grayscale depth image
 	ofxCvGrayscaleImage grayThreshNear; // the near thresholded image
 	ofxCvGrayscaleImage grayThreshFar; // the far thresholded image
 	ofxCvContourFinder contourFinder;
-
 	bool bThreshWithOpenCV;
 	bool bDrawPointCloud;
-	
 	int nearThreshold;
 	int farThreshold;
-	
 	int angle;
-    
-    int pointSize;
+    //int pointSize;
     int depthLimit;
-	
-	// used for viewing the point cloud
-	ofEasyCam easyCam;
     
-    //image writer variables
+    // image writer variables
     int snapCounter;
     char snapString[255];
     ofImage img;
     bool bSnapshot;
     bool bReviewLastShot;
-    
     bool bDiagnosticsMode;
     
-    //3d model variables
+    // Universe Within 2D environment assets
+    ofImage buildings;
+    ofImage stars;
+    // Universe Within 3D environment assets
     ofxAssimpModelLoader towers;
     ofxAssimpModelLoader sphere;
+    
+    // GUI variables
+    ofxIntSlider pointSize;
+    ofxPanel gui;
+    
+
 };
