@@ -6,6 +6,8 @@
 #include "ofxAssimpModelLoader.h"
 #include "ofVboMesh.h"
 #include "ofxGamepadHandler.h"
+#include "ofAppGlutWindow.h"
+#include "ofxGameCamera.h"
 
 // Windows users:
 // You MUST install the libfreenect kinect drivers in order to be able to use
@@ -30,7 +32,7 @@
 
 
 //uncomment this to enable gamepad mode
-//#define USE_GAMEPAD
+#define USE_GAMEPAD
 
 
 class ofApp : public ofBaseApp {
@@ -58,6 +60,8 @@ public:
     void axisChanged(ofxGamepadAxisEvent &e);
     void buttonPressed(ofxGamepadButtonEvent &e);
     void buttonReleased(ofxGamepadButtonEvent &e);
+    
+    ofxGameCamera camera;
      
 	ofxKinect kinect;
 

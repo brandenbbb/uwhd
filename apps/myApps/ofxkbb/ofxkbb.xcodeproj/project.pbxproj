@@ -15,6 +15,11 @@
 		255A7B680DC81E543C875794 /* usb_libusb10.c in Sources */ = {isa = PBXBuildFile; fileRef = 28F9707464BA3FF98E05096C /* usb_libusb10.c */; };
 		49BEEB2DFA5319D55AA6899F /* tilt.c in Sources */ = {isa = PBXBuildFile; fileRef = BF2F2AA872288D30F53983EF /* tilt.c */; };
 		5836DAA51ADB6CAB0017C9BD /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5836DAA41ADB6CAB0017C9BD /* Carbon.framework */; };
+		5896E0F71ADCB634003E335D /* ofxGameCamera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5896E0F31ADCB634003E335D /* ofxGameCamera.cpp */; };
+		5896E1041ADCB69F003E335D /* tinyxml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5896E0FD1ADCB69F003E335D /* tinyxml.cpp */; };
+		5896E1051ADCB69F003E335D /* tinyxmlerror.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5896E0FF1ADCB69F003E335D /* tinyxmlerror.cpp */; };
+		5896E1061ADCB69F003E335D /* tinyxmlparser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5896E1001ADCB69F003E335D /* tinyxmlparser.cpp */; };
+		5896E1071ADCB69F003E335D /* ofxXmlSettings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5896E1021ADCB69F003E335D /* ofxXmlSettings.cpp */; };
 		58AE64301ADB637100390DC3 /* libOIS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58AE641B1ADB637100390DC3 /* libOIS.a */; };
 		58AE64351ADB637100390DC3 /* ofxGamepad.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58AE64241ADB637100390DC3 /* ofxGamepad.cpp */; };
 		58AE64361ADB637100390DC3 /* ofxGamepadCamera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58AE64261ADB637100390DC3 /* ofxGamepadCamera.cpp */; };
@@ -120,6 +125,14 @@
 		516717F84C0146512C47A3EC /* ofxCvHaarFinder.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxCvHaarFinder.h; path = ../../../addons/ofxOpenCv/src/ofxCvHaarFinder.h; sourceTree = SOURCE_ROOT; };
 		5836DAA41ADB6CAB0017C9BD /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Carbon.framework; sourceTree = DEVELOPER_DIR; };
 		586A8EC141BDFA82B3B0518C /* config.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = config.h; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/config.h; sourceTree = SOURCE_ROOT; };
+		5896E0F31ADCB634003E335D /* ofxGameCamera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxGameCamera.cpp; sourceTree = "<group>"; };
+		5896E0F41ADCB634003E335D /* ofxGameCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxGameCamera.h; sourceTree = "<group>"; };
+		5896E0FD1ADCB69F003E335D /* tinyxml.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxml.cpp; sourceTree = "<group>"; };
+		5896E0FE1ADCB69F003E335D /* tinyxml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tinyxml.h; sourceTree = "<group>"; };
+		5896E0FF1ADCB69F003E335D /* tinyxmlerror.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxmlerror.cpp; sourceTree = "<group>"; };
+		5896E1001ADCB69F003E335D /* tinyxmlparser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxmlparser.cpp; sourceTree = "<group>"; };
+		5896E1021ADCB69F003E335D /* ofxXmlSettings.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxXmlSettings.cpp; sourceTree = "<group>"; };
+		5896E1031ADCB69F003E335D /* ofxXmlSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxXmlSettings.h; sourceTree = "<group>"; };
 		58AE63ED1ADB637100390DC3 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		58AE63F21ADB637100390DC3 /* EventHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventHelpers.h; sourceTree = "<group>"; };
 		58AE63F31ADB637100390DC3 /* LinuxForceFeedback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinuxForceFeedback.h; sourceTree = "<group>"; };
@@ -515,6 +528,54 @@
 			name = gpu;
 			sourceTree = "<group>";
 		};
+		5896E0E31ADCB634003E335D /* ofxGameCamera */ = {
+			isa = PBXGroup;
+			children = (
+				5896E0F21ADCB634003E335D /* src */,
+			);
+			name = ofxGameCamera;
+			path = ../../../addons/ofxGameCamera;
+			sourceTree = "<group>";
+		};
+		5896E0F21ADCB634003E335D /* src */ = {
+			isa = PBXGroup;
+			children = (
+				5896E0F31ADCB634003E335D /* ofxGameCamera.cpp */,
+				5896E0F41ADCB634003E335D /* ofxGameCamera.h */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		5896E0FB1ADCB69F003E335D /* ofxXmlSettings */ = {
+			isa = PBXGroup;
+			children = (
+				5896E0FC1ADCB69F003E335D /* libs */,
+				5896E1011ADCB69F003E335D /* src */,
+			);
+			name = ofxXmlSettings;
+			path = ../../../addons/ofxXmlSettings;
+			sourceTree = "<group>";
+		};
+		5896E0FC1ADCB69F003E335D /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				5896E0FD1ADCB69F003E335D /* tinyxml.cpp */,
+				5896E0FE1ADCB69F003E335D /* tinyxml.h */,
+				5896E0FF1ADCB69F003E335D /* tinyxmlerror.cpp */,
+				5896E1001ADCB69F003E335D /* tinyxmlparser.cpp */,
+			);
+			path = libs;
+			sourceTree = "<group>";
+		};
+		5896E1011ADCB69F003E335D /* src */ = {
+			isa = PBXGroup;
+			children = (
+				5896E1021ADCB69F003E335D /* ofxXmlSettings.cpp */,
+				5896E1031ADCB69F003E335D /* ofxXmlSettings.h */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
 		58AE63EC1ADB637100390DC3 /* ofxGamepad */ = {
 			isa = PBXGroup;
 			children = (
@@ -902,6 +963,8 @@
 		BB4B014C10F69532006C3DED /* addons */ = {
 			isa = PBXGroup;
 			children = (
+				5896E0FB1ADCB69F003E335D /* ofxXmlSettings */,
+				5896E0E31ADCB634003E335D /* ofxGameCamera */,
 				58AE63EC1ADB637100390DC3 /* ofxGamepad */,
 				58F349DD1AD05F7C002DBF4A /* ofxAssimpModelLoader */,
 				9683228C705CA3FF4F2EA945 /* ofxKinect */,
@@ -1180,6 +1243,8 @@
 			files = (
 				58F34A171AD05F7C002DBF4A /* ofxAssimpModelLoader.cpp in Sources */,
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
+				5896E1051ADCB69F003E335D /* tinyxmlerror.cpp in Sources */,
+				5896E1061ADCB69F003E335D /* tinyxmlparser.cpp in Sources */,
 				58AE64361ADB637100390DC3 /* ofxGamepadCamera.cpp in Sources */,
 				E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */,
 				7ADB04AF67C568EAFAEBA546 /* ofxKinectExtras.cpp in Sources */,
@@ -1193,8 +1258,11 @@
 				58F34A161AD05F7C002DBF4A /* ofxAssimpMeshHelper.cpp in Sources */,
 				58AE64381ADB637100390DC3 /* ofxGamepadLinux.cpp in Sources */,
 				E55DEEF784A10419E444669E /* flags.c in Sources */,
+				5896E1071ADCB69F003E335D /* ofxXmlSettings.cpp in Sources */,
+				5896E1041ADCB69F003E335D /* tinyxml.cpp in Sources */,
 				21A059755481CC0BF969FD2D /* keep_alive.c in Sources */,
 				FCC16AB16073FF0581F50ED7 /* loader.c in Sources */,
+				5896E0F71ADCB634003E335D /* ofxGameCamera.cpp in Sources */,
 				D31F5C1B140C59B2AF1533A8 /* registration.c in Sources */,
 				58AE64351ADB637100390DC3 /* ofxGamepad.cpp in Sources */,
 				49BEEB2DFA5319D55AA6899F /* tilt.c in Sources */,
@@ -1289,7 +1357,7 @@
 					"../../../addons/ofxKinect/libs/libusb-1.0/lib/osx/usb-1.0.a",
 					../../../addons/ofxOpenCv/libs/opencv/lib/osx/opencv.a,
 				);
-				SDKROOT = macosx;
+				SDKROOT = macosx10.9;
 			};
 			name = Debug;
 		};
@@ -1362,7 +1430,7 @@
 					"../../../addons/ofxKinect/libs/libusb-1.0/lib/osx/usb-1.0.a",
 					../../../addons/ofxOpenCv/libs/opencv/lib/osx/opencv.a,
 				);
-				SDKROOT = macosx;
+				SDKROOT = macosx10.9;
 			};
 			name = Release;
 		};

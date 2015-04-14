@@ -6,6 +6,8 @@ void ofApp::setup() {
 	ofSetLogLevel(OF_LOG_VERBOSE);
     
 #ifdef USE_GAMEPAD
+    camera.setup();
+    
     ofxGamepadHandler::get()->enableHotplug();
     
     //CHECK IF THERE EVEN IS A GAMEPAD CONNECTED
@@ -154,8 +156,9 @@ void ofApp::draw() {
          stars.draw(0,0,0);
          */
         
-        // anything within the easyCam begin / end section will move relative to the 3D camera...neato!
-        easyCam.begin();
+        // anything within the camera begin / end section will move relative to the 3D camera...neato!
+        //easyCam.begin();
+        camera.begin();
         
             // 3D star skydome
             sphere.setScale(10,10,10);
@@ -170,7 +173,8 @@ void ofApp::draw() {
             towers.setPosition(0, -100, 0);
             towers.drawFaces();
         
-        easyCam.end();
+        //easyCam.end();
+        camera.end();
         
         /* OLD 2D buildings
         buildings.draw(-200,220);
