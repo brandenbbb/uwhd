@@ -384,7 +384,6 @@ void ofApp::keyPressed (int key) {
 			if (nearThreshold < 0) nearThreshold = 0;
 			break;
         
-        /*
         // decrease / increase point cloud point size controls
         case '[':
             pointSize --;
@@ -393,7 +392,6 @@ void ofApp::keyPressed (int key) {
         case ']':
             pointSize ++;
             break;
-        */
             
 		case 'o':
 			kinect.setCameraTiltAngle(angle); // go back to prev tilt

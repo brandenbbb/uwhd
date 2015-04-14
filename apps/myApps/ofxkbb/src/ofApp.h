@@ -8,7 +8,6 @@
 #include "ofxGamepadHandler.h"
 #include "ofAppGlutWindow.h"
 #include "ofxGameCamera.h"
-#include "ofxGui.h"
 
 // Windows users:
 // You MUST install the libfreenect kinect drivers in order to be able to use
@@ -86,7 +85,7 @@ public:
 	int nearThreshold;
 	int farThreshold;
 	int angle;
-    //int pointSize;
+    int pointSize;
     int depthLimit;
     
     // image writer variables
