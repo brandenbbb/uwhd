@@ -12,7 +12,7 @@
 // uncomment this to read from two kinects simultaneously
 //#define USE_TWO_KINECTS
 
-//uncomment this to enable gamepad mode
+//uncomment this to enable gamepad mode...do not use unless you have Xbox 360 controller / driver setup properly!!!
 //#define USE_GAMEPAD
 
 //uncomment this to enable the kinect point cloud (OR COMMENT THIS IF NO KINECT PLUGGED IN)
@@ -27,7 +27,6 @@
 #ifdef USE_GAMEPAD
     #include "ofxGamepadHandler.h"
 #endif
-
 
 class ofApp : public ofBaseApp {
     
@@ -52,22 +51,11 @@ public:
     void dragEvent(ofDragInfo dragInfo);
     void gotMessage(ofMessage msg);
     
-#ifdef USE_GAMEPAD
-    // gamepad classes
-    void axisChanged(ofxGamepadAxisEvent &e);
-    void buttonPressed(ofxGamepadButtonEvent &e);
-    void buttonReleased(ofxGamepadButtonEvent &e);
-#endif
-    
     // Reza's GUI classes
     void setGUI1();
     ofxUISuperCanvas *gui1;
     ofxUITextInput *textInput;
     bool hideGUI;
-    
-    // cameras
-    ofxGameCamera camera;
-    ofEasyCam easyCam;
 	
     // KINECT VARIABLES
     ofxKinect kinect;
@@ -87,7 +75,7 @@ public:
     int pointSize;
     int depthLimit;
     
-    // image writer variables
+    // image filer writer variables
     int snapCounter;
     char snapString[255];
     ofImage img;
@@ -95,13 +83,29 @@ public:
     bool bReviewLastShot;
     bool bDiagnosticsMode;
     
+#ifdef USE_PHOTOBOOTH
+    // simpler camera for photobooth
+    ofEasyCam easyCam;
+    
     // Universe Within 2D environment assets
     ofImage buildings;
     ofImage stars;
+#endif
+
+#ifdef USE_HOSTMODE
+    // FPS camera
+    ofxGameCamera camera;
+    
+    #ifdef USE_GAMEPAD
+        // gamepad classes
+        void axisChanged(ofxGamepadAxisEvent &e);
+        void buttonPressed(ofxGamepadButtonEvent &e);
+        void buttonReleased(ofxGamepadButtonEvent &e);
+    #endif
+    
     // Universe Within 3D environment assets
     ofxAssimpModelLoader towers;
     ofxAssimpModelLoader sphere;
+#endif
     
-    
-
 };

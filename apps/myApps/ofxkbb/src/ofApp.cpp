@@ -164,8 +164,8 @@ void ofApp::draw() {
             stars.draw(0,0,0);
             easyCam.begin();
             #ifdef USE_KINECT
-                    // Kinect Point Cloud
-                    drawPointCloud();
+                // Kinect Point Cloud
+                drawPointCloud();
             #endif
             easyCam.end();
             // OLD 2D buildings
@@ -182,13 +182,13 @@ void ofApp::draw() {
             sphere.drawFaces();
         
             #ifdef USE_KINECT
-                    // Kinect Point Cloud
-                    drawPointCloud();
+                // Kinect Point Cloud
+                drawPointCloud();
             #endif
         
             #ifdef USE_TWO_KINECTS
-                    // Kinect Point Cloud #2
-                    drawPointCloud2();
+                // Kinect Point Cloud #2
+                drawPointCloud2();
             #endif
         
             // 3D towers!
@@ -223,7 +223,7 @@ void ofApp::draw() {
         
         //gamepad GUI for diagnostics
         #ifdef USE_GAMEPAD
-                ofxGamepadHandler::get()->draw(10,10);
+            ofxGamepadHandler::get()->draw(10,10);
         #endif
 	}
 
@@ -298,11 +298,8 @@ void ofApp::drawPointCloud() {
 	ofPopMatrix();
 }
 
-
 #ifdef USE_TWO_KINECTS
-
     //--------------------------------------------------------------
-
     void ofApp::drawPointCloud2() {
         int w = 640;
         int h = 480;
@@ -328,19 +325,16 @@ void ofApp::drawPointCloud() {
         ofDisableDepthTest();
         ofPopMatrix();
     }
-
 #endif
-
 
 //--------------------------------------------------------------
 void ofApp::exit() {
-	
-// kinect.setCameraTiltAngle(0); // zero the tilt on exit
-kinect.close();
+    // kinect.setCameraTiltAngle(0); // zero the tilt on exit
+    kinect.close();
 
-#ifdef USE_TWO_KINECTS
-    kinect2.close();
-#endif
+    #ifdef USE_TWO_KINECTS
+        kinect2.close();
+    #endif
 }
 
 //--------------------------------------------------------------
@@ -499,24 +493,24 @@ void ofApp::dragEvent(ofDragInfo dragInfo){
 
 
 #ifdef USE_GAMEPAD
-//Gamepad classes
-//--------------------------------------------------------------
+    //Gamepad classes
+    //--------------------------------------------------------------
 
-void ofApp::axisChanged(ofxGamepadAxisEvent& e){
-    cout << "AXIS " << e.axis << " VALUE " << ofToString(e.value) << endl;
-}
-
-void ofApp::buttonPressed(ofxGamepadButtonEvent& e){
-    cout << "BUTTON " << e.button << " PRESSED" << endl;
-    
-    // HOW TO READ BUTTON PRESSES ON THE GAMEPAD!
-    // this checks if A / green button is pressed, then it goes full screen
-    if (e.button == 11){
-            bSnapshot = true;
+    void ofApp::axisChanged(ofxGamepadAxisEvent& e){
+        cout << "AXIS " << e.axis << " VALUE " << ofToString(e.value) << endl;
     }
-}
 
-void ofApp::buttonReleased(ofxGamepadButtonEvent& e){
-    cout << "BUTTON " << e.button << " RELEASED" << endl;
-}
+    void ofApp::buttonPressed(ofxGamepadButtonEvent& e){
+        cout << "BUTTON " << e.button << " PRESSED" << endl;
+
+        // HOW TO READ BUTTON PRESSES ON THE GAMEPAD!
+        // this checks if A / green button is pressed, then it goes full screen
+        if (e.button == 11){
+                bSnapshot = true;
+        }
+    }
+
+    void ofApp::buttonReleased(ofxGamepadButtonEvent& e){
+        cout << "BUTTON " << e.button << " RELEASED" << endl;
+    }
 #endif
