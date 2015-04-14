@@ -5,34 +5,28 @@
 #include "ofxKinect.h"
 #include "ofxAssimpModelLoader.h"
 #include "ofVboMesh.h"
-#include "ofxGamepadHandler.h"
 #include "ofAppGlutWindow.h"
 #include "ofxGameCamera.h"
-
-// Windows users:
-// You MUST install the libfreenect kinect drivers in order to be able to use
-// ofxKinect. Plug in the kinect and point your Windows Device Manager to the
-// driver folder in:
-//
-//     ofxKinect/libs/libfreenect/platform/windows/inf
-//
-// This should install the Kinect camera, motor, & audio drivers.
-//
-// You CANNOT use this driver and the OpenNI driver with the same device. You
-// will have to manually update the kinect device to use the libfreenect drivers
-// and/or uninstall/reinstall it in Device Manager.
-//
-// No way around the Windows driver dance, sorry.
-
-
+#include "ofxUI.h"
 
 // uncomment this to read from two kinects simultaneously
 //#define USE_TWO_KINECTS
 
-
-
 //uncomment this to enable gamepad mode
-#define USE_GAMEPAD
+//#define USE_GAMEPAD
+
+//uncomment this to enable the kinect point cloud (OR COMMENT THIS IF NO KINECT PLUGGED IN)
+//#define USE_KINECT
+
+//uncomment this to enable PHOTOBOOTH mode
+#define USE_PHOTOBOOTH
+
+//uncomment this to enable HOT DOCS HOST mode
+//#define USE_HOSTMODE
+
+#ifdef USE_GAMEPAD
+    #include "ofxGamepadHandler.h"
+#endif
 
 
 class ofApp : public ofBaseApp {
@@ -58,13 +52,18 @@ public:
     void dragEvent(ofDragInfo dragInfo);
     void gotMessage(ofMessage msg);
     
+#ifdef USE_GAMEPAD
     // gamepad classes
     void axisChanged(ofxGamepadAxisEvent &e);
     void buttonPressed(ofxGamepadButtonEvent &e);
     void buttonReleased(ofxGamepadButtonEvent &e);
+#endif
     
-    // GUI classes
-    void pointCloudSlider(int & pointSize);
+    // Reza's GUI classes
+    void setGUI1();
+    ofxUISuperCanvas *gui1;
+    ofxUITextInput *textInput;
+    bool hideGUI;
     
     // cameras
     ofxGameCamera camera;

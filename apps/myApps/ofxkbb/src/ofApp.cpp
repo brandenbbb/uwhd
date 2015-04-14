@@ -3,18 +3,16 @@
 
 //--------------------------------------------------------------
 void ofApp::setup() {
-    // reduce screen tearing
+    /* reduce screen tearing / verbose debug mode
     ofSetVerticalSync(true);
-    
 	ofSetLogLevel(OF_LOG_VERBOSE);
+    */
     
     ofSetFrameRate(60);
     
     #ifdef USE_GAMEPAD
         camera.setup();
-        
         ofxGamepadHandler::get()->enableHotplug();
-        
         //CHECK IF THERE EVEN IS A GAMEPAD CONNECTED
         if(ofxGamepadHandler::get()->getNumPads()>0){
             ofxGamepad* pad = ofxGamepadHandler::get()->getGamepad(0);
@@ -26,7 +24,7 @@ void ofApp::setup() {
 	
 	//enable depth->video image calibration
 	kinect.setRegistration(true);
-    
+
 	kinect.init();
 	//kinect.init(true); // shows infrared instead of RGB video image
 	//kinect.init(false, false); // disable video image (faster fps)
@@ -47,11 +45,6 @@ void ofApp::setup() {
         kinect2.init();
         kinect2.open();
     #endif
-    
-    /* 2D load universe within images
-    buildings.loadImage("images/buildingsBottom.png");
-    stars.loadImage("images/bg.png");
-	*/
     
 	colorImg.allocate(kinect.width, kinect.height);
 	grayImage.allocate(kinect.width, kinect.height);
@@ -92,9 +85,18 @@ void ofApp::setup() {
     bReviewLastShot = false;
     memset(snapString, 0, 255);		// clear the string by setting all chars to 0
     
-    // 3d model load assets
-    towers.loadModel("images/img/3d/towersandtrees.dae");
-    sphere.loadModel("images/img/sphere/skysphere.dae");
+    
+    #ifdef USE_PHOTOBOOTH
+        //2D load universe within images
+        buildings.loadImage("images/buildingsBottom.png");
+        stars.loadImage("images/bg.png");
+    #endif
+    
+    #ifdef USE_HOSTMODE
+        // 3d model load assets
+        towers.loadModel("images/img/3d/towersandtrees.dae");
+        sphere.loadModel("images/img/sphere/skysphere.dae");
+    #endif
 }
 
 
@@ -102,9 +104,9 @@ void ofApp::setup() {
 //--------------------------------------------------------------
 void ofApp::update() {
 	
-	//ofBackground(0, 0, 0);
-	
-	kinect.update();
+    //ofBackground(0, 0, 0);
+
+    kinect.update();
     
 #ifdef USE_TWO_KINECTS
     kinect2.update();
@@ -153,33 +155,54 @@ void ofApp::draw() {
 	ofSetColor(255, 255, 255);
     
     if(bDrawPointCloud == true) {
-        /* OLD 2D stars draw
+    
+    #ifdef USE_PHOTOBOOTH
+        // OLD 2D stars draw
          stars.draw(0,0,0);
-         */
+    #endif
         
         // anything within the camera begin / end section will move relative to the 3D camera...neato!
-        // easyCam.begin();
+    #ifdef USE_PHOTOBOOTH
+        easyCam.begin();
+    #endif
+
+    #ifdef USE_HOSTMODE
         camera.begin();
+    #endif
         
-            // 3D star skydome
+    #ifdef USE_HOSTMODE
+        // 3D star skydome
             sphere.setScale(10,10,10);
             sphere.drawFaces();
+    #endif
+        
             // Kinect Point Cloud
-            drawPointCloud();
+            #ifdef USE_KINECT
+                drawPointCloud();
+            #endif
+            // Kinect Point Cloud #2
             #ifdef USE_TWO_KINECTS
                 drawPointCloud2();
             #endif
-            // 3D towers!
+    
+    #ifdef USE_HOSTMODE
+        // 3D towers!
             towers.setScale(.5, -.5, .5);
             towers.setPosition(0, -100, 0);
             towers.drawFaces();
+    #endif
         
-        // easyCam.end();
-        camera.end();
-        
-        /* OLD 2D buildings
+    #ifdef USE_PHOTOBOOTH
+        easyCam.end();
+        // OLD 2D buildings
         buildings.draw(-200,220);
-        */
+    #endif
+        
+    #ifdef USE_HOSTMODE
+        camera.end();
+    #endif
+        
+        
         
             // image file writer code
             // need to add in code so you can enter in name via GUI / not overwrite older files
@@ -306,7 +329,7 @@ void ofApp::drawPointCloud() {
         ofPushMatrix();
         // the projected points are 'upside down' and 'backwards'
         ofScale(-1, -1, 1);
-        ofTranslate(0, 0, -1000); // center the points a bit
+        ofTranslate(0, 0, -1850); // center the points a bit;
         ofEnableDepthTest();
         mesh2.drawVertices();
         ofDisableDepthTest();
@@ -318,8 +341,9 @@ void ofApp::drawPointCloud() {
 
 //--------------------------------------------------------------
 void ofApp::exit() {
-	// kinect.setCameraTiltAngle(0); // zero the tilt on exit
-	kinect.close();
+	
+// kinect.setCameraTiltAngle(0); // zero the tilt on exit
+kinect.close();
 
 #ifdef USE_TWO_KINECTS
     kinect2.close();
@@ -481,27 +505,25 @@ void ofApp::dragEvent(ofDragInfo dragInfo){
 }
 
 
-
+#ifdef USE_GAMEPAD
 //Gamepad classes
 //--------------------------------------------------------------
 
-void ofApp::axisChanged(ofxGamepadAxisEvent& e)
-{
+void ofApp::axisChanged(ofxGamepadAxisEvent& e){
     cout << "AXIS " << e.axis << " VALUE " << ofToString(e.value) << endl;
 }
 
-void ofApp::buttonPressed(ofxGamepadButtonEvent& e)
-{
+void ofApp::buttonPressed(ofxGamepadButtonEvent& e){
     cout << "BUTTON " << e.button << " PRESSED" << endl;
     
     // HOW TO READ BUTTON PRESSES ON THE GAMEPAD!
     // this checks if A / green button is pressed, then it goes full screen
     if (e.button == 11){
-            ofToggleFullscreen();
+            bSnapshot = true;
     }
 }
 
-void ofApp::buttonReleased(ofxGamepadButtonEvent& e)
-{
+void ofApp::buttonReleased(ofxGamepadButtonEvent& e){
     cout << "BUTTON " << e.button << " RELEASED" << endl;
 }
+#endif

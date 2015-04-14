@@ -1,6 +1,17 @@
 # uwhd
 
-REQUIRES XBOX 360 controller driver to be installed which is in the root folder
+APRIL 14: added switch in ofApp.h - simply comment / uncomment to enable which mode you want to use:
+USE_KINECT - if both this and USE_TWO_KINECTS are commented out, it will disable all Kinect stuff for debugging purposes
+
+USE_TWO_KINECTS - use two kinect point clouds
+
+USE_GAMEPAD - use Xbox360 gamepad
+*REQUIRES XBOX 360 controller driver to be installed which is in the root folder
+
+USE_PHOTOBOOTH - enable photobooth mode with 2D backgrounds and peasy camera instead of FPS camera
+
+USE_HOSTMODE - enable Hot Docs live host mode
+
 
 FUNCTION KEYBOARD CONTROLS!
 
