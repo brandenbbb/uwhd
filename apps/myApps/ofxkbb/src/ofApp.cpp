@@ -209,7 +209,7 @@ void ofApp::draw() {
         if (bSnapshot == true){
             // capture entire OF screen; image is same resolution as OF window
             img.grabScreen(0, 0, ofGetWidth(), ofGetHeight());
-            string fileName = emailFile.c_str()+ofToString(snapCounter)+".png";
+            string fileName = emailFile.c_str() + ofToString(snapCounter) + ".png";
             img.saveImage(fileName);
             sprintf(snapString, "saved %s", fileName.c_str());
             snapCounter++;
