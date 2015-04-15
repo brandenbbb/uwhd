@@ -1,7 +1,7 @@
 dependencies: \
-  /Users/NFBHRS031/Desktop/uwhd/libs/openFrameworks/math/ofQuaternion.cpp \
+  /Users/mav/Desktop/git/uwhd/libs/openFrameworks/math/ofQuaternion.cpp \
   ../../../../libs/openFrameworks/math/ofQuaternion.h \
-  /Users/NFBHRS031/Desktop/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/utils/ofConstants.h \
+  /Users/mav/Desktop/git/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/utils/ofConstants.h \
   ../../../../libs/glew/include/GL/glew.h \
   ../../../../libs/tess2/include/tesselator.h \
   ../../../../libs/openFrameworks/math/ofVec3f.h \
@@ -9,4 +9,4 @@ dependencies: \
   ../../../../libs/openFrameworks/math/ofVec4f.h \
   ../../../../libs/openFrameworks/math/ofMatrix4x4.h \
   ../../../../libs/openFrameworks/math/ofMath.h \
-  /Users/NFBHRS031/Desktop/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/types/ofPoint.h
+  /Users/mav/Desktop/git/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/types/ofPoint.h

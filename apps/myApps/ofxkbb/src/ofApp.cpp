@@ -82,17 +82,18 @@ void ofApp::setup() {
 	bDrawPointCloud = true;
     
     // image file writer settings
-    // need to add code to not overwrite files
     snapCounter = 0;
     bSnapshot = false;
     bReviewLastShot = false;
     memset(snapString, 0, 255);		// clear the string by setting all chars to 0
     
-    
     #ifdef USE_PHOTOBOOTH
         //2D load universe within images
         buildings.loadImage("images/buildingsBottom.png");
         stars.loadImage("images/bg.png");
+    
+        photoBoothGUI();
+        pboothGUI->loadSettings("photoBoothSettings.xml");
     #endif
     
     #ifdef USE_HOSTMODE
@@ -197,9 +198,14 @@ void ofApp::draw() {
             towers.drawFaces();
             camera.end();
         #endif
-            
+        
+        
+        
+        
+        
+        
+        
         // image file writer code
-        // need to add in code so you can enter in name via GUI / not overwrite older files
         if (bSnapshot == true){
             // capture entire OF screen; image is same resolution as OF window
             img.grabScreen(0, 0, ofGetWidth(), ofGetHeight());
@@ -210,6 +216,10 @@ void ofApp::draw() {
             bSnapshot = false;
         }
 
+        
+        
+        
+        
         // show the framegrab on screen if the review photo button is pressed
         // need to add code to display the filename
         if (bReviewLastShot == true){
@@ -328,6 +338,25 @@ void ofApp::drawPointCloud() {
 #endif
 
 //--------------------------------------------------------------
+void ofApp::guiEvent(ofxUIEventArgs &e)
+{
+    string name = e.getName();
+    int kind = e.getKind();
+    cout << "got event from: " << name << endl;
+    
+    if(name == "TEXT INPUT")
+    {
+        ofxUITextInput *email = (ofxUITextInput *) e.widget;
+        if(email->getInputTriggerType() == OFX_UI_TEXTINPUT_ON_ENTER)
+        {
+            cout << "ON ENTER: ";
+        }
+        string emailFile = email->getTextString();
+        cout << emailFile << endl;
+    }
+}
+
+//--------------------------------------------------------------
 void ofApp::exit() {
     // kinect.setCameraTiltAngle(0); // zero the tilt on exit
     kinect.close();
@@ -335,7 +364,28 @@ void ofApp::exit() {
     #ifdef USE_TWO_KINECTS
         kinect2.close();
     #endif
+    
+    pboothGUI->saveSettings("photoBoothSettings.xml");
+    delete pboothGUI;
 }
+
+
+//--------------------------------------------------------------
+
+void ofApp::photoBoothGUI(){
+    pboothGUI = new ofxUISuperCanvas("EMAIL");
+    
+    pboothGUI->addSpacer();
+    pboothGUI->setWidgetFontSize(OFX_UI_FONT_MEDIUM);
+    email = pboothGUI->addTextInput("TEXT INPUT", "Input Text");
+    email->setAutoUnfocus(false);
+    pboothGUI->addLabel("AUTO CLEAR DISABLED", OFX_UI_FONT_SMALL);
+    pboothGUI->addTextInput("TEXT INPUT2", "Input Text")->setAutoClear(false);
+    pboothGUI->setWidgetFontSize(OFX_UI_FONT_MEDIUM);
+    
+    ofAddListener(pboothGUI->newGUIEvent,this,&ofApp::guiEvent);
+}
+
 
 //--------------------------------------------------------------
 void ofApp::keyPressed (int key) {

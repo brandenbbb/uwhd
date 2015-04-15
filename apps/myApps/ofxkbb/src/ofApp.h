@@ -19,10 +19,10 @@
 //#define USE_KINECT
 
 //uncomment this to enable PHOTOBOOTH mode
-//#define USE_PHOTOBOOTH
+#define USE_PHOTOBOOTH
 
 //uncomment this to enable HOT DOCS HOST mode
-#define USE_HOSTMODE
+//#define USE_HOSTMODE
 
 #ifdef USE_GAMEPAD
     #include "ofxGamepadHandler.h"
@@ -52,10 +52,13 @@ public:
     void gotMessage(ofMessage msg);
     
     // Reza's GUI classes
-    void setGUI1();
-    ofxUISuperCanvas *gui1;
-    ofxUITextInput *textInput;
+    void photoBoothGUI();
+    ofxUISuperCanvas *pboothGUI;
+    ofxUITextInput *email;
+    string emailFile;
     bool hideGUI;
+    void guiEvent(ofxUIEventArgs &e);
+    
 	
     // KINECT VARIABLES
     ofxKinect kinect;
