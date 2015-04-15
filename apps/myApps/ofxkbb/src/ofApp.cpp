@@ -200,11 +200,6 @@ void ofApp::draw() {
         #endif
         
         
-        
-        
-        
-        
-        
         // image file writer code
         if (bSnapshot == true){
             // capture entire OF screen; image is same resolution as OF window
@@ -215,11 +210,8 @@ void ofApp::draw() {
             snapCounter++;
             bSnapshot = false;
         }
+        
 
-        
-        
-        
-        
         // show the framegrab on screen if the review photo button is pressed
         // need to add code to display the filename
         if (bReviewLastShot == true){
