@@ -7,11 +7,6 @@
 </Canvas>
 <Widget>
     <Kind>12</Kind>
-    <Name>TEXT INPUT</Name>
-    <Value>Input Text</Value>
-</Widget>
-<Widget>
-    <Kind>12</Kind>
-    <Name>TEXT INPUT2</Name>
-    <Value>Input Text</Value>
+    <Name>EMAIL</Name>
+    <Value></Value>
 </Widget>

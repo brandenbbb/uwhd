@@ -209,7 +209,7 @@ void ofApp::draw() {
         if (bSnapshot == true){
             // capture entire OF screen; image is same resolution as OF window
             img.grabScreen(0, 0, ofGetWidth(), ofGetHeight());
-            string fileName = "NFB_HIGHRISE_Universe_Within_Hot_Docs_"+ofToString(snapCounter)+".png";
+            string fileName = emailFile.c_str()+ofToString(snapCounter)+".png";
             img.saveImage(fileName);
             sprintf(snapString, "saved %s", fileName.c_str());
             snapCounter++;
@@ -344,14 +344,14 @@ void ofApp::guiEvent(ofxUIEventArgs &e)
     int kind = e.getKind();
     cout << "got event from: " << name << endl;
     
-    if(name == "TEXT INPUT")
+    if(name == "EMAIL")
     {
         ofxUITextInput *email = (ofxUITextInput *) e.widget;
         if(email->getInputTriggerType() == OFX_UI_TEXTINPUT_ON_ENTER)
         {
             cout << "ON ENTER: ";
         }
-        string emailFile = email->getTextString();
+        emailFile = email->getTextString();
         cout << emailFile << endl;
     }
 }
@@ -377,10 +377,9 @@ void ofApp::photoBoothGUI(){
     
     pboothGUI->addSpacer();
     pboothGUI->setWidgetFontSize(OFX_UI_FONT_MEDIUM);
-    email = pboothGUI->addTextInput("TEXT INPUT", "Input Text");
-    email->setAutoUnfocus(false);
-    pboothGUI->addLabel("AUTO CLEAR DISABLED", OFX_UI_FONT_SMALL);
-    pboothGUI->addTextInput("TEXT INPUT2", "Input Text")->setAutoClear(false);
+    email = pboothGUI->addTextInput("EMAIL", "");
+    emailFile = ofToString(email);
+    pboothGUI->addLabel("FILENAME", OFX_UI_FONT_SMALL);
     pboothGUI->setWidgetFontSize(OFX_UI_FONT_MEDIUM);
     
     ofAddListener(pboothGUI->newGUIEvent,this,&ofApp::guiEvent);
