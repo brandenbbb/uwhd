@@ -56,6 +56,7 @@ public:
     ofxUISuperCanvas *pboothGUI;
     ofxUITextInput *email;
     string emailFile;
+    string fileName;
     bool hideGUI;
     void guiEvent(ofxUIEventArgs &e);
     

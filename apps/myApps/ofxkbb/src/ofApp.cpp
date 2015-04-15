@@ -203,13 +203,17 @@ void ofApp::draw() {
         // image file writer code
         if (bSnapshot == true){
             // capture entire OF screen; image is same resolution as OF window
+            // automatically reviews last frame taken
             img.grabScreen(0, 0, ofGetWidth(), ofGetHeight());
             string underScore = "_";
-            string fileName = emailFile.c_str() + ofToString(underScore) + ofToString(snapCounter) + ".png";
+            fileName = emailFile.c_str() + ofToString(underScore) + ofToString(snapCounter) + ".png";
             img.saveImage(fileName);
             sprintf(snapString, "saved %s", fileName.c_str());
             snapCounter++;
+            pboothGUI->addLabel(fileName, OFX_UI_FONT_SMALL);
+            pboothGUI->setWidgetFontSize(OFX_UI_FONT_MEDIUM);
             bSnapshot = false;
+            bReviewLastShot = true;
         }
         
 
@@ -372,8 +376,7 @@ void ofApp::photoBoothGUI(){
     pboothGUI->setWidgetFontSize(OFX_UI_FONT_MEDIUM);
     email = pboothGUI->addTextInput("EMAIL", "");
     emailFile = ofToString(email);
-    pboothGUI->addLabel("FILENAME", OFX_UI_FONT_SMALL);
-    pboothGUI->setWidgetFontSize(OFX_UI_FONT_MEDIUM);
+    
     
     ofAddListener(pboothGUI->newGUIEvent,this,&ofApp::guiEvent);
 }
