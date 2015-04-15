@@ -35,11 +35,13 @@ F1 = full screen
 F4 = point cloud mode / live mode
 
 
-IMAGE WRITER:
+IMAGE WRITER / PHOTOBOOTH MODE:
 
 ENTER person's email address in the text box and press enter
 
 Then press F5 to take a snapshot...it will automatically save out the PNG file with their email in it as well as a numerator at the end - i.e. user@user.com_01.png.  It will then automatically go into review mode and will display the last image taken and you can see the file name of the image it is displaying in the text box on the left.  You press F4 to go back to the live mode.  The images end up in the /data/ folder.
+
+Photobooth mode camera controls are click and drag mouse to rotate the environment.  Right click and mouse in / out to zoom in / zoom out.  NOTE: if first-person-camera WASD style gaming camera controls are preferred for the photobooth, they can be enabled here too with the flick of a switch.
 
 F5 = save PNG of entire OF window
 
