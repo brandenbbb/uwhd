@@ -19,10 +19,10 @@
 #define USE_KINECT
 
 //uncomment this to enable PHOTOBOOTH mode
-#define USE_PHOTOBOOTH
+//#define USE_PHOTOBOOTH
 
 //uncomment this to enable HOT DOCS HOST mode
-//#define USE_HOSTMODE
+#define USE_HOSTMODE
 
 #ifdef USE_GAMEPAD
     #include "ofxGamepadHandler.h"
@@ -36,9 +36,15 @@ public:
 	void draw();
 	void exit();
 	
+#ifdef USE_KINECT
     // point cloud classes
 	void drawPointCloud();
+#endif
+    
+#ifdef USE_TWO_KINECTS
+    ofxKinect kinect2;
     void drawPointCloud2();
+#endif
     
     // input classes
     void keyPressed(int key);
@@ -51,6 +57,7 @@ public:
     void dragEvent(ofDragInfo dragInfo);
     void gotMessage(ofMessage msg);
     
+#ifdef USE_PHOTOBOOTH
     // Reza's GUI classes
     void photoBoothGUI();
     ofxUISuperCanvas *pboothGUI;
@@ -59,13 +66,11 @@ public:
     string fileName;
     bool hideGUI;
     void guiEvent(ofxUIEventArgs &e);
+#endif
     
 	
     // KINECT VARIABLES
     ofxKinect kinect;
-    #ifdef USE_TWO_KINECTS
-        ofxKinect kinect2;
-    #endif
 	ofxCvColorImage colorImg;
 	ofxCvGrayscaleImage grayImage; // grayscale depth image
 	ofxCvGrayscaleImage grayThreshNear; // the near thresholded image
@@ -86,14 +91,17 @@ public:
     bool bSnapshot;
     bool bReviewLastShot;
     bool bDiagnosticsMode;
-    
+
+#ifdef USE_PHOTOBOOTH
     // simpler camera for photobooth
     ofEasyCam easyCam;
     
     // Universe Within 2D environment assets
     ofImage buildings;
     ofImage stars;
+#endif
 
+#ifdef USE_KINECT
     // FPS camera
     ofxGameCamera camera;
     
@@ -107,4 +115,5 @@ public:
     // Universe Within 3D environment assets
     ofxAssimpModelLoader towers;
     ofxAssimpModelLoader sphere;
+#endif
 };
