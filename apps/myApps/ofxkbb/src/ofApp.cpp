@@ -284,7 +284,7 @@ void ofApp::drawPointCloud() {
 	int h = 480;
 	ofMesh mesh;
 	mesh.setMode(OF_PRIMITIVE_POINTS);
-	int step = 1;
+	int step = 2;
 	for(int y = 0; y < h; y += step) {
 		for(int x = 0; x < w; x += step) {
 			if(kinect.getDistanceAt(x, y) < depthLimit) {
@@ -312,7 +312,7 @@ void ofApp::drawPointCloud() {
         int h = 480;
         ofMesh mesh2;
         mesh2.setMode(OF_PRIMITIVE_POINTS);
-        int step = 1;
+        int step = 2;
         for(int y = 0; y < h; y += step) {
             for(int x = 0; x < w; x += step) {
                 if(kinect2.getDistanceAt(x, y) < depthLimit) {
@@ -362,10 +362,8 @@ void ofApp::exit() {
         kinect2.close();
     #endif
     
-    #ifdef USE_PHOTOBOOTH
-        pboothGUI->saveSettings("photoBoothSettings.xml");
-        delete pboothGUI;
-    #endif
+    pboothGUI->saveSettings("photoBoothSettings.xml");
+    delete pboothGUI;
 }
 
 
