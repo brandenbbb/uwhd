@@ -1,10 +1,10 @@
 dependencies: \
-  /Users/mav/Desktop/git/uwhd/libs/openFrameworks/gl/ofLight.cpp \
+  /Users/NFBHRS031/Desktop/uwhd/libs/openFrameworks/gl/ofLight.cpp \
   ../../../../libs/openFrameworks/gl/ofLight.h \
-  /Users/mav/Desktop/git/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/3d/ofNode.h \
-  /Users/mav/Desktop/git/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/math/ofVectorMath.h \
+  /Users/NFBHRS031/Desktop/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/3d/ofNode.h \
+  /Users/NFBHRS031/Desktop/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/math/ofVectorMath.h \
   ../../../../libs/openFrameworks/math/ofVec2f.h \
-  /Users/mav/Desktop/git/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/utils/ofConstants.h \
+  /Users/NFBHRS031/Desktop/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/utils/ofConstants.h \
   ../../../../libs/glew/include/GL/glew.h \
   ../../../../libs/tess2/include/tesselator.h \
   ../../../../libs/openFrameworks/math/ofVec3f.h \
@@ -13,12 +13,12 @@ dependencies: \
   ../../../../libs/openFrameworks/math/ofMatrix4x4.h \
   ../../../../libs/openFrameworks/math/ofQuaternion.h \
   ../../../../libs/openFrameworks/3d/of3dUtils.h \
-  /Users/mav/Desktop/git/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/graphics/ofGraphics.h \
-  /Users/mav/Desktop/git/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/types/ofColor.h \
-  /Users/mav/Desktop/git/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/math/ofMath.h \
-  /Users/mav/Desktop/git/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/types/ofPoint.h \
-  /Users/mav/Desktop/git/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/types/ofRectangle.h \
-  /Users/mav/Desktop/git/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/utils/ofLog.h \
+  /Users/NFBHRS031/Desktop/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/graphics/ofGraphics.h \
+  /Users/NFBHRS031/Desktop/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/types/ofColor.h \
+  /Users/NFBHRS031/Desktop/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/math/ofMath.h \
+  /Users/NFBHRS031/Desktop/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/types/ofPoint.h \
+  /Users/NFBHRS031/Desktop/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/types/ofRectangle.h \
+  /Users/NFBHRS031/Desktop/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/utils/ofLog.h \
   ../../../../libs/openFrameworks/utils/ofFileUtils.h \
   ../../../../libs/poco/include/Poco/File.h \
   ../../../../libs/poco/include/Poco/Foundation.h \
@@ -29,22 +29,22 @@ dependencies: \
   ../../../../libs/poco/include/Poco/Types.h \
   ../../../../libs/poco/include/Poco/Timestamp.h \
   ../../../../libs/poco/include/Poco/File_UNIX.h \
-  /Users/mav/Desktop/git/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/types/ofTypes.h \
+  /Users/NFBHRS031/Desktop/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/types/ofTypes.h \
   ../../../../libs/poco/include/Poco/Mutex.h \
   ../../../../libs/poco/include/Poco/Exception.h \
   ../../../../libs/poco/include/Poco/ScopedLock.h \
   ../../../../libs/poco/include/Poco/Mutex_POSIX.h \
-  /Users/mav/Desktop/git/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/types/ofBaseTypes.h \
-  /Users/mav/Desktop/git/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/3d/ofMesh.h \
-  /Users/mav/Desktop/git/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/utils/ofUtils.h \
+  /Users/NFBHRS031/Desktop/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/types/ofBaseTypes.h \
+  /Users/NFBHRS031/Desktop/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/3d/ofMesh.h \
+  /Users/NFBHRS031/Desktop/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/utils/ofUtils.h \
   ../../../../libs/poco/include/Poco/Path.h \
-  /Users/mav/Desktop/git/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/gl/ofGLUtils.h \
-  /Users/mav/Desktop/git/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/graphics/ofPixels.h \
-  /Users/mav/Desktop/git/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/graphics/of3dGraphics.h \
-  /Users/mav/Desktop/git/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/gl/ofGLRenderer.h \
-  /Users/mav/Desktop/git/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/graphics/ofPolyline.h \
-  /Users/mav/Desktop/git/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/utils/ofMatrixStack.h \
-  /Users/mav/Desktop/git/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/3d/of3dPrimitives.h \
-  /Users/mav/Desktop/git/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/gl/ofVboMesh.h \
+  /Users/NFBHRS031/Desktop/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/gl/ofGLUtils.h \
+  /Users/NFBHRS031/Desktop/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/graphics/ofPixels.h \
+  /Users/NFBHRS031/Desktop/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/graphics/of3dGraphics.h \
+  /Users/NFBHRS031/Desktop/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/gl/ofGLRenderer.h \
+  /Users/NFBHRS031/Desktop/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/graphics/ofPolyline.h \
+  /Users/NFBHRS031/Desktop/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/utils/ofMatrixStack.h \
+  /Users/NFBHRS031/Desktop/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/3d/of3dPrimitives.h \
+  /Users/NFBHRS031/Desktop/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/gl/ofVboMesh.h \
   ../../../../libs/openFrameworks/gl/ofVbo.h \
-  /Users/mav/Desktop/git/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/gl/ofTexture.h
+  /Users/NFBHRS031/Desktop/uwhd/libs/openFrameworksCompiled/project/osx/../../../openFrameworks/gl/ofTexture.h

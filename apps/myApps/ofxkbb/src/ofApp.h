@@ -87,13 +87,16 @@ public:
     bool bReviewLastShot;
     bool bDiagnosticsMode;
     
+#ifdef USE_PHOTOBOOTH
     // simpler camera for photobooth
     ofEasyCam easyCam;
     
     // Universe Within 2D environment assets
     ofImage buildings;
     ofImage stars;
+#endif
 
+#ifdef USE_HOSTMODE
     // FPS camera
     ofxGameCamera camera;
     
@@ -107,4 +110,6 @@ public:
     // Universe Within 3D environment assets
     ofxAssimpModelLoader towers;
     ofxAssimpModelLoader sphere;
+#endif
+    
 };
