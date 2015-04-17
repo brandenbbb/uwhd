@@ -19,10 +19,10 @@
 #define USE_KINECT
 
 //uncomment this to enable PHOTOBOOTH mode
-//#define USE_PHOTOBOOTH
+#define USE_PHOTOBOOTH
 
 //uncomment this to enable HOT DOCS HOST mode
-#define USE_HOSTMODE
+//#define USE_HOSTMODE
 
 #ifdef USE_GAMEPAD
     #include "ofxGamepadHandler.h"
@@ -87,16 +87,13 @@ public:
     bool bReviewLastShot;
     bool bDiagnosticsMode;
     
-#ifdef USE_PHOTOBOOTH
     // simpler camera for photobooth
     ofEasyCam easyCam;
     
     // Universe Within 2D environment assets
     ofImage buildings;
     ofImage stars;
-#endif
 
-#ifdef USE_HOSTMODE
     // FPS camera
     ofxGameCamera camera;
     
@@ -110,6 +107,4 @@ public:
     // Universe Within 3D environment assets
     ofxAssimpModelLoader towers;
     ofxAssimpModelLoader sphere;
-#endif
-    
 };

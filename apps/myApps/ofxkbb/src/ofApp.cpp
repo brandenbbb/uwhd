@@ -209,8 +209,10 @@ void ofApp::draw() {
             img.saveImage(fileName);
             sprintf(snapString, "saved %s", fileName.c_str());
             snapCounter++;
-            pboothGUI->addLabel(fileName, OFX_UI_FONT_SMALL);
-            pboothGUI->setWidgetFontSize(OFX_UI_FONT_MEDIUM);
+            #ifdef USE_PHOTOBOOTH
+                pboothGUI->addLabel(fileName, OFX_UI_FONT_SMALL);
+                pboothGUI->setWidgetFontSize(OFX_UI_FONT_MEDIUM);
+            #endif
             bSnapshot = false;
             bReviewLastShot = true;
         }
@@ -272,7 +274,6 @@ void ofApp::draw() {
         
         ofDrawBitmapString(reportStream.str(), 20, 652);
 	}
-	
 }
 
 
@@ -361,11 +362,14 @@ void ofApp::exit() {
         kinect2.close();
     #endif
     
-    pboothGUI->saveSettings("photoBoothSettings.xml");
-    delete pboothGUI;
+    #ifdef USE_PHOTOBOOTH
+        pboothGUI->saveSettings("photoBoothSettings.xml");
+        delete pboothGUI;
+    #endif
 }
 
 
+#ifdef USE_PHOTOBOOTH
 //--------------------------------------------------------------
 
 void ofApp::photoBoothGUI(){
@@ -376,9 +380,9 @@ void ofApp::photoBoothGUI(){
     email = pboothGUI->addTextInput("EMAIL", "");
     emailFile = ofToString(email);
     
-    
     ofAddListener(pboothGUI->newGUIEvent,this,&ofApp::guiEvent);
 }
+#endif
 
 
 //--------------------------------------------------------------
