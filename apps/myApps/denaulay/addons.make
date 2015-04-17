@@ -1,0 +1,4 @@
+ofxGui
+ofxKinect
+ofxDelaunay
+ofxPostProcessing

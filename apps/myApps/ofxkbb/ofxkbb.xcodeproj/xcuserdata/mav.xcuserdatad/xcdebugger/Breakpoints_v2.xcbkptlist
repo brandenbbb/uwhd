@@ -17,6 +17,36 @@
             endingLineNumber = "61"
             landmarkName = "class ofApp"
             landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "non-virtual thunk to ofApp::~ofApp()"
+                  moduleName = "ofxkbb"
+                  urlString = "file:///Users/mav/Desktop/git/uwhd/apps/myApps/ofxkbb/src/ofApp.h"
+                  timestampString = "450933804.742552"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "505"
+                  endingLineNumber = "505"
+                  offsetFromSymbolStart = "9">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "non-virtual thunk to ofApp::~ofApp()"
+                  moduleName = "ofxkbb"
+                  urlString = "file:///Users/mav/Desktop/git/uwhd/apps/myApps/ofxkbb/src/ofApp.h"
+                  timestampString = "450933804.743024"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "505"
+                  endingLineNumber = "505"
+                  offsetFromSymbolStart = "11">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -26,11 +56,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "src/ofApp.cpp"
-            timestampString = "450771703.167994"
+            timestampString = "450933654.32846"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "529"
-            endingLineNumber = "529"
+            startingLineNumber = "497"
+            endingLineNumber = "497"
             landmarkName = "ofApp::windowResized(int w, int h)"
             landmarkType = "5">
          </BreakpointContent>
