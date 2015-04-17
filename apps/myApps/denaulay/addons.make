@@ -1,4 +1,0 @@
-ofxGui
-ofxKinect
-ofxDelaunay
-ofxPostProcessing

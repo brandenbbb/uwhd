@@ -19,10 +19,10 @@
 #define USE_KINECT
 
 //uncomment this to enable PHOTOBOOTH mode
-//#define USE_PHOTOBOOTH
+#define USE_PHOTOBOOTH
 
 //uncomment this to enable HOT DOCS HOST mode
-#define USE_HOSTMODE
+//#define USE_HOSTMODE
 
 #ifdef USE_GAMEPAD
     #include "ofxGamepadHandler.h"

@@ -852,7 +852,7 @@
 				OBJROOT = "$(SRCROOT)/../../lib/osx/build/debug/";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = openFrameworksDebug;
-				SDKROOT = macosx10.9;
+				SDKROOT = "";
 			};
 			name = Debug;
 		};
@@ -885,7 +885,7 @@
 				OBJROOT = "$(SRCROOT)/../../lib/osx/build/release/";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = openFrameworks;
-				SDKROOT = macosx10.9;
+				SDKROOT = "";
 			};
 			name = Release;
 		};

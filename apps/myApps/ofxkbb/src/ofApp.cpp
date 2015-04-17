@@ -3,9 +3,10 @@
 
 //--------------------------------------------------------------
 void ofApp::setup() {
-    // reduce screen tearing / verbose debug mode
-    // ofSetVerticalSync(true);
+    /* reduce screen tearing / verbose debug mode
+    ofSetVerticalSync(true);
 	ofSetLogLevel(OF_LOG_VERBOSE);
+    */
     
     ofSetFrameRate(60);
     
@@ -283,7 +284,7 @@ void ofApp::drawPointCloud() {
 	int h = 480;
 	ofMesh mesh;
 	mesh.setMode(OF_PRIMITIVE_POINTS);
-	int step = 1;
+	int step = 2;
 	for(int y = 0; y < h; y += step) {
 		for(int x = 0; x < w; x += step) {
 			if(kinect.getDistanceAt(x, y) < depthLimit) {
@@ -311,7 +312,7 @@ void ofApp::drawPointCloud() {
         int h = 480;
         ofMesh mesh2;
         mesh2.setMode(OF_PRIMITIVE_POINTS);
-        int step = 1;
+        int step = 2;
         for(int y = 0; y < h; y += step) {
             for(int x = 0; x < w; x += step) {
                 if(kinect2.getDistanceAt(x, y) < depthLimit) {
@@ -469,6 +470,37 @@ void ofApp::keyPressed (int key) {
 			if(angle<-30) angle=-30;
 			kinect.setCameraTiltAngle(angle);
 			break;
+            
+        // non-essential key / kinect LED commands etc
+        /*
+         case 'w':
+            kinect.enableDepthNearValueWhite(!kinect.isDepthNearValueWhite());
+            break;
+         
+         case '1':
+            kinect.setLed(ofxKinect::LED_GREEN);
+            break;
+         
+         case '2':
+            kinect.setLed(ofxKinect::LED_YELLOW);
+            break;
+         
+         case '3':
+            kinect.setLed(ofxKinect::LED_RED);
+            break;
+         
+         case '4':
+            kinect.setLed(ofxKinect::LED_BLINK_GREEN);
+            break;
+         
+         case '5':
+            kinect.setLed(ofxKinect::LED_BLINK_YELLOW_RED);
+            break;
+         
+         case '0':
+            kinect.setLed(ofxKinect::LED_OFF);
+            break;
+         */
 	}
 }
 
