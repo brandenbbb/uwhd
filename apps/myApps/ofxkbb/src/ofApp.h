@@ -19,10 +19,10 @@
 #define USE_KINECT
 
 //uncomment this to enable PHOTOBOOTH mode
-//#define USE_PHOTOBOOTH
+#define USE_PHOTOBOOTH
 
 //uncomment this to enable HOT DOCS HOST mode
-#define USE_HOSTMODE
+//#define USE_HOSTMODE
 
 #ifdef USE_GAMEPAD
     #include "ofxGamepadHandler.h"
@@ -47,7 +47,7 @@ public:
     void mouseDragged(int x, int y, int button);
     void mousePressed(int x, int y, int button);
     void mouseReleased(int x, int y, int button);
-    void windowResized(int w, int h);
+    //void windowResized(int w, int h);
     void dragEvent(ofDragInfo dragInfo);
     void gotMessage(ofMessage msg);
     

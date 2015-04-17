@@ -89,8 +89,8 @@ void ofApp::setup() {
     
     #ifdef USE_PHOTOBOOTH
         //2D load universe within images
-        buildings.loadImage("images/buildingsBottom.png");
-        stars.loadImage("images/bg.png");
+        buildings.loadImage("images/towers16by9.png");
+        stars.loadImage("images/bg_16by9.png");
     
         photoBoothGUI();
         pboothGUI->loadSettings("photoBoothSettings.xml");
@@ -98,7 +98,7 @@ void ofApp::setup() {
     
     #ifdef USE_HOSTMODE
         // 3d model load assets
-        towers.loadModel("images/img/3d/towersandtrees.dae");
+        towers.loadModel("images/3d/city.dae");
         sphere.loadModel("images/img/sphere/skysphere.dae");
     #endif
 }
@@ -162,7 +162,7 @@ void ofApp::draw() {
     
         #ifdef USE_PHOTOBOOTH
             // OLD 2D stars draw
-            stars.draw(0,0,0);
+            stars.draw(0, 0, ofGetWidth(), ofGetHeight());
             easyCam.begin();
             #ifdef USE_KINECT
                 // Kinect Point Cloud
@@ -170,7 +170,7 @@ void ofApp::draw() {
             #endif
             easyCam.end();
             // OLD 2D buildings
-            buildings.draw(-200,220);
+        buildings.draw(0,0, ofGetWidth(), ofGetHeight());
         #endif
             
         // anything within the camera begin / end section will move relative to the 3D camera...neato!
@@ -526,9 +526,11 @@ void ofApp::mousePressed(int x, int y, int button){
 void ofApp::mouseReleased(int x, int y, int button){
 }
 
+/*
 //--------------------------------------------------------------
 void ofApp::windowResized(int w, int h){
 }
+*/
 
 //--------------------------------------------------------------
 void ofApp::gotMessage(ofMessage msg){

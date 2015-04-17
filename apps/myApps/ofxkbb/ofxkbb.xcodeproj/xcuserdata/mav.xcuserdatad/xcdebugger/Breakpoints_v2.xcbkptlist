@@ -25,11 +25,11 @@
                   symbolName = "non-virtual thunk to ofApp::~ofApp()"
                   moduleName = "ofxkbb"
                   urlString = "file:///Users/mav/Desktop/git/uwhd/apps/myApps/ofxkbb/src/ofApp.h"
-                  timestampString = "450937093.277386"
+                  timestampString = "450943453.848862"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "539"
-                  endingLineNumber = "539"
+                  startingLineNumber = "541"
+                  endingLineNumber = "541"
                   offsetFromSymbolStart = "9">
                </Location>
                <Location
@@ -39,11 +39,11 @@
                   symbolName = "non-virtual thunk to ofApp::~ofApp()"
                   moduleName = "ofxkbb"
                   urlString = "file:///Users/mav/Desktop/git/uwhd/apps/myApps/ofxkbb/src/ofApp.h"
-                  timestampString = "450937093.277645"
+                  timestampString = "450943453.849239"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "539"
-                  endingLineNumber = "539"
+                  startingLineNumber = "541"
+                  endingLineNumber = "541"
                   offsetFromSymbolStart = "11">
                </Location>
             </Locations>
@@ -56,13 +56,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "src/ofApp.cpp"
-            timestampString = "450937083.237832"
+            timestampString = "450939063.858954"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "531"
-            endingLineNumber = "531"
-            landmarkName = "ofApp::windowResized(int w, int h)"
-            landmarkType = "5">
+            startingLineNumber = "532"
+            endingLineNumber = "532">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
