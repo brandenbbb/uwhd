@@ -8,9 +8,6 @@
 #include "ofAppGlutWindow.h"
 #include "ofxGameCamera.h"
 #include "ofxUI.h"
-#include "ofVbo.h"
-
-#define NUM_BILLBOARDS 5000
 
 // uncomment this to read from two kinects simultaneously
 //#define USE_TWO_KINECTS
@@ -22,13 +19,10 @@
 #define USE_KINECT
 
 //uncomment this to enable PHOTOBOOTH mode
-#define USE_PHOTOBOOTH
+//#define USE_PHOTOBOOTH
 
 //uncomment this to enable HOT DOCS HOST mode
-//#define USE_HOSTMODE
-
-//uncomment this to enable point sprites
-#define USE_SPRITES
+#define USE_HOSTMODE
 
 #ifdef USE_GAMEPAD
     #include "ofxGamepadHandler.h"
@@ -84,17 +78,6 @@ public:
 	int angle;
     int pointSize;
     int depthLimit;
-    
-    
-    // billboard particles
-    float billboardSizeTarget[NUM_BILLBOARDS];
-    
-    ofShader billboardShader;
-    ofImage texture;
-    
-    ofVboMesh billboards;
-    ofVec3f billboardVels[NUM_BILLBOARDS];
-    
     
     // image filer writer variables
     int snapCounter;

@@ -10,46 +10,6 @@ void ofApp::setup() {
     
     ofSetFrameRate(60);
     
-    #ifdef USE_SPRITES
-        billboards.getVertices().resize(NUM_BILLBOARDS);
-        billboards.getColors().resize(NUM_BILLBOARDS);
-        billboards.getNormals().resize(NUM_BILLBOARDS,ofVec3f(0));
-        
-        // ------------------------- billboard particles
-        for (int i=0; i<NUM_BILLBOARDS; i++) {
-            
-            billboardVels[i].set(ofRandomf(), -1.0, ofRandomf());
-            billboards.getVertices()[i].set(ofRandom(-500, 500),
-                                            ofRandom(-500, 500),
-                                            ofRandom(-500, 500));
-            
-            billboards.getColors()[i].set(ofColor::fromHsb(ofRandom(96, 160), 255, 255));
-            billboardSizeTarget[i] = ofRandom(4, 64);
-            
-        }
-        
-        
-        billboards.setUsage( GL_DYNAMIC_DRAW );
-        billboards.setMode(OF_PRIMITIVE_POINTS);
-        //billboardVbo.setVertexData(billboardVerts, NUM_BILLBOARDS, GL_DYNAMIC_DRAW);
-        //billboardVbo.setColorData(billboardColor, NUM_BILLBOARDS, GL_DYNAMIC_DRAW);
-        
-        // load the billboard shader
-        // this is used to change the
-        // size of the particle
-        if(ofGetGLProgrammableRenderer()){
-            billboardShader.load("shadersGL3/Billboard");
-        }else{
-            billboardShader.load("shadersGL2/Billboard");
-        }
-        
-        // we need to disable ARB textures in order to use normalized texcoords
-        ofDisableArbTex();
-        texture.loadImage("dot.png");
-        ofEnableAlphaBlending();
-    #endif
-    
-    
     #ifdef USE_HOSTMODE
         camera.setup();
     #endif
@@ -565,7 +525,6 @@ void ofApp::mousePressed(int x, int y, int button){
 //--------------------------------------------------------------
 void ofApp::mouseReleased(int x, int y, int button){
 }
-
 
 //--------------------------------------------------------------
 void ofApp::windowResized(int w, int h){
