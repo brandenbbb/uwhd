@@ -5,7 +5,7 @@
 void ofApp::setup() {
     // reduce screen tearing / verbose debug mode
     // ofSetVerticalSync(true);
-	// ofSetLogLevel(OF_LOG_VERBOSE);
+	ofSetLogLevel(OF_LOG_VERBOSE);
     
     ofSetFrameRate(60);
     
@@ -198,7 +198,7 @@ void ofApp::draw() {
             camera.end();
         #endif
         
-#ifdef USE_PHOTOBOOTH
+        
         // image file writer code
         if (bSnapshot == true){
             // capture entire OF screen; image is same resolution as OF window
@@ -228,7 +228,6 @@ void ofApp::draw() {
                 img.draw(0,0,ofGetWidth(),ofGetHeight());
             }
         }
-#endif
         
         //gamepad GUI for diagnostics
         #ifdef USE_GAMEPAD
@@ -335,7 +334,6 @@ void ofApp::drawPointCloud() {
     }
 #endif
 
-#ifdef USE_PHOTOBOOTH
 //--------------------------------------------------------------
 void ofApp::guiEvent(ofxUIEventArgs &e)
 {
@@ -354,7 +352,6 @@ void ofApp::guiEvent(ofxUIEventArgs &e)
         cout << emailFile << endl;
     }
 }
-#endif
 
 //--------------------------------------------------------------
 void ofApp::exit() {

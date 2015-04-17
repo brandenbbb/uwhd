@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/mav/Desktop/git/uwhd/libs/openFrameworks/video/ofQTKitMovieRenderer.m \
+  /Users/NFBHRS031/Desktop/uwhd/libs/openFrameworks/video/ofQTKitMovieRenderer.m \
   ../../../../libs/openFrameworks/video/ofQTKitMovieRenderer.h
