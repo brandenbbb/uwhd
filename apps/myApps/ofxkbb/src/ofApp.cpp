@@ -362,8 +362,10 @@ void ofApp::exit() {
         kinect2.close();
     #endif
     
-    pboothGUI->saveSettings("photoBoothSettings.xml");
-    delete pboothGUI;
+    #ifdef USE_PHOTOBOOTH
+        pboothGUI->saveSettings("photoBoothSettings.xml");
+        delete pboothGUI;
+    #endif
 }
 
 
