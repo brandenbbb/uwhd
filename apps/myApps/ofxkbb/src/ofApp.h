@@ -19,10 +19,10 @@
 #define USE_KINECT
 
 //uncomment this to enable PHOTOBOOTH mode
-#define USE_PHOTOBOOTH
+//#define USE_PHOTOBOOTH
 
 //uncomment this to enable HOT DOCS HOST mode
-//#define USE_HOSTMODE
+#define USE_HOSTMODE
 
 #ifdef USE_GAMEPAD
     #include "ofxGamepadHandler.h"
@@ -38,7 +38,9 @@ public:
 	
     // point cloud classes
 	void drawPointCloud();
+#ifdef USE_TWO_KINECTS
     void drawPointCloud2();
+#endif
     
     // input classes
     void keyPressed(int key);
@@ -51,6 +53,7 @@ public:
     void dragEvent(ofDragInfo dragInfo);
     void gotMessage(ofMessage msg);
     
+#ifdef USE_PHOTOBOOTH
     // Reza's GUI classes
     void photoBoothGUI();
     ofxUISuperCanvas *pboothGUI;
@@ -59,13 +62,14 @@ public:
     string fileName;
     bool hideGUI;
     void guiEvent(ofxUIEventArgs &e);
+#endif
     
 	
     // KINECT VARIABLES
     ofxKinect kinect;
-    #ifdef USE_TWO_KINECTS
-        ofxKinect kinect2;
-    #endif
+#ifdef USE_TWO_KINECTS
+    ofxKinect kinect2;
+#endif
 	ofxCvColorImage colorImg;
 	ofxCvGrayscaleImage grayImage; // grayscale depth image
 	ofxCvGrayscaleImage grayThreshNear; // the near thresholded image
@@ -79,12 +83,14 @@ public:
     int pointSize;
     int depthLimit;
     
+#ifdef USE_PHOTOBOOTH
     // image filer writer variables
     int snapCounter;
     char snapString[255];
     ofImage img;
     bool bSnapshot;
     bool bReviewLastShot;
+#endif
     bool bDiagnosticsMode;
     
 #ifdef USE_PHOTOBOOTH

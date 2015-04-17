@@ -376,7 +376,7 @@ void ofApp::photoBoothGUI(){
     pboothGUI->setWidgetFontSize(OFX_UI_FONT_MEDIUM);
     email = pboothGUI->addTextInput("EMAIL", "");
     emailFile = ofToString(email);
-    
+
     
     ofAddListener(pboothGUI->newGUIEvent,this,&ofApp::guiEvent);
 }
@@ -389,14 +389,13 @@ void ofApp::keyPressed (int key) {
         case '`':
             bDiagnosticsMode = true;
 			break;
-        case ' ':
-            bThreshWithOpenCV = !bThreshWithOpenCV;
-            break;
+            
         // go full screen
         case OF_KEY_F1:
             ofToggleFullscreen();
             break;
-			
+            
+		// go to live mode
 		case OF_KEY_F4:
             bDiagnosticsMode = false;
             bReviewLastShot = false;
@@ -414,14 +413,12 @@ void ofApp::keyPressed (int key) {
             bReviewLastShot = true;
             break;
             
-		case '>':
 		case '.':
 			//farThreshold ++;
 			//if (farThreshold > 255) farThreshold = 255;
             depthLimit = depthLimit + 100;
 			break;
 			
-		case '<':
 		case ',':
 			//farThreshold --;
 			//if (farThreshold < 0) farThreshold = 0;
@@ -429,7 +426,6 @@ void ofApp::keyPressed (int key) {
             depthLimit = depthLimit - 100;
 			break;
 			
-		case '+':
 		case '=':
 			nearThreshold ++;
 			if (nearThreshold > 255) nearThreshold = 255;
@@ -470,37 +466,6 @@ void ofApp::keyPressed (int key) {
 			if(angle<-30) angle=-30;
 			kinect.setCameraTiltAngle(angle);
 			break;
-            
-        // non-essential key / kinect LED commands etc
-        /*
-         case 'w':
-            kinect.enableDepthNearValueWhite(!kinect.isDepthNearValueWhite());
-            break;
-         
-         case '1':
-            kinect.setLed(ofxKinect::LED_GREEN);
-            break;
-         
-         case '2':
-            kinect.setLed(ofxKinect::LED_YELLOW);
-            break;
-         
-         case '3':
-            kinect.setLed(ofxKinect::LED_RED);
-            break;
-         
-         case '4':
-            kinect.setLed(ofxKinect::LED_BLINK_GREEN);
-            break;
-         
-         case '5':
-            kinect.setLed(ofxKinect::LED_BLINK_YELLOW_RED);
-            break;
-         
-         case '0':
-            kinect.setLed(ofxKinect::LED_OFF);
-            break;
-         */
 	}
 }
 
