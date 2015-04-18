@@ -284,7 +284,7 @@ void ofApp::drawPointCloud() {
 	int h = 480;
 	ofMesh mesh;
 	mesh.setMode(OF_PRIMITIVE_POINTS);
-	int step = 2;
+	int step = 1;
 	for(int y = 0; y < h; y += step) {
 		for(int x = 0; x < w; x += step) {
 			if(kinect.getDistanceAt(x, y) < depthLimit) {
@@ -298,7 +298,7 @@ void ofApp::drawPointCloud() {
 	ofPushMatrix();
 	// the projected points are 'upside down' and 'backwards' 
 	ofScale(1, -1, -1);
-	ofTranslate(0, 0, -1000); // center the points a bit
+	ofTranslate(0, 0, 0); // position the points
 	ofEnableDepthTest();
 	mesh.drawVertices();
 	ofDisableDepthTest();
@@ -312,7 +312,7 @@ void ofApp::drawPointCloud() {
         int h = 480;
         ofMesh mesh2;
         mesh2.setMode(OF_PRIMITIVE_POINTS);
-        int step = 2;
+        int step = 1;
         for(int y = 0; y < h; y += step) {
             for(int x = 0; x < w; x += step) {
                 if(kinect2.getDistanceAt(x, y) < depthLimit) {
