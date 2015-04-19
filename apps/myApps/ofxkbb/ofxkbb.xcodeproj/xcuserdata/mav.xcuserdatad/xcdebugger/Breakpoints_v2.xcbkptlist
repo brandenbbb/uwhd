@@ -17,36 +17,6 @@
             endingLineNumber = "63"
             landmarkName = "class ofApp"
             landmarkType = "3">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "non-virtual thunk to ofApp::~ofApp()"
-                  moduleName = "ofxkbb"
-                  urlString = "file:///Users/mav/Desktop/git/uwhd/apps/myApps/ofxkbb/src/ofApp.h"
-                  timestampString = "451116097.33861"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "535"
-                  endingLineNumber = "535"
-                  offsetFromSymbolStart = "9">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "non-virtual thunk to ofApp::~ofApp()"
-                  moduleName = "ofxkbb"
-                  urlString = "file:///Users/mav/Desktop/git/uwhd/apps/myApps/ofxkbb/src/ofApp.h"
-                  timestampString = "451116097.338961"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "535"
-                  endingLineNumber = "535"
-                  offsetFromSymbolStart = "11">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
