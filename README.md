@@ -12,7 +12,7 @@ USE_GAMEPAD - use Xbox360 gamepad
 
 USE_PHOTOBOOTH - enable photobooth mode with 2D backgrounds and peasy camera instead of FPS camera
 
-USE_HOSTMODE - enable Hot Docs live host mode
+USE_HOSTMODE - enable live host mode
 
 
 FUNCTION KEYBOARD CONTROLS!
