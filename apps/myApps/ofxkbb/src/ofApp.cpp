@@ -98,8 +98,8 @@ void ofApp::setup() {
     
     #ifdef USE_HOSTMODE
         // 3d model load assets
-        towers.loadModel("images/3d/city.dae");
-        sphere.loadModel("images/img/sphere/skysphere.dae");
+        towers.loadModel("images/3d/towersandtrees.dae");
+        sphere.loadModel("images/3d/skysphere.dae");
     #endif
 }
 
@@ -194,9 +194,10 @@ void ofApp::draw() {
         
             // 3D towers!
             towers.setScale(.5, -.5, .5);
-            towers.setPosition(0, -100, 0);
+            towers.setPosition(0, -100, -100);
             towers.drawFaces();
             camera.end();
+        
         #endif
         
         
@@ -272,6 +273,9 @@ void ofApp::draw() {
         }
         
         ofDrawBitmapString(reportStream.str(), 20, 652);
+        
+        
+      
 	}
 	
 }
@@ -298,7 +302,13 @@ void ofApp::drawPointCloud() {
 	ofPushMatrix();
 	// the projected points are 'upside down' and 'backwards' 
 	ofScale(1, -1, -1);
-	ofTranslate(0, 0, -1000); // center the points a bit
+#ifdef USE_HOSTMODE
+	ofTranslate(0, 0, 0); // center the points a bit
+#endif
+    
+#ifdef USE_PHOTOBOOTH
+    ofTranslate(0, 0, -1000); // center the points a bit
+#endif
 	ofEnableDepthTest();
 	mesh.drawVertices();
 	ofDisableDepthTest();
@@ -326,32 +336,13 @@ void ofApp::drawPointCloud() {
         ofPushMatrix();
         // the projected points are 'upside down' and 'backwards'
         ofScale(-1, -1, 1);
-        ofTranslate(0, 0, -1850); // center the points a bit;
+        ofTranslate(0, 0, 0); // center the points a bit;
         ofEnableDepthTest();
         mesh2.drawVertices();
         ofDisableDepthTest();
         ofPopMatrix();
     }
 #endif
-
-//--------------------------------------------------------------
-void ofApp::guiEvent(ofxUIEventArgs &e)
-{
-    string name = e.getName();
-    int kind = e.getKind();
-    cout << "got event from: " << name << endl;
-    
-    if(name == "EMAIL")
-    {
-        ofxUITextInput *email = (ofxUITextInput *) e.widget;
-        if(email->getInputTriggerType() == OFX_UI_TEXTINPUT_ON_ENTER)
-        {
-            cout << "ON ENTER: ";
-        }
-        emailFile = email->getTextString();
-        cout << emailFile << endl;
-    }
-}
 
 //--------------------------------------------------------------
 void ofApp::exit() {
@@ -379,8 +370,27 @@ void ofApp::photoBoothGUI(){
     email = pboothGUI->addTextInput("EMAIL", "");
     emailFile = ofToString(email);
     
-    
     ofAddListener(pboothGUI->newGUIEvent,this,&ofApp::guiEvent);
+}
+
+
+//--------------------------------------------------------------
+void ofApp::guiEvent(ofxUIEventArgs &e)
+{
+    string name = e.getName();
+    int kind = e.getKind();
+    cout << "got event from: " << name << endl;
+    
+    if(name == "EMAIL")
+    {
+        ofxUITextInput *email = (ofxUITextInput *) e.widget;
+        if(email->getInputTriggerType() == OFX_UI_TEXTINPUT_ON_ENTER)
+        {
+            cout << "ON ENTER: ";
+        }
+        emailFile = email->getTextString();
+        cout << emailFile << endl;
+    }
 }
 
 
@@ -556,6 +566,7 @@ void ofApp::dragEvent(ofDragInfo dragInfo){
         // this checks if A / green button is pressed, then it goes full screen
         if (e.button == 11){
                 bSnapshot = true;
+                bDrawPointCloud = true;
         }
     }
 

@@ -57,8 +57,10 @@ public:
     ofxUITextInput *email;
     string emailFile;
     string fileName;
-    bool hideGUI;
     void guiEvent(ofxUIEventArgs &e);
+    
+    bool hideGUI;
+
     
 	
     // KINECT VARIABLES

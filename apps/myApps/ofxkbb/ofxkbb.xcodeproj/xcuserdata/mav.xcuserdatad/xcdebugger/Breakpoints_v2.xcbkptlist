@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "src/ofApp.h"
-            timestampString = "450771570.742054"
+            timestampString = "451090652.901371"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
             landmarkName = "class ofApp"
             landmarkType = "3">
             <Locations>
@@ -25,11 +25,11 @@
                   symbolName = "non-virtual thunk to ofApp::~ofApp()"
                   moduleName = "ofxkbb"
                   urlString = "file:///Users/mav/Desktop/git/uwhd/apps/myApps/ofxkbb/src/ofApp.h"
-                  timestampString = "451087485.811385"
+                  timestampString = "451110015.801358"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "541"
-                  endingLineNumber = "541"
+                  startingLineNumber = "551"
+                  endingLineNumber = "551"
                   offsetFromSymbolStart = "9">
                </Location>
                <Location
@@ -39,11 +39,11 @@
                   symbolName = "non-virtual thunk to ofApp::~ofApp()"
                   moduleName = "ofxkbb"
                   urlString = "file:///Users/mav/Desktop/git/uwhd/apps/myApps/ofxkbb/src/ofApp.h"
-                  timestampString = "451087485.811582"
+                  timestampString = "451110015.801573"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "541"
-                  endingLineNumber = "541"
+                  startingLineNumber = "551"
+                  endingLineNumber = "551"
                   offsetFromSymbolStart = "11">
                </Location>
             </Locations>
@@ -56,11 +56,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "src/ofApp.cpp"
-            timestampString = "450939063.858954"
+            timestampString = "451091364.142913"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "532"
-            endingLineNumber = "532">
+            startingLineNumber = "542"
+            endingLineNumber = "542">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
