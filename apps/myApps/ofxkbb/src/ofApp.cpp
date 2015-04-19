@@ -229,10 +229,12 @@ void ofApp::draw() {
             }
         }
         
+        
         //gamepad GUI for diagnostics
         #ifdef USE_GAMEPAD
             ofxGamepadHandler::get()->draw(10,10);
         #endif
+         
 	}
 
     if (bDiagnosticsMode == true) {
@@ -482,37 +484,6 @@ void ofApp::keyPressed (int key) {
 			if(angle<-30) angle=-30;
 			kinect.setCameraTiltAngle(angle);
 			break;
-            
-        // non-essential key / kinect LED commands etc
-        /*
-         case 'w':
-            kinect.enableDepthNearValueWhite(!kinect.isDepthNearValueWhite());
-            break;
-         
-         case '1':
-            kinect.setLed(ofxKinect::LED_GREEN);
-            break;
-         
-         case '2':
-            kinect.setLed(ofxKinect::LED_YELLOW);
-            break;
-         
-         case '3':
-            kinect.setLed(ofxKinect::LED_RED);
-            break;
-         
-         case '4':
-            kinect.setLed(ofxKinect::LED_BLINK_GREEN);
-            break;
-         
-         case '5':
-            kinect.setLed(ofxKinect::LED_BLINK_YELLOW_RED);
-            break;
-         
-         case '0':
-            kinect.setLed(ofxKinect::LED_OFF);
-            break;
-         */
 	}
 }
 
@@ -550,27 +521,29 @@ void ofApp::gotMessage(ofMessage msg){
 void ofApp::dragEvent(ofDragInfo dragInfo){
 }
 
-
 #ifdef USE_GAMEPAD
     //Gamepad classes
     //--------------------------------------------------------------
 
     void ofApp::axisChanged(ofxGamepadAxisEvent& e){
-        cout << "AXIS " << e.axis << " VALUE " << ofToString(e.value) << endl;
+        //cout << "AXIS " << e.axis << " VALUE " << ofToString(e.value) << endl;
     }
 
     void ofApp::buttonPressed(ofxGamepadButtonEvent& e){
-        cout << "BUTTON " << e.button << " PRESSED" << endl;
+        //cout << "BUTTON " << e.button << " PRESSED" << endl;
 
+        /*
         // HOW TO READ BUTTON PRESSES ON THE GAMEPAD!
         // this checks if A / green button is pressed, then it goes full screen
         if (e.button == 11){
-                bSnapshot = true;
-                bDrawPointCloud = true;
+            bSnapshot = true;
+            bDrawPointCloud = true;
         }
+        */
     }
 
     void ofApp::buttonReleased(ofxGamepadButtonEvent& e){
-        cout << "BUTTON " << e.button << " RELEASED" << endl;
+        //cout << "BUTTON " << e.button << " RELEASED" << endl;
     }
 #endif
+

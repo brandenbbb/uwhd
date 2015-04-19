@@ -1,6 +1,6 @@
 #include "ofxGamepadCamera.h"
 
-ofxGamepadCamera::ofxGamepadCamera():pad(NULL),speedRotation(70), speedMove(200), useAnalogueDolly(false) {
+ofxGamepadCamera::ofxGamepadCamera():pad(NULL),speedRotation(20), speedMove(200), useAnalogueDolly(false) {
 }
 
 ofxGamepadCamera::~ofxGamepadCamera() {
@@ -23,15 +23,17 @@ void ofxGamepadCamera::update(ofEventArgs& e) {
 	float curTime = ofGetElapsedTimef();
 
 	float mult = curTime - lastTime;
-	pan(-pad->getAxisValue(PS3_STICK_R_X)*speedRotation*mult);
-	tilt(-pad->getAxisValue(PS3_STICK_R_Y)*speedRotation*mult);
+	pan(-pad->getAxisValue(XB_STICK_R_X)*speedRotation*mult);
+	tilt(-pad->getAxisValue(XB_STICK_R_Y)*speedRotation*mult);
+    
+    truck((pad->getAxisValueU(XB_STICK_L_X)-.5)*speedMove*mult);
+    dolly((pad->getAxisValueU(XB_STICK_L_Y)-.5)*speedMove*mult);
 
-	truck(pad->getAxisValue(PS3_STICK_L_X)*speedMove*mult);
-	boom(-pad->getAxisValue(PS3_STICK_L_Y)*speedMove*mult);
+	//truck(pad->getAxisValue(XB_STICK_L_X)*speedMove*mult);
+	//boom(-pad->getAxisValue(XB_STICK_L_Y)*speedMove*mult);
 
 	if(useAnalogueDolly) {
-		dolly(-(pad->getAxisValueU(PS3_THRUST_L2)-.5)*speedMove*mult);
-		dolly((pad->getAxisValueU(PS3_THRUST_R2)-.5)*speedMove*mult);
+	
 	} else {
 		if(pad->getButtonValue(PS3_BTN_L2)) {
 			dolly(-speedMove*2*mult);

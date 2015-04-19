@@ -1,6 +1,5 @@
 #pragma once
 
-#include "ofMain.h"
 #include "ofxOpenCv.h"
 #include "ofxKinect.h"
 #include "ofxAssimpModelLoader.h"
@@ -13,7 +12,7 @@
 //#define USE_TWO_KINECTS
 
 //uncomment this to enable gamepad mode...do not use unless you have Xbox 360 controller / driver setup properly!!!
-//#define USE_GAMEPAD
+#define USE_GAMEPAD
 
 //uncomment this to enable the kinect point cloud (OR COMMENT THIS IF NO KINECT PLUGGED IN)
 #define USE_KINECT
@@ -26,6 +25,7 @@
 
 #ifdef USE_GAMEPAD
     #include "ofxGamepadHandler.h"
+    #include "ofxGamepadCamera.h"
 #endif
 
 class ofApp : public ofBaseApp {
@@ -100,10 +100,13 @@ public:
 
 #ifdef USE_HOSTMODE
     // FPS camera
-    ofxGameCamera camera;
+    #ifndef USE_GAMEPAD
+        ofxGameCamera camera;
+    #endif
     
     #ifdef USE_GAMEPAD
         // gamepad classes
+        ofxGamepadCamera camera;
         void axisChanged(ofxGamepadAxisEvent &e);
         void buttonPressed(ofxGamepadButtonEvent &e);
         void buttonReleased(ofxGamepadButtonEvent &e);

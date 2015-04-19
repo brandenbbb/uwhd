@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "src/ofApp.h"
-            timestampString = "451090652.901371"
+            timestampString = "451111331.209314"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "63"
@@ -25,11 +25,11 @@
                   symbolName = "non-virtual thunk to ofApp::~ofApp()"
                   moduleName = "ofxkbb"
                   urlString = "file:///Users/mav/Desktop/git/uwhd/apps/myApps/ofxkbb/src/ofApp.h"
-                  timestampString = "451110015.801358"
+                  timestampString = "451114261.057594"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "551"
-                  endingLineNumber = "551"
+                  startingLineNumber = "547"
+                  endingLineNumber = "547"
                   offsetFromSymbolStart = "9">
                </Location>
                <Location
@@ -39,11 +39,11 @@
                   symbolName = "non-virtual thunk to ofApp::~ofApp()"
                   moduleName = "ofxkbb"
                   urlString = "file:///Users/mav/Desktop/git/uwhd/apps/myApps/ofxkbb/src/ofApp.h"
-                  timestampString = "451110015.801573"
+                  timestampString = "451114261.057892"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "551"
-                  endingLineNumber = "551"
+                  startingLineNumber = "547"
+                  endingLineNumber = "547"
                   offsetFromSymbolStart = "11">
                </Location>
             </Locations>
@@ -56,11 +56,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "src/ofApp.cpp"
-            timestampString = "451091364.142913"
+            timestampString = "451113415.289617"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "542"
-            endingLineNumber = "542">
+            startingLineNumber = "513"
+            endingLineNumber = "513">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
