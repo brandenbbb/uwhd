@@ -1,6 +1,6 @@
 # uwhd
 
-APRIL 19: xbox 360 USB gamepad controls now working if USE_GAMEPAD enabled...FPS style controls...just need to work on the speed it refreshes / scans the input as it seems to reset once in a while.
+APRIL 19: xbox 360 USB gamepad controls now working if USE_GAMEPAD enabled. FPS style controls.  Just need to customize further!
 
 APRIL 14: added switch in ofApp.h - simply comment / uncomment to enable which mode you want to use:
 USE_KINECT - if both this and USE_TWO_KINECTS are commented out, it will disable all Kinect stuff for debugging purposes
