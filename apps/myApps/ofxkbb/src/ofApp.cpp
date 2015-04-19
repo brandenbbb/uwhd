@@ -13,17 +13,6 @@ void ofApp::setup() {
     #ifdef USE_HOSTMODE
         camera.setup();
     #endif
-    
-    #ifdef USE_GAMEPAD
-        ofxGamepadHandler::get()->enableHotplug();
-        //CHECK IF THERE EVEN IS A GAMEPAD CONNECTED
-        if(ofxGamepadHandler::get()->getNumPads()>0){
-            ofxGamepad* pad = ofxGamepadHandler::get()->getGamepad(0);
-            ofAddListener(pad->onAxisChanged, this, &ofApp::axisChanged);
-            ofAddListener(pad->onButtonPressed, this, &ofApp::buttonPressed);
-            ofAddListener(pad->onButtonReleased, this, &ofApp::buttonReleased);
-        }
-    #endif
 	
 	//enable depth->video image calibration
 	kinect.setRegistration(true);
@@ -197,7 +186,6 @@ void ofApp::draw() {
             towers.setPosition(0, -100, -100);
             towers.drawFaces();
             camera.end();
-        
         #endif
         
         

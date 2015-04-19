@@ -28,30 +28,25 @@ void ofxGamepadCamera::update(ofEventArgs& e) {
     
     truck((pad->getAxisValueU(XB_STICK_L_X)-.5)*speedMove*mult);
     dolly((pad->getAxisValueU(XB_STICK_L_Y)-.5)*speedMove*mult);
+    
 
-	//truck(pad->getAxisValue(XB_STICK_L_X)*speedMove*mult);
-	//boom(-pad->getAxisValue(XB_STICK_L_Y)*speedMove*mult);
+    if(pad->getButtonValue(XB_STICK_LT)) {
+        boom(-speedMove*2*mult);
+    }
+    if(pad->getButtonValue(XB_STICK_RT)) {
+        boom(speedMove*2*mult);
+    }
 
-	if(useAnalogueDolly) {
-	
-	} else {
-		if(pad->getButtonValue(PS3_BTN_L2)) {
-			dolly(-speedMove*2*mult);
-		}
-		if(pad->getButtonValue(PS3_BTN_R2)) {
-			dolly(speedMove*2*mult);
-		}
-	}
-
-	if(pad->getButtonValue(PS3_BTN_L1)) {
+	if(pad->getButtonValue(XB_BTN_LB)) {
 		roll(-speedRotation*.7*mult);
 	}
-	if(pad->getButtonValue(PS3_BTN_R1)) {
+	if(pad->getButtonValue(XB_BTN_RB)) {
 		roll(speedRotation*.7*mult);
 	}
 
-	if(pad->getButtonValue(PS3_BTN_SELECT))
+    if(pad->getButtonValue(XB_BTN_BACK)){
 		reset();
+    }
 
 	lastTime = curTime;
 }
