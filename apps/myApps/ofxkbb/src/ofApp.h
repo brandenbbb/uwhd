@@ -50,13 +50,18 @@ public:
     void dragEvent(ofDragInfo dragInfo);
     void gotMessage(ofMessage msg);
     
-    // Reza's GUI classes
+    // Photobooth GUI stuff
     void photoBoothGUI();
     ofxUISuperCanvas *pboothGUI;
     ofxUITextInput *email;
     string emailFile;
     string fileName;
     void guiEvent(ofxUIEventArgs &e);
+    
+    // 3D object reposition etc GUI stuff
+    ofxUISuperCanvas *moveThings;
+    float hostRoX, hostRoY, hostRoZ, hostTranX, hostTranY, hostTranZ;
+    float guestRoX, guestRoY, guestRoZ, guestTranX, guestTranY, guestTranZ;
 	
     // KINECT VARIABLES
     ofxKinect kinect;

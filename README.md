@@ -96,10 +96,6 @@ POINT CLOUD ADJUSTMENTS:
 
 KINECT MOTOR ADJUSTMENTS:
 
-    0 = zero the angle of the kinect
+    n = increase angle of Kinect
 
-    o = return to last set angle
-
-    key arrow up = increase angle of Kinect
-
-    key arrow down = decrease angle of Kinect
+    m = decrease angle of Kinect
