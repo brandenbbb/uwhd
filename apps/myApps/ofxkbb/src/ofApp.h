@@ -10,10 +10,10 @@
 #define USE_KINECT
 
 //uncomment this to enable PHOTOBOOTH mode
-#define USE_PHOTOBOOTH
+//#define USE_PHOTOBOOTH
 
 //uncomment this to enable HOT DOCS HOST mode
-//#define USE_HOSTMODE
+#define USE_HOSTMODE
 
 #include "ofxOpenCv.h"
 #include "ofxKinect.h"
@@ -63,13 +63,6 @@ public:
     #ifdef USE_TWO_KINECTS
         ofxKinect kinect2;
     #endif
-	ofxCvColorImage colorImg;
-	ofxCvGrayscaleImage grayImage; // grayscale depth image
-	ofxCvGrayscaleImage grayThreshNear; // the near thresholded image
-	ofxCvGrayscaleImage grayThreshFar; // the far thresholded image
-	ofxCvContourFinder contourFinder;
-	bool bThreshWithOpenCV;
-	bool bDrawPointCloud;
 	int nearThreshold;
 	int farThreshold;
 	int angle;

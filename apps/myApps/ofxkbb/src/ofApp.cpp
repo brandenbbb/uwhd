@@ -22,26 +22,13 @@ void ofApp::setup() {
     kinect2.setRegistration(true);
     kinect2.init();
     kinect2.open(0); // open guest kinect
-    
-    colorImg.allocate(kinect2.width, kinect2.height);
-    grayImage.allocate(kinect2.width, kinect2.height);
-    grayThreshNear.allocate(kinect2.width, kinect2.height);
-    grayThreshFar.allocate(kinect2.width, kinect2.height);
 #endif
-    
-	colorImg.allocate(kinect.width, kinect.height);
-	grayImage.allocate(kinect.width, kinect.height);
-	grayThreshNear.allocate(kinect.width, kinect.height);
-	grayThreshFar.allocate(kinect.width, kinect.height);
     
     // default values for near / far threshold / point size (adjusted later via GUI controls)
 	nearThreshold = 255;
     farThreshold = 167;
     pointSize = 3;
     depthLimit = 1100;
-    
-	// start in point cloud mode
-	bDrawPointCloud = true;
     
     // image file writer settings
     snapCounter = 0;
@@ -79,8 +66,6 @@ void ofApp::update() {
 void ofApp::draw() {
 	
 	ofSetColor(255, 255, 255);
-    
-    if(bDrawPointCloud == true) {
     
 #ifdef USE_PHOTOBOOTH
         // 2D stars draw
@@ -153,7 +138,6 @@ void ofApp::draw() {
 #ifdef USE_GAMEPAD
     ofxGamepadHandler::get()->draw(10,10);
 #endif
-    }
     
 }
 
@@ -280,7 +264,6 @@ void ofApp::keyPressed (int key) {
 			
 		case OF_KEY_F4:
             bReviewLastShot = false;
-            bDrawPointCloud = true;
 			break;
         
         // image saver keystroke
@@ -326,20 +309,20 @@ void ofApp::keyPressed (int key) {
             break;
 			
 		case '`':
-			kinect2.setCameraTiltAngle(0); // zero the tilt
-			kinect2.close();
+			kinect.setCameraTiltAngle(0); // zero the tilt
+			kinect.close();
 			break;
 			
 		case OF_KEY_UP:
 			angle++;
 			if(angle>30) angle=30;
-			kinect2.setCameraTiltAngle(angle);
+			kinect.setCameraTiltAngle(angle);
 			break;
 			
 		case OF_KEY_DOWN:
 			angle--;
 			if(angle<-30) angle=-30;
-			kinect2.setCameraTiltAngle(angle);
+			kinect.setCameraTiltAngle(angle);
 			break;
 	}
 }
