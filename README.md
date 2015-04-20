@@ -6,8 +6,7 @@ APRIL 20:
 
 APRIL 19:
 
-    xbox 360 USB gamepad controls now working if USE_GAMEPAD enabled. FPS style controls.  Just need to customize further!
-
+    xbox 360 USB gamepad controls now working if USE_GAMEPAD enabled. FPS style controls
     also...be sure to build as release as the framerate performance drastically increases
 
 APRIL 14:
