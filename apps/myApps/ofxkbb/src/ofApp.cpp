@@ -10,9 +10,9 @@ void ofApp::setup() {
     
     ofSetFrameRate(60);
     
-    #ifdef USE_HOSTMODE
-        camera.setup();
-    #endif
+#ifdef USE_HOSTMODE
+    camera.setup();
+#endif
 	
 	//enable depth->video image calibration
 	kinect.setRegistration(true);
@@ -33,22 +33,22 @@ void ofApp::setup() {
 		ofLogNotice() << "zero plane dist: " << kinect.getZeroPlaneDistance() << "mm";
 	}
     
-    #ifdef USE_TWO_KINECTS
-        kinect2.init();
-        kinect2.open();
-    #endif
+#ifdef USE_TWO_KINECTS
+    kinect2.init();
+    kinect2.open();
+#endif
     
 	colorImg.allocate(kinect.width, kinect.height);
 	grayImage.allocate(kinect.width, kinect.height);
 	grayThreshNear.allocate(kinect.width, kinect.height);
 	grayThreshFar.allocate(kinect.width, kinect.height);
     
-    #ifdef USE_TWO_KINECTS
-        colorImg.allocate(kinect2.width, kinect2.height);
-        grayImage.allocate(kinect2.width, kinect2.height);
-        grayThreshNear.allocate(kinect2.width, kinect2.height);
-        grayThreshFar.allocate(kinect2.width, kinect2.height);
-    #endif
+#ifdef USE_TWO_KINECTS
+    colorImg.allocate(kinect2.width, kinect2.height);
+    grayImage.allocate(kinect2.width, kinect2.height);
+    grayThreshNear.allocate(kinect2.width, kinect2.height);
+    grayThreshFar.allocate(kinect2.width, kinect2.height);
+#endif
     
     // default values for near / far threshold / point size (adjusted later via GUI controls)
 	nearThreshold = 255;
@@ -60,12 +60,6 @@ void ofApp::setup() {
 	
     // diagnostics mode condition
     bDiagnosticsMode = false;
-	
-	/*
-     // zero the tilt on startup
-     angle = 0;
-     kinect.setCameraTiltAngle(angle);
-	*/
     
 	// start in point cloud mode
 	bDrawPointCloud = true;
@@ -76,20 +70,20 @@ void ofApp::setup() {
     bReviewLastShot = false;
     memset(snapString, 0, 255);		// clear the string by setting all chars to 0
     
-    #ifdef USE_PHOTOBOOTH
-        //2D load universe within images
-        buildings.loadImage("images/towers16by9.png");
-        stars.loadImage("images/bg_16by9.png");
+#ifdef USE_PHOTOBOOTH
+    //2D load universe within images
+    buildings.loadImage("images/towers16by9.png");
+    stars.loadImage("images/bg_16by9.png");
     
-        photoBoothGUI();
-        pboothGUI->loadSettings("photoBoothSettings.xml");
-    #endif
+    photoBoothGUI();
+    pboothGUI->loadSettings("photoBoothSettings.xml");
+#endif
     
-    #ifdef USE_HOSTMODE
-        // 3d model load assets
-        towers.loadModel("images/3d/towersandtrees.dae");
-        sphere.loadModel("images/3d/skysphere.dae");
-    #endif
+#ifdef USE_HOSTMODE
+    // 3d model load assets
+    towers.loadModel("images/3d/towersandtrees.dae");
+    sphere.loadModel("images/3d/skysphere.dae");
+#endif
 }
 
 
@@ -149,46 +143,46 @@ void ofApp::draw() {
     
     if(bDrawPointCloud == true) {
     
-        #ifdef USE_PHOTOBOOTH
-            // OLD 2D stars draw
-            stars.draw(0, 0, ofGetWidth(), ofGetHeight());
-            easyCam.begin();
-            #ifdef USE_KINECT
-                // Kinect Point Cloud
-                drawPointCloud();
-            #endif
-            easyCam.end();
-            // OLD 2D buildings
+#ifdef USE_PHOTOBOOTH
+        // 2D stars draw
+        stars.draw(0, 0, ofGetWidth(), ofGetHeight());
+        easyCam.begin();
+    #ifdef USE_KINECT
+        // Kinect Point Cloud
+        drawPointCloud();
+    #endif
+        easyCam.end();
+        // OLD 2D buildings
         buildings.draw(0,0, ofGetWidth(), ofGetHeight());
-        #endif
+#endif
             
-        // anything within the camera begin / end section will move relative to the 3D camera...neato!
-       
-        #ifdef USE_HOSTMODE
-            camera.begin();
+// anything within the camera begin / end section will move relative to the 3D camera...neato!
+#ifdef USE_HOSTMODE
+        camera.begin();
      
-            // 3D star skydome
-            sphere.setScale(10,10,10);
-            sphere.drawFaces();
-        
-            #ifdef USE_KINECT
-                // Kinect Point Cloud
-                drawPointCloud();
-            #endif
-        
-            #ifdef USE_TWO_KINECTS
-                // Kinect Point Cloud #2
-                drawPointCloud2();
-            #endif
-        
-            // 3D towers!
-            towers.setScale(.5, -.5, .5);
-            towers.setPosition(0, -100, -100);
-            towers.drawFaces();
-            camera.end();
+        // 3D star skydome
+        sphere.setScale(10,10,10);
+        sphere.drawFaces();
+    
+        #ifdef USE_KINECT
+            // Kinect Point Cloud
+            drawPointCloud();
         #endif
+    
+        #ifdef USE_TWO_KINECTS
+            // Kinect Point Cloud #2
+            drawPointCloud2();
+        #endif
+    
+        // 3D towers!
+        towers.setScale(.5, -.5, .5);
+        towers.setPosition(0, -100, -100);
+        towers.drawFaces();
+        camera.end();
+#endif
         
         
+#ifdef USE_PHOTOBOOTH
         // image file writer code
         if (bSnapshot == true){
             // capture entire OF screen; image is same resolution as OF window
@@ -204,7 +198,6 @@ void ofApp::draw() {
             bSnapshot = false;
             bReviewLastShot = true;
         }
-        
 
         // show the framegrab on screen if the review photo button is pressed
         // need to add code to display the filename
@@ -216,14 +209,15 @@ void ofApp::draw() {
                 img.draw(0,0,ofGetWidth(),ofGetHeight());
             }
         }
+#endif
         
         
         //gamepad GUI for diagnostics
-        #ifdef USE_GAMEPAD
-            ofxGamepadHandler::get()->draw(10,10);
-        #endif
+    #ifdef USE_GAMEPAD
+        //ofxGamepadHandler::get()->draw(10,10);
+    #endif
          
-	}
+    }
 
     if (bDiagnosticsMode == true) {
 		// diagnostics mode display - shows depth / camera mode for establishing near / far threshold values
@@ -232,9 +226,9 @@ void ofApp::draw() {
 		//grayImage.draw(10, 320, 400, 300);
 		//contourFinder.draw(10, 320, 400, 300);
         
-        #ifdef USE_TWO_KINECTS
-            kinect2.draw(420, 320, 400, 300);
-        #endif
+    #ifdef USE_TWO_KINECTS
+        kinect2.draw(420, 320, 400, 300);
+    #endif
         
         // on screen text GUI for diagnostic mode settings
         ofSetColor(255, 255, 255);
@@ -263,11 +257,7 @@ void ofApp::draw() {
         }
         
         ofDrawBitmapString(reportStream.str(), 20, 652);
-        
-        
-      
 	}
-	
 }
 
 
@@ -292,6 +282,7 @@ void ofApp::drawPointCloud() {
 	ofPushMatrix();
 	// the projected points are 'upside down' and 'backwards' 
 	ofScale(1, -1, -1);
+    
 #ifdef USE_HOSTMODE
 	ofTranslate(0, 0, 0); // center the points a bit
 #endif
@@ -299,6 +290,7 @@ void ofApp::drawPointCloud() {
 #ifdef USE_PHOTOBOOTH
     ofTranslate(0, 0, -1000); // center the points a bit
 #endif
+    
 	ofEnableDepthTest();
 	mesh.drawVertices();
 	ofDisableDepthTest();
@@ -306,32 +298,32 @@ void ofApp::drawPointCloud() {
 }
 
 #ifdef USE_TWO_KINECTS
-    //--------------------------------------------------------------
-    void ofApp::drawPointCloud2() {
-        int w = 640;
-        int h = 480;
-        ofMesh mesh2;
-        mesh2.setMode(OF_PRIMITIVE_POINTS);
-        int step = 1;
-        for(int y = 0; y < h; y += step) {
-            for(int x = 0; x < w; x += step) {
-                if(kinect2.getDistanceAt(x, y) < depthLimit) {
-                    mesh2.addColor(kinect2.getColorAt(x,y));
-                    mesh2.addVertex(kinect2.getWorldCoordinateAt(x, y));
-                }
+//--------------------------------------------------------------
+void ofApp::drawPointCloud2() {
+    int w = 640;
+    int h = 480;
+    ofMesh mesh2;
+    mesh2.setMode(OF_PRIMITIVE_POINTS);
+    int step = 1;
+    for(int y = 0; y < h; y += step) {
+        for(int x = 0; x < w; x += step) {
+            if(kinect2.getDistanceAt(x, y) < depthLimit) {
+                mesh2.addColor(kinect2.getColorAt(x,y));
+                mesh2.addVertex(kinect2.getWorldCoordinateAt(x, y));
             }
         }
-        // set point cloud point size (taken from keyboard controls)
-        glPointSize(pointSize);
-        ofPushMatrix();
-        // the projected points are 'upside down' and 'backwards'
-        ofScale(-1, -1, 1);
-        ofTranslate(0, 0, 0); // center the points a bit;
-        ofEnableDepthTest();
-        mesh2.drawVertices();
-        ofDisableDepthTest();
-        ofPopMatrix();
     }
+    // set point cloud point size (taken from keyboard controls)
+    glPointSize(pointSize);
+    ofPushMatrix();
+    // the projected points are 'upside down' and 'backwards'
+    ofScale(-1, -1, 1);
+    ofTranslate(0, 0, 0); // center the points a bit;
+    ofEnableDepthTest();
+    mesh2.drawVertices();
+    ofDisableDepthTest();
+    ofPopMatrix();
+}
 #endif
 
 //--------------------------------------------------------------
@@ -339,14 +331,14 @@ void ofApp::exit() {
     // kinect.setCameraTiltAngle(0); // zero the tilt on exit
     kinect.close();
 
-    #ifdef USE_TWO_KINECTS
-        kinect2.close();
-    #endif
+#ifdef USE_TWO_KINECTS
+    kinect2.close();
+#endif
     
-    #ifdef USE_PHOTOBOOTH
-        pboothGUI->saveSettings("photoBoothSettings.xml");
-        delete pboothGUI;
-    #endif
+#ifdef USE_PHOTOBOOTH
+    pboothGUI->saveSettings("photoBoothSettings.xml");
+    delete pboothGUI;
+#endif
 }
 
 
@@ -416,14 +408,12 @@ void ofApp::keyPressed (int key) {
             bReviewLastShot = true;
             break;
             
-		case '>':
 		case '.':
 			//farThreshold ++;
 			//if (farThreshold > 255) farThreshold = 255;
             depthLimit = depthLimit + 100;
 			break;
 			
-		case '<':
 		case ',':
 			//farThreshold --;
 			//if (farThreshold < 0) farThreshold = 0;
@@ -431,7 +421,6 @@ void ofApp::keyPressed (int key) {
             depthLimit = depthLimit - 100;
 			break;
 			
-		case '+':
 		case '=':
 			nearThreshold ++;
 			if (nearThreshold > 255) nearThreshold = 255;
@@ -495,11 +484,10 @@ void ofApp::mousePressed(int x, int y, int button){
 void ofApp::mouseReleased(int x, int y, int button){
 }
 
-/*
 //--------------------------------------------------------------
 void ofApp::windowResized(int w, int h){
 }
-*/
+
 
 //--------------------------------------------------------------
 void ofApp::gotMessage(ofMessage msg){
@@ -508,30 +496,3 @@ void ofApp::gotMessage(ofMessage msg){
 //--------------------------------------------------------------
 void ofApp::dragEvent(ofDragInfo dragInfo){
 }
-
-#ifdef USE_GAMEPAD
-    //Gamepad classes
-    //--------------------------------------------------------------
-
-    void ofApp::axisChanged(ofxGamepadAxisEvent& e){
-        //cout << "AXIS " << e.axis << " VALUE " << ofToString(e.value) << endl;
-    }
-
-    void ofApp::buttonPressed(ofxGamepadButtonEvent& e){
-        //cout << "BUTTON " << e.button << " PRESSED" << endl;
-
-        /*
-        // HOW TO READ BUTTON PRESSES ON THE GAMEPAD!
-        // this checks if A / green button is pressed, then it goes full screen
-        if (e.button == 11){
-            bSnapshot = true;
-            bDrawPointCloud = true;
-        }
-        */
-    }
-
-    void ofApp::buttonReleased(ofxGamepadButtonEvent& e){
-        //cout << "BUTTON " << e.button << " RELEASED" << endl;
-    }
-#endif
-

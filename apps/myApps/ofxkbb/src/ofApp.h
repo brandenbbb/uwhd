@@ -1,13 +1,5 @@
 #pragma once
 
-#include "ofxOpenCv.h"
-#include "ofxKinect.h"
-#include "ofxAssimpModelLoader.h"
-#include "ofVboMesh.h"
-#include "ofAppGlutWindow.h"
-#include "ofxGameCamera.h"
-#include "ofxUI.h"
-
 // uncomment this to read from two kinects simultaneously
 //#define USE_TWO_KINECTS
 
@@ -23,10 +15,17 @@
 //uncomment this to enable HOT DOCS HOST mode
 #define USE_HOSTMODE
 
+#include "ofxOpenCv.h"
+#include "ofxKinect.h"
+#include "ofxAssimpModelLoader.h"
+#include "ofVboMesh.h"
+#include "ofxGameCamera.h"
+#include "ofxUI.h"
+
 #ifdef USE_GAMEPAD
-    #include "ofxGamepadHandler.h"
     #include "ofxGamepadCamera.h"
 #endif
+
 
 class ofApp : public ofBaseApp {
     
@@ -47,7 +46,7 @@ public:
     void mouseDragged(int x, int y, int button);
     void mousePressed(int x, int y, int button);
     void mouseReleased(int x, int y, int button);
-    //void windowResized(int w, int h);
+    void windowResized(int w, int h);
     void dragEvent(ofDragInfo dragInfo);
     void gotMessage(ofMessage msg);
     
@@ -58,10 +57,7 @@ public:
     string emailFile;
     string fileName;
     void guiEvent(ofxUIEventArgs &e);
-    
     bool hideGUI;
-
-    
 	
     // KINECT VARIABLES
     ofxKinect kinect;
@@ -101,15 +97,12 @@ public:
 #ifdef USE_HOSTMODE
     // FPS camera
     #ifndef USE_GAMEPAD
+        // If no gamepad enabled, use keyboard FPS controls
         ofxGameCamera camera;
     #endif
     
     #ifdef USE_GAMEPAD
-        // gamepad classes
         ofxGamepadCamera camera;
-        void axisChanged(ofxGamepadAxisEvent &e);
-        void buttonPressed(ofxGamepadButtonEvent &e);
-        void buttonReleased(ofxGamepadButtonEvent &e);
     #endif
     
     // Universe Within 3D environment assets

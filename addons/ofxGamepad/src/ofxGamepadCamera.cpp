@@ -38,10 +38,10 @@ void ofxGamepadCamera::update(ofEventArgs& e) {
     }
 
 	if(pad->getButtonValue(XB_BTN_LB)) {
-		roll(-speedRotation*.7*mult);
+		roll(-speedRotation*mult);
 	}
 	if(pad->getButtonValue(XB_BTN_RB)) {
-		roll(speedRotation*.7*mult);
+		roll(speedRotation*mult);
 	}
 
     if(pad->getButtonValue(XB_BTN_BACK)){
