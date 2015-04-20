@@ -31,10 +31,6 @@ void ofxGamepadCamera::update(ofEventArgs& e) {
     
     boom(-pad->getAxisValue(XB_STICK_LT)*speedMove*.25*mult);
     boom(pad->getAxisValue(XB_STICK_RT)*speedMove*.25*mult);
-
-    //roll(-pad->getButtonValue(XB_BTN_LB)*speedRotation*.25);
-    //roll(pad->getButtonValue(XB_BTN_RB)*speedRotation*.25);
-    
     
 	if(pad->getButtonValue(XB_BTN_LB)) {
 		roll(-speedRotation*.5*mult);
@@ -43,7 +39,6 @@ void ofxGamepadCamera::update(ofEventArgs& e) {
 		roll(speedRotation*.5*mult);
 	}
     
-
     if(pad->getButtonValue(XB_BTN_BACK)){
 		reset();
     }

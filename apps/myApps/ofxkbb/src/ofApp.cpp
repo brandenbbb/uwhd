@@ -36,19 +36,17 @@ void ofApp::setup() {
 #ifdef USE_TWO_KINECTS
     kinect2.init();
     kinect2.open();
+    
+    colorImg.allocate(kinect2.width, kinect2.height);
+    grayImage.allocate(kinect2.width, kinect2.height);
+    grayThreshNear.allocate(kinect2.width, kinect2.height);
+    grayThreshFar.allocate(kinect2.width, kinect2.height);
 #endif
     
 	colorImg.allocate(kinect.width, kinect.height);
 	grayImage.allocate(kinect.width, kinect.height);
 	grayThreshNear.allocate(kinect.width, kinect.height);
 	grayThreshFar.allocate(kinect.width, kinect.height);
-    
-#ifdef USE_TWO_KINECTS
-    colorImg.allocate(kinect2.width, kinect2.height);
-    grayImage.allocate(kinect2.width, kinect2.height);
-    grayThreshNear.allocate(kinect2.width, kinect2.height);
-    grayThreshFar.allocate(kinect2.width, kinect2.height);
-#endif
     
     // default values for near / far threshold / point size (adjusted later via GUI controls)
 	nearThreshold = 255;
@@ -319,6 +317,7 @@ void ofApp::drawGuestPointCloud() {
     // the projected points are 'upside down' and 'backwards'
     ofScale(-1, -1, 1);
     ofTranslate(0, 0, 0); // center the points a bit;
+    ofRotate(45, 0, 1, 0); // rotate the second Kinect
     ofEnableDepthTest();
     mesh2.drawVertices();
     ofDisableDepthTest();
