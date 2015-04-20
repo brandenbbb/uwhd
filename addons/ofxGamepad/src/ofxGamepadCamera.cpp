@@ -1,6 +1,6 @@
 #include "ofxGamepadCamera.h"
 
-ofxGamepadCamera::ofxGamepadCamera():pad(NULL),speedRotation(20), speedMove(200), useAnalogueDolly(false) {
+ofxGamepadCamera::ofxGamepadCamera():pad(NULL),speedRotation(20), speedMove(200), useAnalogueDolly(true) {
 }
 
 ofxGamepadCamera::~ofxGamepadCamera() {
@@ -29,20 +29,20 @@ void ofxGamepadCamera::update(ofEventArgs& e) {
     truck((pad->getAxisValueU(XB_STICK_L_X)-.5)*speedMove*mult);
     dolly((pad->getAxisValueU(XB_STICK_L_Y)-.5)*speedMove*mult);
     
+    boom(-pad->getAxisValue(XB_STICK_LT)*speedMove*.25*mult);
+    boom(pad->getAxisValue(XB_STICK_RT)*speedMove*.25*mult);
 
-    if(pad->getButtonValue(XB_STICK_LT)) {
-        boom(-speedMove*2*mult);
-    }
-    if(pad->getButtonValue(XB_STICK_RT)) {
-        boom(speedMove*2*mult);
-    }
-
+    //roll(-pad->getButtonValue(XB_BTN_LB)*speedRotation*.25);
+    //roll(pad->getButtonValue(XB_BTN_RB)*speedRotation*.25);
+    
+    
 	if(pad->getButtonValue(XB_BTN_LB)) {
-		roll(-speedRotation*mult);
+		roll(-speedRotation*.5*mult);
 	}
 	if(pad->getButtonValue(XB_BTN_RB)) {
-		roll(speedRotation*mult);
+		roll(speedRotation*.5*mult);
 	}
+    
 
     if(pad->getButtonValue(XB_BTN_BACK)){
 		reset();

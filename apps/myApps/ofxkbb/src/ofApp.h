@@ -36,8 +36,8 @@ public:
 	void exit();
 	
     // point cloud classes
-	void drawPointCloud();
-    void drawPointCloud2();
+	void drawHostPointCloud();
+    void drawGuestPointCloud();
     
     // input classes
     void keyPressed(int key);

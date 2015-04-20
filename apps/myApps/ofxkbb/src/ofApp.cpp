@@ -166,12 +166,12 @@ void ofApp::draw() {
     
         #ifdef USE_KINECT
             // Kinect Point Cloud
-            drawPointCloud();
+            drawHostPointCloud();
         #endif
     
         #ifdef USE_TWO_KINECTS
             // Kinect Point Cloud #2
-            drawPointCloud2();
+            drawGuestPointCloud();
         #endif
     
         // 3D towers!
@@ -214,7 +214,7 @@ void ofApp::draw() {
         
         //gamepad GUI for diagnostics
     #ifdef USE_GAMEPAD
-        //ofxGamepadHandler::get()->draw(10,10);
+        ofxGamepadHandler::get()->draw(10,10);
     #endif
          
     }
@@ -263,7 +263,7 @@ void ofApp::draw() {
 
 //--------------------------------------------------------------
 
-void ofApp::drawPointCloud() {
+void ofApp::drawHostPointCloud() {
 	int w = 640;
 	int h = 480;
 	ofMesh mesh;
@@ -299,7 +299,7 @@ void ofApp::drawPointCloud() {
 
 #ifdef USE_TWO_KINECTS
 //--------------------------------------------------------------
-void ofApp::drawPointCloud2() {
+void ofApp::drawGuestPointCloud() {
     int w = 640;
     int h = 480;
     ofMesh mesh2;
@@ -487,7 +487,6 @@ void ofApp::mouseReleased(int x, int y, int button){
 //--------------------------------------------------------------
 void ofApp::windowResized(int w, int h){
 }
-
 
 //--------------------------------------------------------------
 void ofApp::gotMessage(ofMessage msg){
