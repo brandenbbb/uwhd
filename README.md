@@ -1,16 +1,15 @@
 # uwhd
 
 APRIL 20:
-    kinect(1) = host kinect / kinect(0) = guest kinect
+    kinect(1) = host kinect
+    kinect(0) = guest kinect
     removed diagnostics mode
 
 APRIL 19:
-
     xbox 360 USB gamepad controls now working if USE_GAMEPAD enabled. FPS style controls
-    also...be sure to build as release as the framerate performance drastically increases
+    also...be sure to compile as release as the framerate performance drastically increases
 
 APRIL 14:
-
     added switch in ofApp.h - simply comment / uncomment to enable which mode you want to use:
 
 
