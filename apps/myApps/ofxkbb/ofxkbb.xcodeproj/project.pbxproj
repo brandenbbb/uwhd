@@ -1228,6 +1228,7 @@
 		BB4B014C10F69532006C3DED /* addons */ = {
 			isa = PBXGroup;
 			children = (
+				E4EEC9E9138DF44700A80321 /* openFrameworks */,
 				6A3C252F1ADDA713009E3C22 /* ofxUI */,
 				6A3515C11ADD7B70009CD45E /* ofxXmlSettings */,
 				6A5A22D01ADD7777000F2B01 /* ofxAssimpModelLoader */,
@@ -1342,7 +1343,6 @@
 				E4B6FCAD0C3E899E008CF71C /* openFrameworks-Info.plist */,
 				E4EB6923138AFD0F00A09F29 /* Project.xcconfig */,
 				E4B69E1C0A3A1BDC003C02F2 /* src */,
-				E4EEC9E9138DF44700A80321 /* openFrameworks */,
 				BB4B014C10F69532006C3DED /* addons */,
 				E45BE5980E8CC70C009D7055 /* frameworks */,
 				E4B69B5B0A3A1756003C02F2 /* ofxkbbDebug.app */,

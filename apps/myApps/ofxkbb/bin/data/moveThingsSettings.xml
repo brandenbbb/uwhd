@@ -38,7 +38,7 @@
 <Widget>
     <Kind>4</Kind>
     <Name>guestTranX</Name>
-    <Value>0.000000000</Value>
+    <Value>73.891876221</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
@@ -68,20 +68,20 @@
 <Widget>
     <Kind>4</Kind>
     <Name>towersScale</Name>
-    <Value>14.187191963</Value>
+    <Value>1.083743811</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
     <Name>towersTranX</Name>
-    <Value>-172.413879395</Value>
+    <Value>369.458190918</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
     <Name>towersTranY</Name>
-    <Value>-270.935882568</Value>
+    <Value>-73.891578674</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
     <Name>towersTranZ</Name>
-    <Value>0.000000000</Value>
+    <Value>-24.630428314</Value>
 </Widget>
