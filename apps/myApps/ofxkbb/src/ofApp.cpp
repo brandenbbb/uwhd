@@ -72,18 +72,16 @@ void ofApp::setup() {
     moveThings ->addSlider("guestRoX", -180, 180, guestRoX);
     moveThings ->addSlider("guestRoY", -180, 180, guestRoY);
     moveThings ->addSlider("guestRoZ", -180, 180, guestRoZ);
+    moveThings ->addLabel("TOWERS");
+    moveThings ->addSpacer();
+    moveThings ->addSlider("towersScale", 0, 20, towersScale);
+    moveThings ->addSlider("towersTranX", -1000, 1000, towersTranX);
+    moveThings ->addSlider("towersTranY", -1000, 1000, towersTranY);
+    moveThings ->addSlider("towersTranZ", -1000, 1000, towersTranZ);
+    moveThings ->addSpacer();
+
+
     /*
-    gui->addSlider("BGG", 0, 255, backgroundColor.g);
-    gui->addSlider("BGB", 0, 255, backgroundColor.b);
-    gui->addSpacer();
-    gui->addLabel("CIRCLE CONTROL");
-    gui->addSlider("RED", 0.0, 255.0, red);
-    gui->addSlider("GREEN", 0.0, 255.0, green);
-    gui->addSlider("BLUE", 0.0, 255.0, blue);
-    gui->addSlider("ALPHA", 0.0, 255.0, alpha);
-    gui->addSlider("RADIUS", 0.0, 600.0, radius);
-    gui->addSlider("RESOLUTION", 3, 60, resolution);
-    gui->addLabelToggle("DRAW FILL", drawFill);
     gui->add2DPad("POSITION", ofPoint(0, ofGetWidth()), ofPoint(0, ofGetHeight()), position);
     gui->addSpacer();
     gui->addTextArea("TEXT AREA", "HIDE & SHOW GUI BY PRESSING 'g'. MOUSE OVER A SLIDER AND PRESS UP, DOWN, LEFT, RIGHT", OFX_UI_FONT_SMALL);
@@ -143,8 +141,8 @@ void ofApp::draw() {
         #endif
     
         // 3D towers!
-        towers.setScale(.5, -.5, .5);
-        towers.setPosition(0, -100, -100);
+        towers.setScale(towersScale*.5, towersScale*-.5, towersScale*.5);
+        towers.setPosition(towersTranX, towersTranY, towersTranZ);
         towers.drawFaces();
         camera.end();
 #endif
@@ -209,7 +207,6 @@ void ofApp::drawHostPointCloud() {
 	ofScale(1, -1, -1);
     
 #ifdef USE_HOSTMODE
-	ofTranslate(0, 0, 0); // center the points a bit
     ofRotateX(hostRoX);
     ofRotateY(hostRoY);
     ofRotateZ(hostRoZ);
@@ -274,16 +271,15 @@ void ofApp::exit() {
 }
 
 
+// photo booth writer GUI
 //--------------------------------------------------------------
 
 void ofApp::photoBoothGUI(){
     pboothGUI = new ofxUISuperCanvas("EMAIL");
-    
     pboothGUI->addSpacer();
     pboothGUI->setWidgetFontSize(OFX_UI_FONT_MEDIUM);
     email = pboothGUI->addTextInput("EMAIL", "");
     emailFile = ofToString(email);
-    
     ofAddListener(pboothGUI->newGUIEvent,this,&ofApp::guiEvent);
 }
 
@@ -300,6 +296,7 @@ void ofApp::guiEvent(ofxUIEventArgs &e)
         emailFile = email->getTextString();
     }
     
+    // HOST REPOSITIONING
     if(name == "hostTranX")
     {
         ofxUISlider *hostTranX_Slider = (ofxUISlider *) e.widget;
@@ -331,9 +328,7 @@ void ofApp::guiEvent(ofxUIEventArgs &e)
         hostRoZ = hostRoZ_Slider->getScaledValue();
     }
     
-    
-    
-    
+    // GUEST REPOSITIONING
     if(name == "guestTranX")
     {
         ofxUISlider *guestTranX_Slider = (ofxUISlider *) e.widget;
@@ -364,7 +359,28 @@ void ofApp::guiEvent(ofxUIEventArgs &e)
         ofxUISlider *guestRoZ_Slider = (ofxUISlider *) e.widget;
         guestRoZ = guestRoZ_Slider->getScaledValue();
     }
-
+    
+    // TOWERS REPOSITIONING
+    if(name == "towersScale")
+    {
+        ofxUISlider *towersScale_Slider = (ofxUISlider *) e.widget;
+        towersScale = towersScale_Slider->getScaledValue();
+    }
+    if(name == "towersTranX")
+    {
+        ofxUISlider *towersTranX_Slider = (ofxUISlider *) e.widget;
+        towersTranX = towersTranX_Slider->getScaledValue();
+    }
+    if(name == "towersTranY")
+    {
+        ofxUISlider *towersTranY_Slider = (ofxUISlider *) e.widget;
+        towersTranY = towersTranY_Slider->getScaledValue();
+    }
+    if(name == "towersTranZ")
+    {
+        ofxUISlider *towersTranZ_Slider = (ofxUISlider *) e.widget;
+        towersTranZ = towersTranZ_Slider->getScaledValue();
+    }
 }
 
 
@@ -388,6 +404,11 @@ void ofApp::keyPressed (int key) {
         // image review keystroke
         case OF_KEY_F6:
             bReviewLastShot = true;
+            break;
+        
+        // hide GUI
+        case 'h':
+            moveThings->toggleVisible();
             break;
             
 		case '.':

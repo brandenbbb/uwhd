@@ -4,6 +4,7 @@ APRIL 20:
     kinect(1) = host kinect
     kinect(0) = guest kinect
     removed diagnostics mode
+    h key on keyboard hides host mode GUI
 
 APRIL 19:
     xbox 360 USB gamepad controls now working if USE_GAMEPAD enabled. FPS style controls
