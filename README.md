@@ -6,29 +6,30 @@ APRIL 20:
     removed diagnostics mode
     h key on keyboard hides host mode GUI
 
+
 APRIL 19:
     xbox 360 USB gamepad controls now working if USE_GAMEPAD enabled. FPS style controls
     also...be sure to compile as release as the framerate performance drastically increases
 
-APRIL 14:
-    added switch in ofApp.h - simply comment / uncomment to enable which mode you want to use:
 
+SWITCH MODES
+    in ofApp.h, comment out any of the following to enable various modes / or for debugging
+    
+    USE_KINECT
+        if both this and USE_TWO_KINECTS are commented out, it will disable all Kinect stuff for debugging purposes
 
-USE_KINECT
-    if both this and USE_TWO_KINECTS are commented out, it will disable all Kinect stuff for debugging purposes
+    USE_TWO_KINECTS
+        use two kinect point clouds
 
-USE_TWO_KINECTS
-    use two kinect point clouds
+    USE_GAMEPAD
+        use Xbox360 gamepad
+        *REQUIRES XBOX 360 controller driver to be installed which is in the root folder
 
-USE_GAMEPAD
-    use Xbox360 gamepad
-    *REQUIRES XBOX 360 controller driver to be installed which is in the root folder
+    USE_PHOTOBOOTH
+        enable photobooth mode with 2D backgrounds and peasy camera instead of FPS camera
 
-USE_PHOTOBOOTH
-    enable photobooth mode with 2D backgrounds and peasy camera instead of FPS camera
-
-USE_HOSTMODE
-    enable live host mode
+    USE_HOSTMODE
+        enable live host mode
 
 
 KEYBOARD CONTROLS!
@@ -71,13 +72,13 @@ IMAGE WRITER:
 
     F1 = full screen
 
-    F4 = point cloud mode / live mode
+    F4 = point cloud mode / go back to live mode (if in review last frame mode)
         
     F5 = save PNG of entire OF window
 
     F6 = review last saved file (saved into the data/bin folder)
 
-    F4 = go back to live point cloud (during review mode)
+    h = hide GUI in host mode
 
 
 POINT CLOUD ADJUSTMENTS:
