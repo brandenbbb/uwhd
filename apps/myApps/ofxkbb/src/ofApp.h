@@ -59,6 +59,7 @@ public:
     void guiEvent(ofxUIEventArgs &e);
     
     // 3D object reposition etc GUI stuff
+    void setMoveThingsGUI();
     ofxUISuperCanvas *moveThings;
     float hostRoX, hostRoY, hostRoZ, hostTranX, hostTranY, hostTranZ;
     float guestRoX, guestRoY, guestRoZ, guestTranX, guestTranY, guestTranZ;
