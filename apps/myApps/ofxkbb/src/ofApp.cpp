@@ -12,12 +12,18 @@ void ofApp::setup() {
     camera.setup();
 #endif
 
-	//enable depth->video image calibration
-	kinect.setRegistration(true);
-	kinect.init();
-	kinect.open(1);	// open host kinect
+#ifndef USE_TWO_KINECTS
+    //enable depth->video image calibration
+    kinect.setRegistration(true);
+    kinect.init();
+    kinect.open();	// open host kinect
+#endif
     
 #ifdef USE_TWO_KINECTS
+    //enable depth->video image calibration
+    kinect.setRegistration(true);
+    kinect.init();
+    kinect.open(1);	// open host kinect
     //enable depth->video image calibration
     kinect2.setRegistration(true);
     kinect2.init();
