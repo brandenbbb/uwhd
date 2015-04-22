@@ -457,13 +457,13 @@ void ofApp::keyPressed (int key) {
 		case 'n':
 			angle++;
 			if(angle>30) angle=30;
-			kinect2.setCameraTiltAngle(angle);
+			kinect.setCameraTiltAngle(angle);
 			break;
 			
 		case 'm':
 			angle--;
 			if(angle<-30) angle=-30;
-			kinect2.setCameraTiltAngle(angle);
+			kinect.setCameraTiltAngle(angle);
 			break;
 	}
 }
