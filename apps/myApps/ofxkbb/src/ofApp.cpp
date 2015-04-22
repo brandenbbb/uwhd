@@ -15,9 +15,11 @@ void ofApp::setup() {
 	//enable depth->video image calibration
 	kinect.setRegistration(true);
 	kinect.init();
-	kinect.open(1);	// open host kinect
+    kinect.open();	// open host kinect
+
     
 #ifdef USE_TWO_KINECTS
+    kinect.open(1); // open host kinect (one with no triopod mount)
     //enable depth->video image calibration
     kinect2.setRegistration(true);
     kinect2.init();
