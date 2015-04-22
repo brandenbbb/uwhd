@@ -55,9 +55,9 @@ void ofApp::setup() {
     moveThings = new ofxUISuperCanvas("3D OBJECTS");
     moveThings ->addLabel("HOST POINT CLOUD");
     moveThings ->addSpacer();
-    moveThings ->addSlider("hostTranX", -1000, 1000, hostTranX);
-    moveThings ->addSlider("hostTranY", -1000, 1000, hostTranY);
-    moveThings ->addSlider("hostTranZ", -1000, 1000, hostTranZ);
+    moveThings ->addSlider("hostTranX", -5000, 5000, hostTranX);
+    moveThings ->addSlider("hostTranY", -5000, 5000, hostTranY);
+    moveThings ->addSlider("hostTranZ", -5000, 5000, hostTranZ);
     moveThings ->addSpacer();
     moveThings ->addSlider("hostRoX", -180, 180, hostRoX);
     moveThings ->addSlider("hostRoY", -180, 180, hostRoY);
@@ -65,9 +65,9 @@ void ofApp::setup() {
     moveThings ->addSpacer();
     moveThings ->addLabel("GUEST POINT CLOUD");
     moveThings ->addSpacer();
-    moveThings ->addSlider("guestTranX", -1000, 1000, guestTranX);
-    moveThings ->addSlider("guestTranY", -1000, 1000, guestTranY);
-    moveThings ->addSlider("guestTranZ", -1000, 1000, guestTranZ);
+    moveThings ->addSlider("guestTranX", -5000, 5000, guestTranX);
+    moveThings ->addSlider("guestTranY", -5000, 5000, guestTranY);
+    moveThings ->addSlider("guestTranZ", -5000, 5000, guestTranZ);
     moveThings ->addSpacer();
     moveThings ->addSlider("guestRoX", -180, 180, guestRoX);
     moveThings ->addSlider("guestRoY", -180, 180, guestRoY);
@@ -75,15 +75,14 @@ void ofApp::setup() {
     moveThings ->addLabel("TOWERS");
     moveThings ->addSpacer();
     moveThings ->addSlider("towersScale", 0, 20, towersScale);
-    moveThings ->addSlider("towersTranX", -1000, 1000, towersTranX);
-    moveThings ->addSlider("towersTranY", -1000, 1000, towersTranY);
-    moveThings ->addSlider("towersTranZ", -1000, 1000, towersTranZ);
+    moveThings ->addButton("reset_towersScale", false);
+    moveThings ->addSlider("towersTranX", -5000, 5000, towersTranX);
+    moveThings ->addSlider("towersTranY", -5000, 5000, towersTranY);
+    moveThings ->addSlider("towersTranZ", -5000, 5000, towersTranZ);
     moveThings ->addSpacer();
     moveThings ->autoSizeToFitWidgets();
     ofAddListener(moveThings ->newGUIEvent,this,&ofApp::guiEvent);
     moveThings ->loadSettings("moveThingsSettings.xml");
-
-    
 #endif
 }
 
@@ -205,9 +204,11 @@ void ofApp::drawHostPointCloud() {
     ofRotateZ(hostRoZ);
     ofTranslate(hostTranX, hostTranY, hostTranZ);
 #endif
+    
 #ifdef USE_PHOTOBOOTH
     ofTranslate(0, 0, -1000); // center the points a bit
 #endif
+    
 	ofEnableDepthTest();
 	mesh.drawVertices();
 	ofDisableDepthTest();
@@ -286,8 +287,7 @@ void ofApp::guiEvent(ofxUIEventArgs &e)
     string name = e.getName();
     int kind = e.getKind();
     
-    if(name == "EMAIL")
-    {
+    if(name == "EMAIL"){
         ofxUITextInput *email = (ofxUITextInput *) e.widget;
         emailFile = email->getTextString();
     }
@@ -357,10 +357,20 @@ void ofApp::guiEvent(ofxUIEventArgs &e)
     }
     
     // TOWERS REPOSITIONING
-    if(name == "towersScale")
-    {
+    if(name == "towersScale"){
         ofxUISlider *towersScale_Slider = (ofxUISlider *) e.widget;
         towersScale = towersScale_Slider->getScaledValue();
+    }
+    if(name == "reset_towersScale"){
+        ofxUIButton *button = (ofxUIButton *) e.getButton();
+        if (button->getValue() == true){
+            towersScale = 1;
+        }
+    }
+    if(kind == OFX_UI_WIDGET_BUTTON)
+    {
+        ofxUIButton *button = (ofxUIButton *) e.widget;
+        cout << name << "\t value: " << button->getValue() << endl;
     }
     if(name == "towersTranX")
     {
