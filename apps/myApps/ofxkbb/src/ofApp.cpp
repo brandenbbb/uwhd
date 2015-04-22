@@ -184,7 +184,7 @@ void ofApp::draw() {
         
     //gamepad GUI for diagnostics
 #ifdef USE_GAMEPAD
-    ofxGamepadHandler::get()->draw(10,10);
+    ofxGamepadHandler::get()->draw(150,10);
 #endif
     
 }
