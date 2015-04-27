@@ -38,9 +38,9 @@ void ofxGamepadCamera::update(ofEventArgs& e) {
 	if(pad->getButtonValue(XB_BTN_RB)) {
 		roll(speedRotation*.5*mult);
 	}
-
+    
     if(pad->getButtonValue(XB_BTN_BACK)){
-        reset();
+		reset();
     }
 
 	lastTime = curTime;
