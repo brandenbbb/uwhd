@@ -8,47 +8,55 @@
 <Widget>
     <Kind>4</Kind>
     <Name>BGR</Name>
-    <Value>153.251235962</Value>
+    <Value>236.157638550</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
     <Name>BGG</Name>
-    <Value>85.418716431</Value>
+    <Value>64.064041138</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
     <Name>BGB</Name>
-    <Value>76.625617981</Value>
+    <Value>125.615768433</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
     <Name>RED</Name>
-    <Value>79.137924194</Value>
+    <Value>255.000000000</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
     <Name>GREEN</Name>
-    <Value>51.502464294</Value>
+    <Value>195.960586548</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
     <Name>BLUE</Name>
-    <Value>40.197044373</Value>
+    <Value>70.344825745</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
     <Name>ALPHA</Name>
+<<<<<<< HEAD
     <Value>79.326370239</Value>
+=======
+    <Value>194.899993896</Value>
+>>>>>>> parent of 3806946... perfect!  for posterity's sake before adding GUI to move / scale 3d objects
 </Widget>
 <Widget>
     <Kind>4</Kind>
     <Name>RADIUS</Name>
+<<<<<<< HEAD
     <Value>234.945678711</Value>
+=======
+    <Value>180.000000000</Value>
+>>>>>>> parent of 3806946... perfect!  for posterity's sake before adding GUI to move / scale 3d objects
 </Widget>
 <Widget>
     <Kind>4</Kind>
     <Name>RESOLUTION</Name>
-    <Value>24.000000000</Value>
+    <Value>28.000000000</Value>
 </Widget>
 <Widget>
     <Kind>17</Kind>

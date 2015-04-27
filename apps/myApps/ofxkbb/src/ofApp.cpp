@@ -12,7 +12,7 @@ void ofApp::setup() {
     camera.setup();
 #endif
 
-#ifndef USE_TWO_KINECTS
+#ifndef USE_KINECT
     //enable depth->video image calibration
     kinect.setRegistration(true);
     kinect.init();
@@ -85,18 +85,9 @@ void ofApp::setup() {
     moveThings ->addSlider("towersTranY", -1000, 1000, towersTranY);
     moveThings ->addSlider("towersTranZ", -1000, 1000, towersTranZ);
     moveThings ->addSpacer();
-
-
-    /*
-    gui->add2DPad("POSITION", ofPoint(0, ofGetWidth()), ofPoint(0, ofGetHeight()), position);
-    gui->addSpacer();
-    gui->addTextArea("TEXT AREA", "HIDE & SHOW GUI BY PRESSING 'g'. MOUSE OVER A SLIDER AND PRESS UP, DOWN, LEFT, RIGHT", OFX_UI_FONT_SMALL);
-     */
     moveThings ->autoSizeToFitWidgets();
     ofAddListener(moveThings ->newGUIEvent,this,&ofApp::guiEvent);
     moveThings ->loadSettings("objectsGuiSettings.xml");
-
-    
 #endif
 }
 
