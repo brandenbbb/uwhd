@@ -1,13 +1,13 @@
 #pragma once
 
 // uncomment this to read from two kinects simultaneously
-//#define USE_TWO_KINECTS
+#define USE_TWO_KINECTS
 
 //uncomment this to enable gamepad mode...do not use unless you have Xbox 360 controller / driver setup properly!!!
-//#define USE_GAMEPAD
+#define USE_GAMEPAD
 
 //uncomment this to enable the kinect point cloud (OR COMMENT THIS IF NO KINECT PLUGGED IN)
-//#define USE_KINECT
+#define USE_KINECT
 
 //uncomment this to enable PHOTOBOOTH mode
 //#define USE_PHOTOBOOTH
@@ -50,20 +50,13 @@ public:
     void dragEvent(ofDragInfo dragInfo);
     void gotMessage(ofMessage msg);
     
-    // Photobooth GUI stuff
+    // Reza's GUI classes
     void photoBoothGUI();
     ofxUISuperCanvas *pboothGUI;
     ofxUITextInput *email;
     string emailFile;
     string fileName;
     void guiEvent(ofxUIEventArgs &e);
-    
-    // 3D object reposition etc GUI stuff
-    void setMoveThingsGUI();
-    ofxUISuperCanvas *moveThings;
-    float hostRoX, hostRoY, hostRoZ, hostTranX, hostTranY, hostTranZ;
-    float guestRoX, guestRoY, guestRoZ, guestTranX, guestTranY, guestTranZ;
-    float towersScale, towersRoX, towersRoY, towersRoZ, towersTranX, towersTranY, towersTranZ;
 	
     // KINECT VARIABLES
     ofxKinect kinect;

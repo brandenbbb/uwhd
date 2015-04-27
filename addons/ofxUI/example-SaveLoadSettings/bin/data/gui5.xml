@@ -8,8 +8,8 @@
 <Widget>
     <Kind>11</Kind>
     <Name>PAD</Name>
-    <XValue>17.241382599</XValue>
-    <YValue>-16.256158829</YValue>
+    <XValue>21.182262421</XValue>
+    <YValue>-33.990150452</YValue>
 </Widget>
 <Widget>
     <Kind>21</Kind>
@@ -19,5 +19,5 @@
 <Widget>
     <Kind>27</Kind>
     <Name>NORTH SOUTH</Name>
-    <Value>0.000000000</Value>
+    <Value>75.099998474</Value>
 </Widget>
