@@ -8,12 +8,12 @@
 <Widget>
     <Kind>4</Kind>
     <Name>hostTranX</Name>
-    <Value>0.000000000</Value>
+    <Value>-1650.246337891</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
     <Name>hostTranY</Name>
-    <Value>-763.546813965</Value>
+    <Value>862.069152832</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
@@ -23,12 +23,12 @@
 <Widget>
     <Kind>4</Kind>
     <Name>hostRoX</Name>
-    <Value>0.000000000</Value>
+    <Value>-13.300495148</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
     <Name>hostRoY</Name>
-    <Value>0.000000000</Value>
+    <Value>-7.980290413</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
@@ -43,7 +43,7 @@
 <Widget>
     <Kind>4</Kind>
     <Name>guestTranY</Name>
-    <Value>0.000000000</Value>
+    <Value>862.069152832</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
@@ -68,7 +68,7 @@
 <Widget>
     <Kind>4</Kind>
     <Name>towersScale</Name>
-    <Value>14.187191963</Value>
+    <Value>3.842364550</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
