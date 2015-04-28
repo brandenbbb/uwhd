@@ -12,10 +12,12 @@ void ofApp::setup() {
     camera.setup();
 #endif
 
+#ifdef USE_KINECT
 	//enable depth->video image calibration
 	kinect.setRegistration(true);
 	kinect.init();
-	kinect.open(1);	// open host kinect
+	kinect.open();	// open host kinect
+#endif
     
 #ifdef USE_TWO_KINECTS
     //enable depth->video image calibration
@@ -263,8 +265,10 @@ void ofApp::exit() {
     delete pboothGUI;
 #endif
     
+#ifdef USE_HOSTMODE
     moveThings->saveSettings("moveThingsSettings.xml");
     delete moveThings;
+#endif
 }
 
 

@@ -7,13 +7,13 @@
 //#define USE_GAMEPAD
 
 //uncomment this to enable the kinect point cloud (OR COMMENT THIS IF NO KINECT PLUGGED IN)
-//#define USE_KINECT
+#define USE_KINECT
 
 //uncomment this to enable PHOTOBOOTH mode
-//#define USE_PHOTOBOOTH
+#define USE_PHOTOBOOTH
 
 //uncomment this to enable HOT DOCS HOST mode
-#define USE_HOSTMODE
+//#define USE_HOSTMODE
 
 #include "ofxOpenCv.h"
 #include "ofxKinect.h"
@@ -21,10 +21,7 @@
 #include "ofVboMesh.h"
 #include "ofxGameCamera.h"
 #include "ofxUI.h"
-
-#ifdef USE_GAMEPAD
-    #include "ofxGamepadCamera.h"
-#endif
+#include "ofxGamepadCamera.h"
 
 
 class ofApp : public ofBaseApp {
