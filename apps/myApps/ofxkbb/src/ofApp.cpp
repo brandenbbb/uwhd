@@ -148,7 +148,7 @@ void ofApp::draw() {
             // automatically reviews last frame taken
             img.grabScreen(0, 0, ofGetWidth(), ofGetHeight());
             string underScore = "_";
-            fileName = emailFile.c_str() + ofToString(underScore) + ofToString(snapCounter) + ".png";
+            fileName = emailFile.c_str() + ofToString(underScore) + ofToString(snapCounter) + ".jpg";
             img.saveImage(fileName);
             sprintf(snapString, "saved %s", fileName.c_str());
             snapCounter++;
