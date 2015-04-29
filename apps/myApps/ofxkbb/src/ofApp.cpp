@@ -18,7 +18,7 @@ void ofApp::setup() {
 	//enable depth->video image calibration
 	kinect.setRegistration(true);
 	kinect.init();
-	kinect.open();	// open host kinect
+	kinect.open(0);	// open host kinect
 #endif
     
 #ifdef USE_TWO_KINECTS
@@ -26,7 +26,7 @@ void ofApp::setup() {
     //enable depth->video image calibration
     kinect2.setRegistration(true);
     kinect2.init();
-    kinect2.open(); // open guest kinect
+    kinect2.open(1); // open guest kinect
 #endif
     
     // default values for near / far threshold / point size (adjusted later via GUI controls)
@@ -34,6 +34,7 @@ void ofApp::setup() {
     farThreshold = 167;
     pointSize = 3;
     depthLimit = 1100;
+    depthLimit2 = 1100;
     
     // image file writer settings
     snapCounter = 0;
@@ -240,7 +241,7 @@ void ofApp::drawGuestPointCloud() {
     int step = 1;
     for(int yy = 0; yy < hh; yy += step) {
         for(int xx = 0; xx < ww; xx += step) {
-            if(kinect2.getDistanceAt(xx, yy) < depthLimit) {
+            if(kinect2.getDistanceAt(xx, yy) < depthLimit2) {
                 mesh2.addColor(kinect2.getColorAt(xx,yy));
                 mesh2.addVertex(kinect2.getWorldCoordinateAt(xx, yy));
             }
@@ -476,7 +477,20 @@ void ofApp::keyPressed (int key) {
             if (depthLimit < 0) depthLimit = 0;
             depthLimit = depthLimit - 100;
 			break;
-			
+            
+        case ';':
+            //farThreshold ++;
+            //if (farThreshold > 255) farThreshold = 255;
+            depthLimit2 = depthLimit2 + 100;
+            break;
+            
+        case '/':
+            //farThreshold --;
+            //if (farThreshold < 0) farThreshold = 0;
+            if (depthLimit2 < 0) depthLimit2 = 0;
+            depthLimit2 = depthLimit2 - 100;
+            break;
+		/*
 		case '=':
 			nearThreshold ++;
 			if (nearThreshold > 255) nearThreshold = 255;
@@ -486,6 +500,7 @@ void ofApp::keyPressed (int key) {
 			nearThreshold --;
 			if (nearThreshold < 0) nearThreshold = 0;
 			break;
+        */
         
         // decrease / increase point cloud point size controls
         case '[':

@@ -95,6 +95,10 @@ POINT CLOUD ADJUSTMENTS:
 
     . = incraese depth "far" distance threshold (i.e. show more of the surrounding room)
 
+    ; = second kinect decrease depth "far" distance threshold (i.e. show less of the surrounding room)
+
+    / = second kinect incraese depth "far" distance threshold (i.e. show more of the surrounding room)
+
     - = decrease depth "near" distance threshold (i.e. allow things to get closer to the camera)
 
     = = increase depth "near" distance threshold (i.e. restrict things that are too close to the camera)

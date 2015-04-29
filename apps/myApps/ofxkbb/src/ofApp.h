@@ -71,7 +71,7 @@ public:
 	int farThreshold;
 	int angle;
     int pointSize;
-    int depthLimit;
+    int depthLimit, depthLimit2;
     
     bool hostCloud, guestCloud, hideTowers;
     
