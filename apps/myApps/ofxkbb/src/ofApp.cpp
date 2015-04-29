@@ -9,10 +9,12 @@ void ofApp::setup() {
     ofSetFrameRate(60);
     
 #ifdef USE_HOSTMODE
+    hideTowers = false;
     camera.setup();
 #endif
 
 #ifdef USE_KINECT
+    hostCloud = true;
 	//enable depth->video image calibration
 	kinect.setRegistration(true);
 	kinect.init();
@@ -20,6 +22,7 @@ void ofApp::setup() {
 #endif
     
 #ifdef USE_TWO_KINECTS
+    guestCloud = true;
     //enable depth->video image calibration
     kinect2.setRegistration(true);
     kinect2.init();
@@ -49,7 +52,7 @@ void ofApp::setup() {
     
 #ifdef USE_HOSTMODE
     // 3d model load assets
-    towers.loadModel("images/3d/untitled.dae");
+    towers.loadModel("images/3d/citygroundfloor.dae");
     sphere.loadModel("images/3d/skysphere.dae");
     
     // 3d object movement GUI setup
@@ -124,23 +127,31 @@ void ofApp::draw() {
         sphere.setScale(10,10,10);
         sphere.drawFaces();
     
-        #ifdef USE_KINECT
-            // Kinect Point Cloud
-            drawHostPointCloud();
-        #endif
-    
+        if (hideTowers == false){
+            // 3D towers!
+            towers.setScale(towersScale*.5, towersScale*-.5, towersScale*.5);
+            towers.setPosition(towersTranX, towersTranY, towersTranZ);
+            towers.drawFaces();
+        }
+
+        if (hostCloud == true){
+            #ifdef USE_KINECT
+                // Kinect Point Cloud
+                drawHostPointCloud();
+            #endif
+        }
+
+        if (guestCloud == true){
         #ifdef USE_TWO_KINECTS
             // Kinect Point Cloud #2
             drawGuestPointCloud();
         #endif
+        }
     
-        // 3D towers!
-        towers.setScale(towersScale*.5, towersScale*-.5, towersScale*.5);
-        towers.setPosition(towersTranX, towersTranY, towersTranZ);
-        towers.drawFaces();
         camera.end();
+    
 #endif
-        
+    
 #ifdef USE_PHOTOBOOTH
         // image file writer code
         if (bSnapshot == true){
@@ -419,8 +430,38 @@ void ofApp::keyPressed (int key) {
             break;
         
         // hide GUI
-        case 'h':
+        case 'g':
             moveThings->toggleVisible();
+            break;
+            
+        // hide towers
+        case 't':
+            hideTowers = true;
+            break;
+            
+        // bring back towers
+        case 'y':
+            hideTowers = false;
+            break;
+            
+        // hide hostCloud
+        case 'o':
+            hostCloud = false;
+            break;
+            
+        // bring back hostCloud
+        case 'p':
+            hostCloud = true;
+            break;
+            
+        // hide guestCloud
+        case 'k':
+            guestCloud = false;
+            break;
+            
+        // bring back hostCloud
+        case 'l':
+            guestCloud = true;
             break;
             
 		case '.':
