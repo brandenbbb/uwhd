@@ -6,6 +6,7 @@ SWITCH MODES
     
     USE_KINECT
         if both this and USE_TWO_KINECTS are commented out, it will disable all Kinect stuff for debugging purposes
+        (if intention is to only use one kinect, ONLY ONE KINECT MUST BE PLUGGED IN OR IT WILL CRASH)
 
     USE_TWO_KINECTS
         use two kinect point clouds
@@ -50,6 +51,10 @@ GAMEPAD CONTROLS:
 
     RIGHT TRIGGER = elevate camera
 
+    g = show GUI
+
+    h = hide GUI
+    
     t = clear towers
 
     y = bring back towers
@@ -79,7 +84,7 @@ IMAGE WRITER:
 
     F6 = review last saved file (saved into the data/bin folder)
 
-    h = hide GUI in host mode
+    g = hide GUI in host mode
 
 
 POINT CLOUD ADJUSTMENTS:
