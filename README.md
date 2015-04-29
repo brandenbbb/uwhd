@@ -1,17 +1,5 @@
 # uwhd
 
-APRIL 20:
-    kinect(1) = host kinect
-    kinect(0) = guest kinect
-    removed diagnostics mode
-    h key on keyboard hides host mode GUI
-
-
-APRIL 19:
-    xbox 360 USB gamepad controls now working if USE_GAMEPAD enabled. FPS style controls
-    also...be sure to compile as release as the framerate performance drastically increases
-
-
 SWITCH MODES
     in ofApp.h, comment out any of the following to enable various modes / or for debugging
     
@@ -57,9 +45,23 @@ GAMEPAD CONTROLS:
 
     RIGHT BUTTON = rotate camera clockwise
 
-    LEFT TRIGGER = elevate camera
+    LEFT TRIGGER = lower camera
 
-    RIGHT TRIGGER = lower camera
+    RIGHT TRIGGER = elevate camera
+
+    h = clear gui
+
+    t = clear towers
+
+    y = bring back towers
+
+    o = clear host point cloud
+
+    p = bring back host point cloud
+
+    k = clear guest point cloud
+
+    l = bring back guest point cloud
 
 
 IMAGE WRITER:
