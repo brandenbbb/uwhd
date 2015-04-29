@@ -4,16 +4,16 @@
 //#define USE_TWO_KINECTS
 
 //uncomment this to enable gamepad mode...do not use unless you have Xbox 360 controller / driver setup properly!!!
-//#define USE_GAMEPAD
+#define USE_GAMEPAD
 
 //uncomment this to enable the kinect point cloud (OR COMMENT THIS IF NO KINECT PLUGGED IN)
-#define USE_KINECT
+//#define USE_KINECT
 
 //uncomment this to enable PHOTOBOOTH mode
-#define USE_PHOTOBOOTH
+//#define USE_PHOTOBOOTH
 
 //uncomment this to enable HOT DOCS HOST mode
-//#define USE_HOSTMODE
+#define USE_HOSTMODE
 
 #include "ofxOpenCv.h"
 #include "ofxKinect.h"
