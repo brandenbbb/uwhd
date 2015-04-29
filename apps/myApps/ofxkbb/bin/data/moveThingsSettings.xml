@@ -13,42 +13,42 @@
 <Widget>
     <Kind>4</Kind>
     <Name>hostTranY</Name>
-    <Value>-369.458190918</Value>
+    <Value>-172.413879395</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
     <Name>hostTranZ</Name>
-    <Value>911.329956055</Value>
+    <Value>320.196746826</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
     <Name>hostRoX</Name>
-    <Value>-13.300495148</Value>
+    <Value>-16.847288132</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
     <Name>hostRoY</Name>
-    <Value>-7.980290413</Value>
+    <Value>-31.034477234</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
     <Name>hostRoZ</Name>
-    <Value>0.000000000</Value>
+    <Value>11.527082443</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
     <Name>guestTranX</Name>
-    <Value>911.329956055</Value>
+    <Value>418.719055176</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
     <Name>guestTranY</Name>
-    <Value>-73.891578674</Value>
+    <Value>-24.630428314</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
     <Name>guestTranZ</Name>
-    <Value>566.502197266</Value>
+    <Value>-566.502502441</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>

@@ -34,7 +34,7 @@ void ofApp::setup() {
     farThreshold = 167;
     pointSize = 3;
     depthLimit = 1100;
-    depthLimit2 = 1100;
+    depthLimit2 = 2300;
     
     // image file writer settings
     snapCounter = 0;
