@@ -26,7 +26,7 @@ void ofApp::setup() {
     //enable depth->video image calibration
     kinect2.setRegistration(true);
     kinect2.init();
-    kinect2.open(0); // open guest kinect
+    kinect2.open(); // open guest kinect
 #endif
     
     // default values for near / far threshold / point size (adjusted later via GUI controls)
@@ -181,12 +181,12 @@ void ofApp::draw() {
         }
 #endif
     
-    if (hideGUI == false){
+        /*
         //gamepad GUI for diagnostics
         #ifdef USE_GAMEPAD
             ofxGamepadHandler::get()->draw(10,10);
         #endif
-    }
+        */
     
 }
 

@@ -51,9 +51,7 @@ GAMEPAD CONTROLS:
 
     RIGHT TRIGGER = elevate camera
 
-    g = show GUI
-
-    h = hide GUI
+    g = show / hide GUI
     
     t = clear towers
 
