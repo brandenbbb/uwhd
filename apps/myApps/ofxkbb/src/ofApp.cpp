@@ -181,12 +181,12 @@ void ofApp::draw() {
         }
 #endif
     
-    /*
-    //gamepad GUI for diagnostics
-    #ifdef USE_GAMEPAD
-        ofxGamepadHandler::get()->draw(10,10);
-    #endif
-    */
+    if (hideGUI == false){
+        //gamepad GUI for diagnostics
+        #ifdef USE_GAMEPAD
+            ofxGamepadHandler::get()->draw(10,10);
+        #endif
+    }
     
 }
 
