@@ -68,20 +68,20 @@
 <Widget>
     <Kind>4</Kind>
     <Name>towersScale</Name>
-    <Value>3.842364550</Value>
+    <Value>9.950738907</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
     <Name>towersTranX</Name>
-    <Value>-172.413879395</Value>
+    <Value>-123.152732849</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
     <Name>towersTranY</Name>
-    <Value>-960.591125488</Value>
+    <Value>-270.935882568</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
     <Name>towersTranZ</Name>
-    <Value>-665.024536133</Value>
+    <Value>-1009.852294922</Value>
 </Widget>

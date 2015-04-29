@@ -30,10 +30,10 @@ void ofxGamepadCamera::update(ofEventArgs& e) {
 	dolly(pad->getAxisValue(PS3_STICK_L_Y)*speedMove*.7*mult);
     
     if(pad->getButtonValue(PS3_BTN_L2)) {
-        boom(-speedMove*.25*mult);
+        boom(speedMove*.25*mult);
     }
     if(pad->getButtonValue(PS3_BTN_R2)) {
-        boom(speedMove*.25*mult);
+        boom(-speedMove*.25*mult);
     }
 	if(pad->getButtonValue(PS3_BTN_L1)) {
 		roll(-speedRotation*.1*mult);

@@ -49,7 +49,7 @@ void ofApp::setup() {
     
 #ifdef USE_HOSTMODE
     // 3d model load assets
-    towers.loadModel("images/3d/towersandtrees.dae");
+    towers.loadModel("images/3d/untitled.dae");
     sphere.loadModel("images/3d/skysphere.dae");
     
     // 3d object movement GUI setup
