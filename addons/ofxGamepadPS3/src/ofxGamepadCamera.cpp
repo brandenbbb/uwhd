@@ -23,24 +23,29 @@ void ofxGamepadCamera::update(ofEventArgs& e) {
 	float curTime = ofGetElapsedTimef();
 
 	float mult = curTime - lastTime;
-	pan(-pad->getAxisValue(PS3_STICK_R_X)*speedRotation*mult);
-	tilt(-pad->getAxisValue(PS3_STICK_R_Y)*speedRotation*mult);
+	pan(-pad->getAxisValue(PS3_STICK_R_X)*speedRotation*.7*mult);
+	tilt(-pad->getAxisValue(PS3_STICK_R_Y)*speedRotation*.7*mult);
 
-	truck(pad->getAxisValue(PS3_STICK_L_X)*speedMove*mult);
-	dolly(pad->getAxisValue(PS3_STICK_L_Y)*speedMove*mult);
+	truck(pad->getAxisValue(PS3_STICK_L_X)*speedMove*.7*mult);
+	dolly(pad->getAxisValue(PS3_STICK_L_Y)*speedMove*.7*mult);
     
-    boom(-pad->getAxisValue(PS3_THRUST_L2)-.5*speedMove*mult);
-    boom(pad->getAxisValue(PS3_THRUST_R2)-.5*speedMove*mult);
-
+    if(pad->getButtonValue(PS3_BTN_L2)) {
+        boom(-speedMove*.25*mult);
+    }
+    if(pad->getButtonValue(PS3_BTN_R2)) {
+        boom(speedMove*.25*mult);
+    }
 	if(pad->getButtonValue(PS3_BTN_L1)) {
-		roll(-speedRotation*.7*mult);
+		roll(-speedRotation*.1*mult);
 	}
 	if(pad->getButtonValue(PS3_BTN_R1)) {
-		roll(speedRotation*.7*mult);
+		roll(speedRotation*.1*mult);
 	}
-
-	if(pad->getButtonValue(PS3_BTN_SELECT))
+    /*
+    if(pad->getButtonValue(PS3_BTN_SELECT)){
 		reset();
+    }
+    */
 
 	lastTime = curTime;
 }
@@ -60,4 +65,5 @@ void ofxGamepadCamera::setInitialPosition(ofVec3f pos) {
 void ofxGamepadCamera::reset() {
 	setPosition(initialPosition);
 	setOrientation(ofVec3f(0, 0, 0));
+    
 }
