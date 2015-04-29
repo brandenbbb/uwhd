@@ -10,7 +10,6 @@ void ofApp::setup() {
     
 #ifdef USE_HOSTMODE
     camera.setup();
-    hostEnabled = true;
 #endif
 
 #ifdef USE_KINECT
@@ -21,7 +20,6 @@ void ofApp::setup() {
 #endif
     
 #ifdef USE_TWO_KINECTS
-    guestEnabled = true;
     //enable depth->video image calibration
     kinect2.setRegistration(true);
     kinect2.init();
@@ -51,7 +49,7 @@ void ofApp::setup() {
     
 #ifdef USE_HOSTMODE
     // 3d model load assets
-    towers.loadModel("images/3d/citygroundfloor.dae");
+    towers.loadModel("images/3d/untitled.dae");
     sphere.loadModel("images/3d/skysphere.dae");
     
     // 3d object movement GUI setup
@@ -126,11 +124,6 @@ void ofApp::draw() {
         sphere.setScale(10,10,10);
         sphere.drawFaces();
     
-        // 3D towers!
-        towers.setScale(towersScale*.5, towersScale*-.5, towersScale*.5);
-        towers.setPosition(towersTranX, towersTranY, towersTranZ);
-        towers.drawFaces();
-    
         #ifdef USE_KINECT
             // Kinect Point Cloud
             drawHostPointCloud();
@@ -141,9 +134,13 @@ void ofApp::draw() {
             drawGuestPointCloud();
         #endif
     
+        // 3D towers!
+        towers.setScale(towersScale*.5, towersScale*-.5, towersScale*.5);
+        towers.setPosition(towersTranX, towersTranY, towersTranZ);
+        towers.drawFaces();
         camera.end();
 #endif
-    
+        
 #ifdef USE_PHOTOBOOTH
         // image file writer code
         if (bSnapshot == true){
@@ -186,77 +183,73 @@ void ofApp::draw() {
 //--------------------------------------------------------------
 
 void ofApp::drawHostPointCloud() {
-    if (hostEnabled == true){
-        int w = 640;
-        int h = 480;
-        ofMesh mesh;
-        mesh.setMode(OF_PRIMITIVE_POINTS);
-        int step = 1;
-        for(int y = 0; y < h; y += step) {
-            for(int x = 0; x < w; x += step) {
-                if(kinect.getDistanceAt(x, y) < depthLimit) {
-                    mesh.addColor(kinect.getColorAt(x,y));
-                    mesh.addVertex(kinect.getWorldCoordinateAt(x, y));
-                }
-            }
-        }
-        // set point cloud point size (taken from keyboard controls)
-        glPointSize(pointSize);
-        ofPushMatrix();
-        // the projected points are 'upside down' and 'backwards' 
-        ofScale(1, -1, -1);
-        
-    #ifdef USE_HOSTMODE
-        ofRotateX(hostRoX);
-        ofRotateY(hostRoY);
-        ofRotateZ(hostRoZ);
-        ofTranslate(hostTranX, hostTranY, hostTranZ);
-    #endif
-        
-        ofEnableDepthTest();
-        mesh.drawVertices();
-        ofDisableDepthTest();
-        ofPopMatrix();
-    }
+	int w = 640;
+	int h = 480;
+	ofMesh mesh;
+	mesh.setMode(OF_PRIMITIVE_POINTS);
+	int step = 1;
+	for(int y = 0; y < h; y += step) {
+		for(int x = 0; x < w; x += step) {
+			if(kinect.getDistanceAt(x, y) < depthLimit) {
+				mesh.addColor(kinect.getColorAt(x,y));
+				mesh.addVertex(kinect.getWorldCoordinateAt(x, y));
+			}
+		}
+	}
+	// set point cloud point size (taken from keyboard controls)
+    glPointSize(pointSize);
+	ofPushMatrix();
+	// the projected points are 'upside down' and 'backwards' 
+	ofScale(1, -1, -1);
+    
+#ifdef USE_HOSTMODE
+    ofRotateX(hostRoX);
+    ofRotateY(hostRoY);
+    ofRotateZ(hostRoZ);
+    ofTranslate(hostTranX, hostTranY, hostTranZ);
+#endif
     
 #ifdef USE_PHOTOBOOTH
     ofTranslate(0, 0, -1000); // center the points a bit
 #endif
+    
+	ofEnableDepthTest();
+	mesh.drawVertices();
+	ofDisableDepthTest();
+	ofPopMatrix();
 }
 
 #ifdef USE_TWO_KINECTS
 //--------------------------------------------------------------
 void ofApp::drawGuestPointCloud() {
-    if (guestEnabled == true){
-        int ww = 640;
-        int hh = 480;
-        ofMesh mesh2;
-        mesh2.setMode(OF_PRIMITIVE_POINTS);
-        int step = 1;
-        for(int yy = 0; yy < hh; yy += step) {
-            for(int xx = 0; xx < ww; xx += step) {
-                if(kinect2.getDistanceAt(xx, yy) < depthLimit) {
-                    mesh2.addColor(kinect2.getColorAt(xx,yy));
-                    mesh2.addVertex(kinect2.getWorldCoordinateAt(xx, yy));
-                }
+    int ww = 640;
+    int hh = 480;
+    ofMesh mesh2;
+    mesh2.setMode(OF_PRIMITIVE_POINTS);
+    int step = 1;
+    for(int yy = 0; yy < hh; yy += step) {
+        for(int xx = 0; xx < ww; xx += step) {
+            if(kinect2.getDistanceAt(xx, yy) < depthLimit) {
+                mesh2.addColor(kinect2.getColorAt(xx,yy));
+                mesh2.addVertex(kinect2.getWorldCoordinateAt(xx, yy));
             }
         }
-        // set point cloud point size (taken from keyboard controls)
-        glPointSize(pointSize);
-        ofPushMatrix();
-        // the projected points are 'upside down' and 'backwards'
-        ofScale(1, -1, -1);
-        
-        ofTranslate(guestTranX, guestTranY, guestTranZ);
-        ofRotateX(guestRoX);
-        ofRotateX(guestRoY);
-        ofRotateZ(guestRoZ);
-        
-        ofEnableDepthTest();
-        mesh2.drawVertices();
-        ofDisableDepthTest();
-        ofPopMatrix();
     }
+    // set point cloud point size (taken from keyboard controls)
+    glPointSize(pointSize);
+    ofPushMatrix();
+    // the projected points are 'upside down' and 'backwards'
+    ofScale(1, -1, -1);
+    
+    ofTranslate(guestTranX, guestTranY, guestTranZ);
+    ofRotateX(guestRoX);
+    ofRotateX(guestRoY);
+    ofRotateZ(guestRoZ);
+    
+    ofEnableDepthTest();
+    mesh2.drawVertices();
+    ofDisableDepthTest();
+    ofPopMatrix();
 }
 #endif
 
@@ -426,41 +419,8 @@ void ofApp::keyPressed (int key) {
             break;
         
         // hide GUI
-        case 'g':
+        case 'h':
             moveThings->toggleVisible();
-            break;
-            
-        // hide towers
-        case 't':
-            towers.createEmptyModel();
-            break;
-            
-        // bring back towers
-        case 'y':
-            towers.loadModel("images/3d/citygroundfloor.dae");
-            towers.setScale(towersScale*.5, towersScale*-.5, towersScale*.5);
-            towers.setPosition(towersTranX, towersTranY, towersTranZ);
-            towers.drawFaces();
-            break;
-            
-        // hide host
-        case 'o':
-            hostEnabled = false;
-            break;
-            
-        // bring back host
-        case 'p':
-            hostEnabled = true;
-            break;
-            
-        // hide host
-        case 'k':
-            guestEnabled = false;
-            break;
-            
-        // bring back host
-        case 'l':
-            guestEnabled = true;
             break;
             
 		case '.':
