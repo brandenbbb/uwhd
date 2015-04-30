@@ -18,7 +18,7 @@ void ofApp::setup() {
 	//enable depth->video image calibration
 	kinect.setRegistration(true);
 	kinect.init();
-	kinect.open(0);	// open host kinect
+	kinect.open();	// open host kinect
 #endif
     
 #ifdef USE_TWO_KINECTS
@@ -429,7 +429,7 @@ void ofApp::keyPressed (int key) {
         case OF_KEY_F6:
             bReviewLastShot = true;
             break;
-        
+        /*
         // hide GUI
         case 'g':
             moveThings->toggleVisible();
@@ -490,7 +490,7 @@ void ofApp::keyPressed (int key) {
             if (depthLimit2 < 0) depthLimit2 = 0;
             depthLimit2 = depthLimit2 - 100;
             break;
-		/*
+		
 		case '=':
 			nearThreshold ++;
 			if (nearThreshold > 255) nearThreshold = 255;
@@ -500,7 +500,6 @@ void ofApp::keyPressed (int key) {
 			nearThreshold --;
 			if (nearThreshold < 0) nearThreshold = 0;
 			break;
-        */
         
         // decrease / increase point cloud point size controls
         case '[':
@@ -527,6 +526,8 @@ void ofApp::keyPressed (int key) {
 			if(angle<-30) angle=-30;
 			kinect.setCameraTiltAngle(angle);
 			break;
+            
+            */
 	}
 }
 
